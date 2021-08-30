@@ -1,0 +1,19 @@
+{
+  "name": "kubermetrics",
+  "version": "1.0.0",
+  "description": "K8s Metrics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oslabs-beta/kubermetrics.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oslabs-beta/kubermetrics/issues"
+  },
+  "homepage": "https://github.com/oslabs-beta/kubermetrics#readme"
+}
