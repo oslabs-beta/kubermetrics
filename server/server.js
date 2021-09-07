@@ -7,7 +7,7 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-client.collectDefaultMetrics();
+console.log(client.collectDefaultMetrics());
 
 
 app.use("/build", express.static(path.join(__dirname, "../build")));
