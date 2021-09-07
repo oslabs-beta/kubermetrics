@@ -18,6 +18,19 @@ app.get("/", (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, "../index.html"));
 });
 
+// k8s api test
+const k8s = require('@kubernetes/client-node');
+
+const kc = new k8s.KubeConfig();
+kc.loadFromDefault();
+
+const k8sApi = kc.makeApiClient(k8s.CoreV1Api);
+
+k8sApi.listNamespacedPod('default').then((res) => {
+    console.log(res.body.items[0].metadata);
+});
+
+
 app.get('http://localhost:30000/getMetrics', async (req, res) => {
   console.log('Scraped');
   console.log(await client.register.getMetricsAsJSON())
