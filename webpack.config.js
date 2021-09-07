@@ -32,14 +32,17 @@ module.exports = {
     ],
   },
   devServer: {
+    host: '0.0.0.0',
+    disableHostCheck: true,
     hot: true,
+    port: 3068,
     // static: {
     publicPath: "/build/",
       // contentBase: './build',
     // },
-    
+
     proxy: {
-      '/': 'http://localhost:3000',
+      '/': 'http://localhost:3080',
     },
   }
 };

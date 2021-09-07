@@ -7,6 +7,7 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
+
 console.log(client.collectDefaultMetrics());
 
 
@@ -23,4 +24,6 @@ app.get('http://localhost:30000/getMetrics', async (req, res) => {
   //res.send(await client.register.getMetricsAsJSON());
 });
 
-app.listen(3080);
+app.listen(3080, () => {
+  console.log('listening on port 3080')
+});
