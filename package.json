@@ -32,6 +32,7 @@
     "css-loader": "^5.2.6",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "jest": "^27.1.0",
     "mini-css-extract-plugin": "^1.6.0",
     "redux-mock-store": "^1.5.4",
     "source-map-loader": "^3.0.0",
@@ -39,8 +40,7 @@
     "supertest": "^6.1.4",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2",
-    "jest": "^27.1.0"
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
@@ -48,8 +48,11 @@
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
+    "axios": "^0.21.4",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "nodemon": "^2.0.12",
+    "prom-client": "^13.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
