@@ -24,9 +24,10 @@ const podsListReducer = (state = initialState, action) => {
   switch (type) {
     case types.GET_PODS:
       console.log('pods got')
-      const { items } = payload.data;
-      const podArray = [];
-      return { pods: podsArray }
+      console.log(payload)
+      // const { items } = payload.data;
+      // const podArray = [];
+      return { ...state, pods: payload }
 
     default:
       return state;

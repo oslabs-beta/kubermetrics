@@ -8,12 +8,14 @@ const mapStateToProps = state => ({
   pods: state.pods.pods
 })
 
-const mapDispacthToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   click: () => (dispatch(actions.getPods({test: 'Lets make it to the reducer baby'})))
 })
 
 class App extends React.Component {
   render () {
+    console.log(this.props)
+    
     return (
       <div>yo whats up
         <button onClick={this.props.click}></button>
@@ -23,4 +25,4 @@ class App extends React.Component {
 }
 
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
