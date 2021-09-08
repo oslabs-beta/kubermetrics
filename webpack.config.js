@@ -22,7 +22,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['css-loader'],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.js$/,
@@ -36,10 +36,9 @@ module.exports = {
     disableHostCheck: true,
     hot: true,
     port: 3068,
-    // static: {
+
     publicPath: "/build/",
-      // contentBase: './build',
-    // },
+
 
     proxy: {
       '/': 'http://localhost:3080',

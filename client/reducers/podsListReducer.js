@@ -11,9 +11,10 @@
 
 import { cloneElement } from 'react';
 import * as types from '../constants/actionTypes';
+import dummyPod from '../dummyPod.js'
 
 const initialState = {
-  pods: []
+  pods: [dummyPod]
 };
 
 const podsListReducer = (state = initialState, action) => {
