@@ -7,11 +7,15 @@ import { useTheme } from '@material-ui/core/styles';
 
 
 
-// const HomePage = () => {
-//   return (
+const HomePage = (props) => {
+  return (
+    <div className='homePage'>
+      <PodsList state={props.state}/>
+    </div>
+  )
+}
 
-//   )
-// }
+
 
 
 export default HomePage;

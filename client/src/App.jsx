@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 // import actions from action creators file
 import * as actions from '../actions/actions';
+import HomePage from '../pages/home/index.js'
 
 const mapStateToProps = state => ({
   pods: state.pods.pods
@@ -17,8 +18,9 @@ class App extends React.Component {
     console.log(this.props)
     
     return (
-      <div>yo whats up
-        <button onClick={this.props.click}></button>
+      <div>
+        {/* <HomePage state={...this.props}/>
+        <button onClick={this.props.click}></button> */}
       </div>
     )
   }

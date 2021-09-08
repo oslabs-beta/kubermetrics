@@ -16,12 +16,12 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins: [],
+            plugins: []
           },
         },
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
       {
