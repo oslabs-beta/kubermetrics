@@ -8,9 +8,7 @@ const axios = require('axios');
 app.use(cors());
 app.use(express.json());
 
-
 console.log(client.collectDefaultMetrics());
-
 
 app.use("/build", express.static(path.join(__dirname, "../build")));
 
