@@ -9,29 +9,60 @@ const { PodElement } = mui;
 
 const Pod = (props) => {
   return (
-    <PodElement className='podContainer'>
-      <CardContent>
-        <div>
-          <ul>
-            <li>{props.apiVersion}</li>
-            <li>{props.nodeName}</li>
-            <li>{props.podName}</li>
-            <li>{props.namespace}</li>
-            <li>{props.uid}</li>
-            <li>{props.created}</li>
-            <li>{props.containers}</li>
-            <li>{props.serviceAccount}</li>
-            <li>{props.serviceAccountName}</li>
-            <li>{props.hostIP}</li>
-            <li>{props.podIP}</li>
-            <li>{props.phase}</li>
-          </ul>
-        </div>
-    </CardContent>
-  </PodElement>
+    <div className='podContainer'>
+      <PodElement>
+        <CardContent>
+          <div>
+              <p className='podLabel'>{props.label}</p>
+              <p>{props.apiVersion}</p>
+              <p>{props.nodeName}</p>
+              <p>{props.podName}</p>
+              <p>{props.namespace}</p>
+              <p>{props.uid}</p>
+              <p>{props.created}</p>
+              <p>{props.containers}</p>
+              <p>{props.serviceAccount}</p>
+              <p>{props.serviceAccountName}</p>
+              <p>{props.hostIP}</p>
+              <p>{props.podIP}</p>
+              <p>{props.phase}</p>
+            
+          </div>
+      </CardContent>
+    </PodElement>
+  </div>
   )
 }
 
 
 
 export default Pod;
+
+
+
+/* code to save
+const Pod = (props) => {
+  return (
+    <PodElement className='podContainer'>
+      <CardContent>
+        <div>
+          <ul>
+            <p>{props.apiVersion}</p>
+            <p>{props.nodeName}</p>
+            <p>{props.podName}</p>
+            <p>{props.namespace}</p>
+            <p>{props.uid}</p>
+            <p>{props.created}</p>
+            <p>{props.containers}</p>
+            <p>{props.serviceAccount}</p>
+            <p>{props.serviceAccountName}</p>
+            <p>{props.hostIP}</p>
+            <p>{props.podIP}</p>
+            <p>{props.phase}</p>
+          </ul>
+        </div>
+    </CardContent>
+  </PodElement>
+  )
+}
+*/

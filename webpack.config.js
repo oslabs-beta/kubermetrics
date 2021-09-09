@@ -31,8 +31,11 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
-        enforce: 'pre',
-        use: ['file-loader']
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ]
       },
     ],
   },

@@ -6,9 +6,27 @@ body {
   background-color: rgba(31, 31, 31, 0.925);
 }
 
+h2 {
+  background-color: rgb(85, 85, 85);
+}
+
 .pageTitle {
   font-family: 'Bebas Neue';
   color: white;
-  font-size: 80px;
-  margin: 10px;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 65px;
+  margin: 5px;
+  margin-bottom: 0px;
+  padding: 0;
+}
+
+.terminal {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* width:1920px;
+  height:600px; */
+  border-radius: 15px;
+  border: 5px solid black;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }

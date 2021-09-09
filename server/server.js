@@ -12,7 +12,7 @@ app.use(express.json());
 console.log(client.collectDefaultMetrics());
 
 app.use("/build", express.static(path.join(__dirname, "../build")));
-// app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/client/assets'));
 
 app.get("/", (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, "../index.html"));

@@ -1,5 +1,17 @@
 .podContainer {
   display: flex;
   flex-direction: column;
-  box-shadow: 5px 10px #888888;
+  filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
+  
+}
+
+
+p {
+  margin: 2px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+}
+.podLabel {
+  font-size: 24px;
+  margin-top: 5px;
 }
