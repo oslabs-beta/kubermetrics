@@ -12,6 +12,7 @@ const HomePage = (props) => {
   return (
     <div className='homePage'>
       <PodsList state={props.state}/>
+     
     </div>
   )
 }

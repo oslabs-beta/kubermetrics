@@ -1,20 +1,17 @@
 const dummyPod = {
-  containers: ['container 1', 'container 2', 'container 3'],
-  metadata: {
-    namespace: 'test namespace',
-    creationTimestamp: 'timestamp',
-    uid: 'whatever uid means',
-  },
-  spec: {
-    nodeName: 'node name',
-    schedulerName: 'scheduler name',
-  },
-  status: {
-    phase: 'status phase',
-    startTime: 'start time',
-    hostIP: 'host ip',
-    podIP: 'pod ip',
-  },
+  apiVersion: "response.data.apiVersion",
+  nodeName: 'item.spec.nodeName',
+  label: 'item.metadata.labels.app',
+  podName: 'item.metadata.name',
+  namespace: 'item.metadata.namespace',
+  uid: 'item.metadata.uid',
+  created: 'item.metadata.creationTimestamp',
+  containers: 'item.spec.containers',
+  serviceAccount: 'item.spec.serviceAccount',
+  serviceAccountName: 'item.spec.serviceAccountName',
+  hostIP: 'item.status.hostIP',
+  podIP: 'item.status.podIP',
+  phase: 'item.status.phase'
 }
 
 

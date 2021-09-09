@@ -1,7 +1,5 @@
 .podContainer {
   display: flex;
   flex-direction: column;
-  background-color: rgba(173, 166, 166, 0.795);
-  border: 1.5px solid red;
-  border-radius: 40%;
+  box-shadow: 5px 10px #888888;
 }
