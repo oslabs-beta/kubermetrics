@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+
+body {
+  background-color: rgba(31, 31, 31, 0.925);
+}
+
+.pageTitle {
+  font-family: 'Bebas Neue';
+  color: white;
+  font-size: 80px;
+  margin: 10px;
+}
