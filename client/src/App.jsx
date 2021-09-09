@@ -10,7 +10,10 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  click: () => (dispatch(actions.getPods({test: 'Lets make it to the reducer baby'})))
+  click: async () => {
+    let pods = await actions.fetchPods()
+    dispatch(actions.getPods(pods))
+  }
 })
 
 class App extends React.Component {
@@ -19,8 +22,8 @@ class App extends React.Component {
     
     return (
       <div>
-        {/* <HomePage state={...this.props}/>
-        <button onClick={this.props.click}></button> */}
+        <HomePage state={{...this.props}}/>
+        <button onClick={this.props.click}></button>
       </div>
     )
   }
