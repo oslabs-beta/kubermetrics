@@ -14,18 +14,18 @@ const Pod = (props) => {
         <CardContent>
           <div>
               <p className='podLabel'>{props.label}</p>
-              <p>{props.apiVersion}</p>
-              <p>{props.nodeName}</p>
-              <p>{props.podName}</p>
-              <p>{props.namespace}</p>
-              <p>{props.uid}</p>
-              <p>{props.created}</p>
-              <p>{props.containers}</p>
-              <p>{props.serviceAccount}</p>
-              <p>{props.serviceAccountName}</p>
-              <p>{props.hostIP}</p>
-              <p>{props.podIP}</p>
-              <p>{props.phase}</p>
+              <p><b>API Version:</b> {props.apiVersion}</p>
+              <p><b>Node Name:</b> {props.nodeName}</p>
+              <p><b>Pod Name:</b> {props.podName}</p>
+              <p><b>Namespace:</b> {props.namespace}</p>
+              <p><b>UID:</b> {props.uid}</p>
+              <p><b>Created:</b> {props.created}</p>
+              <p><b>Containers:</b> {props.containers}</p>
+              <p><b>Service Account:</b> {props.serviceAccount}</p>
+              <p><b>Service Account Name:</b> {props.serviceAccountName}</p>
+              <p><b>Host IP:</b> {props.hostIP}</p>
+              <p><b>Pod IP:</b> {props.podIP}</p>
+              <p><b>Phase:</b> {props.phase}</p>
             
           </div>
       </CardContent>
