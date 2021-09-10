@@ -4,17 +4,15 @@ import { connect } from 'react-redux';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import React from 'react';
 import { useTheme } from '@material-ui/core/styles';
-import PodsList from '../../components/Pods/PodsList';
+// import PodsList from '../../components/Pods/PodsList';
 // import Navbar from '../../components/navbar/navbar'
 
 
 
-const HomePage = (props) => {
+const AlertsPage = (props) => {
   return (
-    <div className='homePage'>
-      {/* <Navbar></Navbar> */}
-      <PodsList state={props.state}/>
-
+    <div className='AlertsPage'>
+      <p> Alerts </p>
     </div>
   )
 }
@@ -22,4 +20,4 @@ const HomePage = (props) => {
 
 
 
-export default HomePage;
+export default AlertsPage
