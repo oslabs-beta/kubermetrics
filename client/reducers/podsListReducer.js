@@ -9,11 +9,11 @@
  * ************************************
  */
 
-import { cloneElement } from 'react';
 import * as types from '../constants/actionTypes';
+import dummyPod from '../dummyPod.js'
 
 const initialState = {
-  pods: []
+  pods: [dummyPod, dummyPod, dummyPod, dummyPod, dummyPod]
 };
 
 const podsListReducer = (state = initialState, action) => {
@@ -27,7 +27,7 @@ const podsListReducer = (state = initialState, action) => {
       console.log(payload)
       // const { items } = payload.data;
       // const podArray = [];
-      return { ...state, pods: payload }
+      return { ...state, pods: action.payload }
 
     default:
       return state;
