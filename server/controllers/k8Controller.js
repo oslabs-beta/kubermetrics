@@ -25,8 +25,7 @@ const k8Controller = {
   async getServiceList (req, res, next) {
     try {
       const result = await k8sApi.listNamespacedService('default');
-      console.log(result);
-      res.locals.serviceList = result.body
+      res.locals.serviceList = result.body;
       return next();
     } catch (err) {
       console.log("Error in getServiceList: ", err);
@@ -36,8 +35,8 @@ const k8Controller = {
 
   async getIngressList (req, res, next) {
     try {
-      const result = k8sApi2.listNamespacedIngress('default');
-      res.locals.ingressList = result.body
+      const result = await k8sApi2.listNamespacedIngress('default');
+      res.locals.ingressList = result.body;
       return next();
     } catch (err) {
       console.log("Error in getIngressList: ", err);
@@ -47,8 +46,8 @@ const k8Controller = {
 
   async getDeploymentList (req, res, next) {
     try {
-      const result = k8sApi3.listNamespacedDeployment('default');
-      res.locals.deploymentList = result.body
+      const result = await k8sApi3.listNamespacedDeployment('default');
+      res.locals.deploymentList = result.body;
       return next();
     } catch (err) {
       console.log("Error in getDeploymentList: ", err);
@@ -58,9 +57,16 @@ const k8Controller = {
 
   async getNodeList (req, res, next) {
     try {
-      const result = k8sApi.listNode('default');
-      res.locals.nodeList = result.body
-      return next();
+      const result = await k8sApi.listNode('default');
+      res.locals.nodeList = result.body;
+      try {
+        const result2 = await k8sApi.listComponentStatus();
+        res.locals.nodeList.nodeProcesses = result2;
+        return next();
+      } catch (err) {
+        console.log("Error in getNodeList/nodeProcesses");
+        return next(err);
+      }
     } catch (err) {
       console.log("Error in getNodeList: ", err);
       return next(err);
