@@ -24,7 +24,8 @@ const k8Controller = {
 
   async getServiceList (req, res, next) {
     try {
-      const result = k8sApi.listNamespacedService('default');
+      const result = await k8sApi.listNamespacedService('default');
+      console.log(result);
       res.locals.serviceList = result.body
       return next();
     } catch (err) {

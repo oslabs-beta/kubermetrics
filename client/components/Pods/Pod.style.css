@@ -1,7 +1,23 @@
 .podContainer {
   display: flex;
+  padding: 15px;
   flex-direction: column;
-  background-color: rgba(173, 166, 166, 0.795);
-  border: 1.5px solid red;
-  border-radius: 40%;
+  filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
+
+}
+.podContainer:hover {
+
+  filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.5));
+
+}
+
+
+p {
+  margin: 2px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+}
+.podLabel {
+  font-size: 24px;
+  margin-top: 5px;
 }

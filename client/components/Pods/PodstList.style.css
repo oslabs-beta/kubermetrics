@@ -1,7 +1,9 @@
 .podsList {
-  width: 75vw;
-  margin: 0 auto;
+  /* width: 75vw; */
+  width: auto;
+  height: auto;
+  margin: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 10px;
 }

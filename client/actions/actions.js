@@ -9,7 +9,6 @@
  * ************************************
  */
 
-import { LabelSharp } from '@material-ui/icons';
 import axios from 'axios';
 import * as actionTypes from '../constants/actionTypes';
 
