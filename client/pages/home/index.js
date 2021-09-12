@@ -6,6 +6,7 @@ import React from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import PodsList from '../../components/Pods/PodsList';
 // import Navbar from '../../components/navbar/navbar'
+import NavBar from '../../components/navbar/index.js'
 
 
 
@@ -13,6 +14,7 @@ const HomePage = (props) => {
   return (
     <div className='homePage'>
       {/* <Navbar></Navbar> */}
+      {/* <NavBar /> */}
       <PodsList state={props.state}/>
 
     </div>

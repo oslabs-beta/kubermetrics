@@ -69,7 +69,7 @@ const App = () => {
         {NavRoutes.map((route) => (
           <Route exact path={route.path} key={route.path}>
             <route.component />
-          </Route>
+          </Route> 
         ))}
       </Switch>
     </div>
