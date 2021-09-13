@@ -21,28 +21,6 @@ import Sidebar from '../components/sidebar/Sidebar.js'
 // } from 'react-router-dom'
 
 
-const mapStateToProps = state => ({
-  pods: state.pods.pods
-})
-
-const mapDispatchToProps = dispatch => ({
-  click: async () => {
-    let pods = await actions.fetchPods()
-    dispatch(actions.getPods(pods))
-  },
-  click4: async () => {
-    const ingresses = await actions.fetchIngress()
-    dispatch(actions.getIngress(ingresses))
-  },
-  click2: async () => {
-    let nodes = await actions.fetchNodes();
-    dispatch(actions.getNodes(nodes))
-  },
-  click3: async () => {
-    let deployments = await actions.fetchDeployments();
-    dispatch(actions.getDeployments(deployments));
-  }
-})
 
 // class App extends React.Component {
 //   render () {
@@ -60,23 +38,7 @@ const mapDispatchToProps = dispatch => ({
 //   }
 // }
 
-// const App = () => (
-//   <BrowserRouter>
-//   <div>
-//     <ul>
-//       <li><Link to='/'>Home</Link></li>
-//       <li><Link to='/metrics'>Metrics</Link></li>
-//       <li><Link to='/alerts'>Alerts</Link></li>
-//     </ul>
-//     <Route exact path='/' component={HomePage}/>
-//     <Route path='/metrics' component={MetricsPage}/>
-//     <Route path='/alerts' component={AlertsPage}/>
-//   </div>
-//   </BrowserRouter>
-// )
 
-
-// export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 function App() {
   return (
@@ -103,4 +65,4 @@ function App() {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
