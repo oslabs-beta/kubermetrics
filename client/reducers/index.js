@@ -10,6 +10,7 @@
  */
 
 import { combineReducers } from 'redux';
+import ingressListReducer from './ingressListReducer';
 import podsListReducer from './podsListReducer'
 import nodesListReducer from './nodesListReducer'
 import deploymentListReducer from './deploymentListReducer';
@@ -17,8 +18,9 @@ import deploymentListReducer from './deploymentListReducer';
 const reducers = combineReducers({
   // if we had other reducers, they would go here
   pods: podsListReducer,
+  ingresses: ingressListReducer,
   nodes: nodesListReducer,
-  deployments: deploymentListReducer
+  deployments: deploymentListReducer,
 
 });
 
