@@ -9,12 +9,23 @@
  * ************************************
  */
 
+import { PermCameraMic } from '@material-ui/icons';
 import axios from 'axios';
 import * as actionTypes from '../constants/actionTypes';
 
 export const getPods = podsList => ({
   type: actionTypes.GET_PODS,
   payload: podsList,
+});
+
+export const getNodes = nodesList => ({
+  type: actionTypes.GET_NODES,
+  payload: nodesList
+});
+
+export const getDeployments = deploymentList => ({
+  type: actionTypes.GET_DEPLOYMENTS,
+  payload: deploymentList
 });
 
 export const fetchPods = async (url = '/podList') => {
@@ -25,6 +36,7 @@ export const fetchPods = async (url = '/podList') => {
 
   response.data.items.forEach((item) => {
     podsList.push({
+      allData: item,
       apiVersion: response.data.apiVersion,
       nodeName: item.spec.nodeName,
       label: item.metadata.labels.app,
@@ -79,4 +91,73 @@ export const fetchIngress = async (url = '/ingressList') => {
   return ingressList;
 
 };
+export const fetchNodes = async (url = '/nodeList') => {
+  
+  let response = await axios.get(url);
+  let nodeList = [];
+
+  response.data.items.forEach((item) => {
+
+    const { metadata, status } = item;
+    const { labels } = metadata;
+  
+
+    nodeList.push({
+
+      allData: item,
+      created: metadata.creationTimestamp,
+      arch: labels['kubernetes.io/arch'],
+      os: labels['kubernetes.io/os'],
+      hostname: labels['kubernetes.io/hostname'],
+      managedFields: metadata.managedFields,
+      name: metadata.name,
+      resourceVersion: metadata.resourceVersion,
+      uid: metadata.uid,
+      addresses: status.addresses,
+      allocatable: status.allocatable,
+      capacity: status.capacity,
+      conditions: status.conditions,
+      daemonEndpoints: status.daemonEndpoints,
+      images: status.images,
+      nodeInfo: status.nodeInfo,
+
+    })
+  });
+
+  return nodeList;
+
+}
+
+export const fetchDeployments = async (url = '/deploymentList') => {
+  
+  let response = await axios.get(url);
+  let deploymentList = [];
+
+  response.data.items.forEach((item) => {
+
+    const { metadata, spec, status } = item;
+
+    deploymentList.push({
+
+      allData: item,
+      created: metadata.creationTimestamp,
+      managedFields: metadata.managedFields,
+      name: metadata.name,
+      namespace: metadata.namespace,
+      uid: metadata.uid,
+      replicas: spec.replicas,
+      selector: spec.matchLabels,
+      strategy: spec.strategy,
+      template: spec.template,
+      availabeReplicas: status.availabeReplicas,
+      conditions: status.conditions,
+      readyReplicas: status.readyReplicas
+
+    })
+  });
+
+  return deploymentList;
+
+}
+
 
