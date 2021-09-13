@@ -36,7 +36,7 @@ const k8Controller = {
 
   async getIngressList (req, res, next) {
     try {
-      const result = k8sApi2.listNamespacedIngress('default');
+      const result = await k8sApi2.listNamespacedIngress('default');
       res.locals.ingressList = result.body
       return next();
     } catch (err) {
@@ -47,7 +47,7 @@ const k8Controller = {
 
   async getDeploymentList (req, res, next) {
     try {
-      const result = k8sApi3.listNamespacedDeployment('default');
+      const result = await k8sApi3.listNamespacedDeployment('default');
       res.locals.deploymentList = result.body
       return next();
     } catch (err) {
@@ -58,7 +58,7 @@ const k8Controller = {
 
   async getNodeList (req, res, next) {
     try {
-      const result = k8sApi.listNode('default');
+      const result = await k8sApi.listNode('default');
       res.locals.nodeList = result.body
       return next();
     } catch (err) {
