@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       flexGrow: 1,
+      top: '20px',
+      color: '#222426',
+      backgroundColor: '222426',
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -27,12 +30,14 @@ const useStyles = makeStyles((theme) =>
       flexGrow: 1,
     },
     drawer: {
-      width: 300,
+      width: 200,
       fontColor: 'white',
-      backgroundColor: '#CD5C5C'
+      backgroundColor: '#1a1e21'
     },
     fullList: {
-      width: 'auto',
+      top: 200,
+      height: 400,
+      width: 200,
     },
   }),
 );
