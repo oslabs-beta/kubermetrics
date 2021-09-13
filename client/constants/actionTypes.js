@@ -10,3 +10,4 @@
  */
 
 export const GET_PODS = 'GET_PODS';
+export const GET_INGRESS = 'GET_INGRESS';

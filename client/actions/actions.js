@@ -45,3 +45,38 @@ export const fetchPods = async (url = '/podList') => {
 
 };
 
+export const getIngress = ingressList => ({
+  type: actionTypes.GET_INGRESS,
+  payload: ingressList,
+});
+
+export const fetchIngress = async (url = '/ingressList') => {
+
+  const response = await axios.get(url);
+  // console.log(response)
+
+  const { items } = response.data;
+  const { metadata, spec } = items[0];
+
+  const ingressList = {
+    metadata: {
+      class: metadata.annotations['kubernetes.io/ingress.class'],
+      creationTime: metadata.creationTimestamp,
+      name: metadata.name,
+      namespace: metadata.namespace,
+      uid: metadata.uid,
+    },
+    host: spec.rules[0].host,
+    paths: spec.rules[0].http.paths.map((path) => ({
+      pathType: path.pathType,
+      serviceName: path.backend.serviceName,
+      servicePort: path.backend.servicePort,
+      path: path.path,
+    })),
+    fullData: items,
+  };
+
+  return ingressList;
+
+};
+

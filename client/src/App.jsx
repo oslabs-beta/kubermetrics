@@ -13,6 +13,10 @@ const mapDispatchToProps = dispatch => ({
   click: async () => {
     let pods = await actions.fetchPods()
     dispatch(actions.getPods(pods))
+  },
+  click4: async () => {
+    const ingresses = await actions.fetchIngress()
+    dispatch(actions.getIngress(ingresses))
   }
 })
 
@@ -24,6 +28,7 @@ class App extends React.Component {
       <div>
         <HomePage state={{...this.props}}/>
         <button onClick={this.props.click}></button>
+        <button onClick={this.props.click4}></button>
       </div>
     )
   }
