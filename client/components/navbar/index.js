@@ -15,7 +15,7 @@ import {
  } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
-const useStyles = makeStyles((theme, Theme) =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       flexGrow: 1,
@@ -61,7 +61,7 @@ const NavBar = (props) => {
   return (
     <div>
       <div className={classes.root}>
-        <AppBar >
+        <AppBar position="static">
           <Toolbar >
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
               <MenuIcon />
