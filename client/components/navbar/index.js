@@ -16,7 +16,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles, useTheme, Theme } from '@material-ui/core/styles';
 
 // import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 // import {
@@ -40,6 +40,19 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
 
+
+    // overrides: {
+    //   // Style sheet name ⚛️
+    //   toolbar: {
+    //     // Name of the rule
+    //     col: {
+    //       // Some CSS
+    //       color: 'red',
+    //       backgroundColor: 'purple'
+    //     },
+    //   },
+    // },
+
     root: {
       // flexGrow: 1,
       display: 'flex',
@@ -52,12 +65,14 @@ const useStyles = makeStyles((theme) => ({
         width: drawerWidth,
         flexsShrink: 0,
       },
+      backgroundColor: 'green',
     },
     appBar: {
       [theme.breakpoints.up('sm')]: {
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
       },
+      backgroundColor: '#B22222',
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -68,6 +83,7 @@ const useStyles = makeStyles((theme) => ({
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
       width: drawerWidth,
+      backgroundColor: 'grey',
     },
     content: {
       flexGrow: 1,
@@ -119,7 +135,7 @@ function NavBar(props) {
           return (
               <ListItem button key={key}>
                 <NavLink to={prop.path} style={{ textDecoration: 'none' }} key={key}>
-                  <ListItemText primary={prop.sidebarName} />
+                  <ListItemText primary={prop.sidebarName} color='white'/>
                 </NavLink>
               </ListItem>
           );
@@ -132,9 +148,9 @@ function NavBar(props) {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar color="#B22222">
           <IconButton
             color="inherit"
             aria-label="open draawer"
