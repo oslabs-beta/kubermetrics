@@ -15,8 +15,27 @@ export const PodElement = styled(Card)({
   padding: '45px',
   justifyContent: 'center',
   alignItems: 'center',
+  marginLeft: '10px',
+  marginRight: '10px',
   clipPath:
-  'circle(40%)',
+  'circle(50%)',
+});
+
+export const DeploymentElement = styled(Card)({
+  display: 'flex',
+  width: '200px',
+  height: '200px',
+  color: 'white',
+  marginLeft: '10px',
+  marginRight: '10px',
+  backgroundColor: '#3b3d41',
+  boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
+  flexDirection: 'column',
+  padding: '45px',
+  justifyContent: 'center',
+  alignItems: 'center',
+  clipPath:
+  'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
 });
 
 // clipPath:

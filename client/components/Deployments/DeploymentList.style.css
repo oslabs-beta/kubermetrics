@@ -1,8 +1,8 @@
-.podsList {
+.deploymentList {
   /* width: 75vw; */
   background-color: #222426;
-  width: auto;
   margin: 10px;
+  width: auto;
   height: 300px;
   border-radius: 15px;
 
