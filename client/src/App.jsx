@@ -19,19 +19,19 @@ export const darkTheme = createTheme({"palette":{"common":{"black":"#000","white
 
 function App() {
   return (
-    <>
+
     <MuiThemeProvider theme={darkTheme}>
       <Router>
         <Sidebar />
         <Switch>
+        <div className='mainContent'>
           <Route path='/' exact component={HomePage} />
           <Route path='/metrics' exact component={MetricsPage} />
           <Route path='/alerts' exact component={AlertsPage} />
           <Route path='/terminal' exact component={TerminalPage} />
-
+        </div>
         </Switch>
-
-        </Router>
+      </Router>
         {/* <Switch>
           {NavRoutes.map((route) => (
             <Route exact path={route.path} key={route.path}>
@@ -40,7 +40,7 @@ function App() {
           ))}
         </Switch> */}
     </MuiThemeProvider>
-      </>
+
   );
 }
 

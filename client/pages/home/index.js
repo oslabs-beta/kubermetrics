@@ -16,19 +16,19 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  click: async () => {
+  clickForPods: async () => {
     let pods = await actions.fetchPods()
     dispatch(actions.getPods(pods))
   },
-  click4: async () => {
+  clickForIngresses: async () => {
     const ingresses = await actions.fetchIngress()
     dispatch(actions.getIngress(ingresses))
   },
-  click2: async () => {
+  clickForNodes: async () => {
     let nodes = await actions.fetchNodes();
     dispatch(actions.getNodes(nodes))
   },
-  click3: async () => {
+  clickForDeployments: async () => {
     let deployments = await actions.fetchDeployments();
     dispatch(actions.getDeployments(deployments));
   }
@@ -40,12 +40,12 @@ const HomePage = (props) => {
     <div className='homePage'>
       {/* <Navbar></Navbar> */}
       {/* <NavBar /> */}
-      <DeploymentList />
-      <PodsList/>
-      <button onClick={props.click}></button>
-      <button onClick={props.click4}></button>
-      <button onClick={props.click2}></button>
-      <button onClick={props.click3}></button>
+      <PodsList state={props.state}/>
+
+      <button className='btn' onClick={props.clickForPods}> get pods </button>
+      <button className='btn' onClick={props.clickForIngresses}> get ingresses </button>
+      <button className='btn' onClick={props.clickForNodes}> get nodes </button>
+      <button className='btn' onClick={props.clickForDeployments}> get deployment </button>
     </div>
   )
 }
