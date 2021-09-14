@@ -30,6 +30,10 @@ const mapDispatchToProps = dispatch => ({
   click3: async () => {
     let deployments = await actions.fetchDeployments();
     dispatch(actions.getDeployments(deployments));
+  },
+  clickServices: async () => {
+    let services = await actions.fetchServices();
+    dispatch(actions.getServices(services));
   }
 })
 
@@ -44,6 +48,7 @@ const HomePage = (props) => {
       <button onClick={props.click4}></button>
       <button onClick={props.click2}></button>
       <button onClick={props.click3}></button>
+      <button onClick={props.clickServices}>Services</button>
     </div>
   )
 }
