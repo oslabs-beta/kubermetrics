@@ -18,18 +18,20 @@ function Sidebar() {
       <div className='sidebar'>
 
         <Link to='#' className='menu-bars'>
-          <FaIcons.FaBars onClick={showSidebar} />
+          {/* <FaIcons.FaBars onClick={showSidebar} /> */}
+          <FaIcons.FaBars className='icons'/>
         </Link>
         <h3>Kubermetrics</h3>
       </div>
 
-    <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-      <ul className='nav-menu-items' onClick={showSidebar}>
-        <li className='navbar-toggle' >
+    {/* <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}> */}
+    <nav className='nav-menu'>
+      <ul className='nav-menu-items'>
+        {/* <li className='navbar-toggle' >
           <Link to='#' className='menu-bars'>
             <AiIcons.AiOutlineClose onClick={showSidebar} />
           </Link>
-        </li>
+        </li> */}
         {SidebarData.map((item, index) => {
           return (
             <li key={index} className={item.cName}>

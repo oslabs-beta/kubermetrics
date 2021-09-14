@@ -10,6 +10,10 @@ h2 {
   background-color: rgb(85, 85, 85);
 }
 
+.mainContent{
+  display: flex;
+}
+
 /* .pageTitle {
   font-family: 'Bebas Neue';
   color: white;
@@ -41,7 +45,7 @@ h2 {
   font-family: 'Lato', sans-serif;
 } */
 
-.home,
+/* .home,
 .metrics,
 .alerts,
 .terminal {
@@ -50,4 +54,21 @@ h2 {
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+} */
+
+/* .mainContent {
+  left: 175px;
+  padding:
+} */
+
+.homePage{
+  display: flex;
+  flex-direction: column;
 }
+
+.btn{
+  height: 15px;
+  width: 17px;
+  font-size: 13px;
+}
+
