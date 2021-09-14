@@ -11,25 +11,25 @@ export const SidebarData = [
   {
     title: 'Home',
     path: '/',
-    icon: <AiIcons.AiFillHome />,
+    icon: <AiIcons.AiFillHome className='icons' />,
     cName: 'nav-text'
   },
   {
     title: 'Metrics',
     path: '/metrics',
-    icon: <FaIcons.FaChartBar />,
+    icon: <FaIcons.FaChartBar className='icons' />,
     cName: 'nav-text'
   },
   {
     title: 'Alerts',
     path: '/alerts',
-    icon: <AiIcons.AiFillAlert />,
+    icon: <AiIcons.AiFillAlert className='icons' />,
     cName: 'nav-text'
   },
   {
     title: 'Terminal',
     path: '/terminal',
-    icon: <FaIcons.FaTerminal />,
+    icon: <FaIcons.FaTerminal className='icons' />,
     cName: 'nav-text'
   },
 ];

@@ -1,6 +1,9 @@
 .podsList {
   /* width: 75vw; */
   background-color: #222426;
+  margin-left: 117px;
+  margin-top: 15px;
+  margin-bottom: 10px;
   width: auto;
   height: 300px;
   border-radius: 15px;
