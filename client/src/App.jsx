@@ -4,52 +4,65 @@ import { connect } from 'react-redux';
 // import actions from action creators file
 import * as actions from '../actions/actions';
 import HomePage from '../pages/home/index.js'
-import { createTheme, ThemeProvider } from '@material-ui/core'
+import MetricsPage from '../pages/metrics/index.js'
+import AlertsPage from '../pages/alerts/index.js'
+import TerminalPage from '../pages/terminal/index.js'
+import NavRoutes from '../components/NavRoutes/index.js';
+import '../styles.css';
 
-const darkTheme = createTheme({"palette":{"common":{"black":"#000","white":"rgba(255, 255, 255, 1)"},"background":{"paper":"rgba(26, 30, 33, 1)","default":"rgba(255, 255, 255, 1)"},"primary":{"light":"rgba(45, 53, 55, 1)","main":"rgba(17, 22, 23, 1)","dark":"rgba(13, 15, 16, 1)","contrastText":"#fff"},"secondary":{"light":"rgba(143, 96, 240, 1)","main":"rgba(113, 53, 240, 1)","dark":"rgba(96, 29, 239, 1)","contrastText":"#fff"},"error":{"light":"#e57373","main":"rgba(208, 2, 27, 1)","dark":"#d32f2f","contrastText":"#fff"},"text":{"primary":"rgba(0, 0, 0, 0.87)","secondary":"rgba(255, 255, 255, 0.54)","disabled":"rgba(255, 255, 255, 0.38)","hint":"rgba(255, 255, 255, 0.38)"}}}
-)
+// import NavBar from '../components/navbar/index.js';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Sidebar from '../components/sidebar/Sidebar.js'
+
+// import {
+//   BrowserRouter, // root Component which renders the children routes
+//   Route, // individual child components responsible for rendering the UI based on user's input location matching the defined path in <Route>
+//   Link, // used to navigate amongst the internal routes in our router app, think anchor tags
+// } from 'react-router-dom'
 
 
-const mapStateToProps = state => ({
-  pods: state.pods.pods
-})
 
-const mapDispatchToProps = dispatch => ({
-  click: async () => {
-    let pods = await actions.fetchPods()
-    dispatch(actions.getPods(pods))
-  },
-  click4: async () => {
-    const ingresses = await actions.fetchIngress()
-    dispatch(actions.getIngress(ingresses))
-  },
-  click2: async () => {
-    let nodes = await actions.fetchNodes();
-    dispatch(actions.getNodes(nodes))
-  },
-  click3: async () => {
-    let deployments = await actions.fetchDeployments();
-    dispatch(actions.getDeployments(deployments));
-  }
-})
+// class App extends React.Component {
+//   render () {
+//     console.log(this.props)
 
-class App extends React.Component {
-  render () {
-    console.log(this.props)
-    
-    return (
-      <ThemeProvider theme={darkTheme}>
-        <div>
-          <HomePage state={{...this.props}}/>
-          <button onClick={this.props.click}></button>
-          <button onClick={this.props.click4}></button>
-          <button onClick={this.props.click2}></button>
-          <button onClick={this.props.click3}></button>
-        </div>
-      </ThemeProvider>
-    )
-  }
+//     return (
+//       <div>
+//         <HomePage state={{...this.props}}/>
+//         <button onClick={this.props.click}></button>
+//         <button onClick={this.props.click4}></button>
+//         <button onClick={this.props.click2}></button>
+//         <button onClick={this.props.click3}></button>
+//       </div>
+//     )
+//   }
+// }
+
+
+
+function App() {
+  return (
+    <>
+     <Router>
+      <Sidebar />
+      <Switch>
+        <Route path='/' exact component={HomePage} />
+        <Route path='/metrics' exact component={MetricsPage} />
+        <Route path='/alerts' exact component={AlertsPage} />
+        <Route path='/terminal' exact component={TerminalPage} />
+
+      </Switch>
+
+      </Router>
+      {/* <Switch>
+        {NavRoutes.map((route) => (
+          <Route exact path={route.path} key={route.path}>
+            <route.component />
+          </Route>
+        ))}
+      </Switch> */}
+    </>
+  );
 }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
