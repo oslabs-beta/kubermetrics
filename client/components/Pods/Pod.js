@@ -16,7 +16,7 @@ const Pod = (props) => {
         <CardContent>
           <div>
               <p className='podLabel'>{props.label}</p>
-              <center><Button color='primary' variant='contained' size='xs'>MORE INFO</Button></center>
+              <center><Button color='secondary' variant='contained' size='small'>MORE INFO</Button></center>
               {/* <p><b>API Version:</b> {props.apiVersion}</p>
               <p><b>Node Name:</b> {props.nodeName}</p>
               <p><b>Pod Name:</b> {props.podName}</p>
