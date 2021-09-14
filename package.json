@@ -45,9 +45,10 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@kubernetes/client-node": "^0.15.1",
-    "@material-ui/core": "^4.11.4",
+    "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
+    "@material-ui/styles": "^4.11.4",
     "axios": "^0.21.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -55,8 +56,9 @@
     "prom-client": "^13.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
     "react-redux": "^7.2.4",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^5.3.0",
     "redux": "^4.1.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0"

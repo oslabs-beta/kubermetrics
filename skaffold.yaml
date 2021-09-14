@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta22
+kind: Config
+metadata:
+  name: kubermetrics
+build:
+  artifacts:
+  - image: jwadeon/kubermetrics
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - manifests/kubermetrics-depl.yaml
