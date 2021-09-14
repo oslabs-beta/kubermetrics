@@ -1,9 +1,11 @@
 import React from 'react';
 import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import './Pod.style.css';
 import * as mui from '../mui-elements'
+
 
 const { PodElement } = mui;
 
@@ -14,7 +16,8 @@ const Pod = (props) => {
         <CardContent>
           <div>
               <p className='podLabel'>{props.label}</p>
-              <p><b>API Version:</b> {props.apiVersion}</p>
+              <center><Button color='secondary' variant='contained' size='small'>MORE INFO</Button></center>
+              {/* <p><b>API Version:</b> {props.apiVersion}</p>
               <p><b>Node Name:</b> {props.nodeName}</p>
               <p><b>Pod Name:</b> {props.podName}</p>
               <p><b>Namespace:</b> {props.namespace}</p>
@@ -25,7 +28,7 @@ const Pod = (props) => {
               <p><b>Service Account Name:</b> {props.serviceAccountName}</p>
               <p><b>Host IP:</b> {props.hostIP}</p>
               <p><b>Pod IP:</b> {props.podIP}</p>
-              <p><b>Phase:</b> {props.phase}</p>
+              <p><b>Phase:</b> {props.phase}</p> */}
             
           </div>
       </CardContent>

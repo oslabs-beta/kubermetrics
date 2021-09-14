@@ -2,7 +2,8 @@
 
 
 body {
-  background-color: rgba(31, 31, 31, 0.925);
+  background-color: #1a1e21;
+  /* background-color: #3b3d41 */
 }
 
 h2 {
@@ -33,12 +34,12 @@ h2 {
 
 
 
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
-}
+} */
 
 .home,
 .metrics,

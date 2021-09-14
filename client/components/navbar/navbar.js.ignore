@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    fontFamily: 'Bebas Neue'
   },
 }));
 
@@ -30,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar color="default" position="static">
+    <AppBar position="static">
       <Toolbar>
         <IconButton
           edge="start"
@@ -41,7 +42,7 @@ const Navbar = () => {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
-          Pods
+          Kubermetrics
         </Typography>
         <Button color="inherit" onClick={handleOpen}>
           Help
