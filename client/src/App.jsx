@@ -23,14 +23,14 @@ function App() {
     <MuiThemeProvider theme={darkTheme}>
       <Router>
         <Sidebar />
-        <Switch>
         <div className='mainContent'>
+        <Switch>
           <Route path='/' exact component={HomePage} />
           <Route path='/metrics' exact component={MetricsPage} />
           <Route path='/alerts' exact component={AlertsPage} />
           <Route path='/terminal' exact component={TerminalPage} />
-        </div>
         </Switch>
+        </div>
       </Router>
         {/* <Switch>
           {NavRoutes.map((route) => (

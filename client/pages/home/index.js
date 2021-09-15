@@ -8,6 +8,7 @@ import PodsList from '../../components/Pods/PodsList';
 // import Navbar from '../../components/navbar/navbar'
 // import NavBar from '../../components/navbar/index.js'
 import * as actions from '../../actions/actions';
+import DeploymentList from '../../components/Deployments/DeploymentList';
 
 
 const mapStateToProps = state => ({
@@ -43,14 +44,9 @@ const HomePage = (props) => {
     <div className='homePage'>
       {/* <Navbar></Navbar> */}
       {/* <NavBar /> */}
-      <PodsList state={props.state}/>
-{/* <<<<<<< HEAD
-      <button onClick={props.click}></button>
-      <button onClick={props.click4}></button>
-      <button onClick={props.click2}></button>
-      <button onClick={props.click3}></button>
-      <button onClick={props.clickServices}>Services</button>
-======= */}
+=======
+      <DeploymentList/>
+      <PodsList/>
 
       <button className='btn' onClick={props.clickForPods}> get pods </button>
       <button className='btn' onClick={props.clickForIngresses}> get ingresses </button>
