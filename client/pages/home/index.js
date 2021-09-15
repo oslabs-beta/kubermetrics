@@ -36,6 +36,10 @@ const mapDispatchToProps = dispatch => ({
   clickServices: async () => {
     let services = await actions.fetchServices();
     dispatch(actions.getServices(services));
+  },
+  clickNamespaces: async () => {
+    let namespaces = await actions.fetchNamespaces();
+    dispatch(actions.getNamespaceList(namespaces));
   }
 })
 
@@ -55,6 +59,7 @@ const HomePage = (props) => {
       <button className='btn' onClick={props.clickForNodes}> get nodes </button>
       <button className='btn' onClick={props.clickForDeployments}> get deployment </button>
       <button className='btn' onClick={props.clickServices}>Services</button>
+      <button className='btn' onClick={props.clickNamespaces}>Namespace</button>
     </div>
   )
 }
