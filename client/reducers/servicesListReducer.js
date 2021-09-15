@@ -1,15 +1,14 @@
 // import * as actions from '../../actions/actions';
 import * as types from '../constants/actionTypes';
+import dummyService from '../dummyService';
 
 const initialState = {
-  services: []
+  services: [dummyService, dummyService, dummyService, dummyService, dummyService]
 }
 
 const servicesListReducer = (state = initialState, action) => {
   switch(action.type) {
     case types.GET_SERVICES:
-      console.log('got services')
-      console.log('payload: ', action.payload)
       return {...state, services: action.payload}
 
     default:

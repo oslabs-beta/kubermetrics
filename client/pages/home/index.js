@@ -9,6 +9,7 @@ import PodsList from '../../components/Pods/PodsList';
 // import NavBar from '../../components/navbar/index.js'
 import * as actions from '../../actions/actions';
 import DeploymentList from '../../components/Deployments/DeploymentList';
+import ServicesList from '../../components/Services/ServicesList';
 
 
 const mapStateToProps = state => ({
@@ -47,6 +48,7 @@ const HomePage = (props) => {
 =======
       <DeploymentList/>
       <PodsList/>
+      <ServicesList/>
 
       <button className='btn' onClick={props.clickForPods}> get pods </button>
       <button className='btn' onClick={props.clickForIngresses}> get ingresses </button>

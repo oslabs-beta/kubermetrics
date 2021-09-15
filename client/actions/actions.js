@@ -168,8 +168,8 @@ export const fetchDeployments = async (url = '/deploymentList') => {
 export const fetchServices = async (url = '/serviceList') => {
   let response = await axios.get(url);
 
-  console.log('response: ', response)
-  console.log('response.data: ', response.data)
+  // console.log('response: ', response)
+  // console.log('response.data: ', response.data)
   console.log('response.data.items: ', response.data.items)
   let servicesList = [];
 
@@ -188,7 +188,9 @@ export const fetchServices = async (url = '/serviceList') => {
 
     })
 
-  })
+  });
+
+  return servicesList;
 }
 
 
