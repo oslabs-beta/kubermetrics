@@ -6,8 +6,8 @@ import { styled } from '@material-ui/core/styles';
 
 export const PodElement = styled(Card)({
   display: 'flex',
-  width: '200px',
-  height: '200px',
+  width: '150px',
+  height: '150px',
   color: 'white',
   backgroundColor: '#3b3d41',
   boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
@@ -23,8 +23,8 @@ export const PodElement = styled(Card)({
 
 export const DeploymentElement = styled(Card)({
   display: 'flex',
-  width: '200px',
-  height: '200px',
+  width: '150px',
+  height: '150px',
   color: 'white',
   marginLeft: '10px',
   marginRight: '10px',

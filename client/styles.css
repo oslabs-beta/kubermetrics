@@ -10,6 +10,12 @@ h2 {
   background-color: rgb(85, 85, 85);
 }
 
+h3 {
+  font-family: 'Bebas Neue';
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
 .mainContent{
   display: flex;
 }
@@ -64,6 +70,7 @@ h2 {
 .homePage{
   display: flex;
   flex-direction: column;
+  width: 1920px;
 }
 
 .btn{
