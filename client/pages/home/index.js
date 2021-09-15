@@ -9,6 +9,7 @@ import PodsList from '../../components/Pods/PodsList';
 // import NavBar from '../../components/navbar/index.js'
 import * as actions from '../../actions/actions';
 import DeploymentList from '../../components/Deployments/DeploymentList';
+import ServicesList from '../../components/Services/ServicesList';
 
 
 const mapStateToProps = state => ({
@@ -31,6 +32,10 @@ const mapDispatchToProps = dispatch => ({
   clickForDeployments: async () => {
     let deployments = await actions.fetchDeployments();
     dispatch(actions.getDeployments(deployments));
+  },
+  clickServices: async () => {
+    let services = await actions.fetchServices();
+    dispatch(actions.getServices(services));
   }
 })
 
@@ -40,13 +45,16 @@ const HomePage = (props) => {
     <div className='homePage'>
       {/* <Navbar></Navbar> */}
       {/* <NavBar /> */}
+=======
       <DeploymentList/>
       <PodsList/>
+      <ServicesList/>
 
       <button className='btn' onClick={props.clickForPods}> get pods </button>
       <button className='btn' onClick={props.clickForIngresses}> get ingresses </button>
       <button className='btn' onClick={props.clickForNodes}> get nodes </button>
       <button className='btn' onClick={props.clickForDeployments}> get deployment </button>
+      <button className='btn' onClick={props.clickServices}>Services</button>
     </div>
   )
 }
