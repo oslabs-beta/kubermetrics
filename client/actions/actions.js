@@ -13,6 +13,11 @@ import { PermCameraMic } from '@material-ui/icons';
 import axios from 'axios';
 import * as actionTypes from '../constants/actionTypes';
 
+export const getNamespaceList = namespaceList => ({
+  type: actionTypes.GET_NAMESPACELIST,
+  payload: namespaceList,
+});
+
 export const getPods = podsList => ({
   type: actionTypes.GET_PODS,
   payload: podsList,
@@ -193,4 +198,32 @@ export const fetchServices = async (url = '/serviceList') => {
   return servicesList;
 }
 
+
+export const fetchNamespaces = async (url = '/namespaceList') => {
+  let response = await axios.get(url);
+
+  // console.log('response: ', response)
+  console.log('response.data: ', response.data)
+  console.log('response.data.items: ', response.data.items)
+  let namespaceList = [];
+
+  response.data.items.forEach((item) => {
+
+    namespaceList.push({
+      allData: item,
+      // created: item.metadata.creationTimestamp,
+      // name: item.metadata.name,
+      // namespace: item.metadata.namespace,
+      // id: item.metadata.uid,
+      // manager: item.metadata.managedFields.manager,
+      // labels: item.metadata.labels,
+      // selector: item.spec.selector,
+      // type: item.spec.type
+
+    })
+
+  });
+
+  return namespaceList;
+}
 

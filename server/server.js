@@ -30,6 +30,10 @@ app.get("/", (req, res) => {
 //     console.log(res.body.items[0].metadata);
 // });
 
+app.get('/namespaceList', k8Controller.getNamespaceList, (req, res) => {
+  res.status(201).send(res.locals.namespaceList);
+});
+
 app.get('/podList', k8Controller.getPodList, (req, res) => {
   res.status(201).send(res.locals.podList);
 });

@@ -11,13 +11,27 @@ const k8Controller = {
   // async getMetrics (req, res, next) {
   // }
 
+  async getNamespaceList (req, res, next) {
+    try {
+      const result = await k8sApi.listNamespace();
+      console.log(result.body)
+      res.locals.namespaceList = result.body;
+      return next();
+    } catch (err) {
+      console.log('Error in getPodList: ', err);
+      return next(err);
+    }
+  },
+
+
+
   async getPodList (req, res, next) {
     try {
       const result = await k8sApi.listNamespacedPod('default');
       res.locals.podList = result.body;
       return next();
     } catch (err) {
-      console.log("Error in getPodList: ", err);
+      console.log('Error in getPodList: ', err);
       return next(err);
     }
   },
@@ -30,7 +44,7 @@ const k8Controller = {
       res.locals.serviceList = result.body;
       return next();
     } catch (err) {
-      console.log("Error in getServiceList: ", err);
+      console.log('Error in getServiceList: ', err);
       return next(err);
     }
   },
@@ -41,7 +55,7 @@ const k8Controller = {
       res.locals.ingressList = result.body;
       return next();
     } catch (err) {
-      console.log("Error in getIngressList: ", err);
+      console.log('Error in getIngressList: ', err);
       return next(err);
     }
   },
@@ -52,7 +66,7 @@ const k8Controller = {
       res.locals.deploymentList = result.body;
       return next();
     } catch (err) {
-      console.log("Error in getDeploymentList: ", err);
+      console.log('Error in getDeploymentList: ', err);
       return next(err);
     }
   },
@@ -66,11 +80,11 @@ const k8Controller = {
         res.locals.nodeList.nodeProcesses = result2;
         return next();
       } catch (err) {
-        console.log("Error in getNodeList/nodeProcesses");
+        console.log('Error in getNodeList/nodeProcesses');
         return next(err);
       }
     } catch (err) {
-      console.log("Error in getNodeList: ", err);
+      console.log('Error in getNodeList: ', err);
       return next(err);
     }
   },
