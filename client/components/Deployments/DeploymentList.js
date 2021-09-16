@@ -24,9 +24,16 @@ const DeploymentList = (props) => {
 
 
   return (
-    <div className='deploymentList'>
-    {deploymentsArray}
-    </div>
+
+      <div className='deploymentList'>
+        <div className='miniHeadList'>
+          <h4 className='miniHeadText'> Deployments </h4>
+          <h4 className='greenText'> Running: {deploymentsArray.length} </h4>
+        </div>
+        <div className='overflowBox'>
+        {deploymentsArray}
+        </div>
+      </div>
     )
 }
 

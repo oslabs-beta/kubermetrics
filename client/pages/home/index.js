@@ -11,6 +11,7 @@ import * as actions from '../../actions/actions';
 import DeploymentList from '../../components/Deployments/DeploymentList';
 import Header from '../../components/Header/Header';
 import ServicesList from '../../components/Services/ServicesList';
+import CurrentNode from '../../components/Node/currentNode';
 
 
 const mapStateToProps = state => ({
@@ -52,6 +53,7 @@ const HomePage = (props) => {
       {/* <NavBar /> */}
         <Header/>
       <div className='homepageContent'>
+        <CurrentNode />
         <DeploymentList/>
         <PodsList/>
         <ServicesList/>

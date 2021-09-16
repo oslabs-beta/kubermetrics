@@ -27,6 +27,41 @@ h3 {
   flex-wrap: wrap;
 }
 
+.miniHead {
+
+  background-color: #111617;
+}
+
+.miniHeadList {
+  background-color: #111617;
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+}
+
+.miniHeadText { 
+  text-align: center;
+  color: white;
+  font-family: 'Bebas Neue';
+  font-size: 24px;
+  margin: 5px
+}
+
+.overflowBox {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  overflow: scroll;
+}
+
+.greenText {
+  text-align: center;
+  color: green;
+  font-family: 'Bebas Neue';
+  font-size: 24px;
+  margin: 5px
+}
+
 /* .pageTitle {
   font-family: 'Bebas Neue';
   color: white;
