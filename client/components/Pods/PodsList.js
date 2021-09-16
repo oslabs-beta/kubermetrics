@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import Pod from './Pod';
-import './PodstList.style.css'
+import './PodsList.style.css'
 
 
 

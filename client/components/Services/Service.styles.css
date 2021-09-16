@@ -1,0 +1,25 @@
+.serviceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
+  width: 300px;
+
+}
+.serviceContainer:hover {
+
+  filter: drop-shadow(0px 3px 3px rgba(135, 88, 237, 0.276));
+
+}
+
+
+p {
+  margin: 2px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+}
+.serviceLabel {
+  font-size: 18px;
+  margin-top: 5px;
+}

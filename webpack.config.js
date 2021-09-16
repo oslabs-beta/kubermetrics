@@ -44,6 +44,7 @@ module.exports = {
     disableHostCheck: true,
     hot: true,
     port: 3068,
+    compress: true,
 
     publicPath: "/build/",
 

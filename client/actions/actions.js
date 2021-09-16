@@ -4,7 +4,7 @@
  * @module  actions.js
  * @author team Kubermetrics
  * @date
- * @description Action functions 
+ * @description Action functions
  *
  * ************************************
  */
@@ -12,6 +12,11 @@
 import { PermCameraMic } from '@material-ui/icons';
 import axios from 'axios';
 import * as actionTypes from '../constants/actionTypes';
+
+export const getNamespaceList = namespaceList => ({
+  type: actionTypes.GET_NAMESPACELIST,
+  payload: namespaceList,
+});
 
 export const getPods = podsList => ({
   type: actionTypes.GET_PODS,
@@ -32,6 +37,10 @@ export const changeNode = node => ({
   type: actionTypes.CHANGE_NODE,
   payload: node
 })
+export const getServices = serviceList => ({
+  type: actionTypes.GET_SERVICES,
+  payload: serviceList
+});
 
 export const fetchPods = async (url = '/podList') => {
 
@@ -97,7 +106,7 @@ export const fetchIngress = async (url = '/ingressList') => {
 
 };
 export const fetchNodes = async (url = '/nodeList') => {
-  
+
   let response = await axios.get(url);
   let nodeList = [];
 
@@ -105,7 +114,7 @@ export const fetchNodes = async (url = '/nodeList') => {
 
     const { metadata, status } = item;
     const { labels } = metadata;
-  
+
 
     nodeList.push({
 
@@ -134,7 +143,7 @@ export const fetchNodes = async (url = '/nodeList') => {
 }
 
 export const fetchDeployments = async (url = '/deploymentList') => {
-  
+
   let response = await axios.get(url);
   let deploymentList = [];
 
@@ -165,4 +174,60 @@ export const fetchDeployments = async (url = '/deploymentList') => {
 
 }
 
+export const fetchServices = async (url = '/serviceList') => {
+  let response = await axios.get(url);
+
+  // console.log('response: ', response)
+  // console.log('response.data: ', response.data)
+  console.log('response.data.items: ', response.data.items)
+  let servicesList = [];
+
+  response.data.items.forEach((item) => {
+
+    servicesList.push({
+      allData: item,
+      created: item.metadata.creationTimestamp,
+      name: item.metadata.name,
+      namespace: item.metadata.namespace,
+      id: item.metadata.uid,
+      manager: item.metadata.managedFields.manager,
+      labels: item.metadata.labels,
+      selector: item.spec.selector,
+      type: item.spec.type
+
+    })
+
+  });
+
+  return servicesList;
+}
+
+
+export const fetchNamespaces = async (url = '/namespaceList') => {
+  let response = await axios.get(url);
+
+  // console.log('response: ', response)
+  console.log('response.data: ', response.data)
+  console.log('response.data.items: ', response.data.items)
+  let namespaceList = [];
+
+  response.data.items.forEach((item) => {
+
+    namespaceList.push({
+      allData: item,
+      // created: item.metadata.creationTimestamp,
+      // name: item.metadata.name,
+      // namespace: item.metadata.namespace,
+      // id: item.metadata.uid,
+      // manager: item.metadata.managedFields.manager,
+      // labels: item.metadata.labels,
+      // selector: item.spec.selector,
+      // type: item.spec.type
+
+    })
+
+  });
+
+  return namespaceList;
+}
 

@@ -30,6 +30,10 @@ app.get("/", (req, res) => {
 //     console.log(res.body.items[0].metadata);
 // });
 
+app.get('/namespaceList', k8Controller.getNamespaceList, (req, res) => {
+  res.status(201).send(res.locals.namespaceList);
+});
+
 app.get('/podList', k8Controller.getPodList, (req, res) => {
   res.status(201).send(res.locals.podList);
 });
@@ -58,8 +62,8 @@ app.get('http://localhost:30000/getMetrics', async (req, res) => {
 });
 
 app.listen(3080, async () => {
-  await axios.get('http://prometheus-service.monitoring.svc:8080/api/v1/query?query=container_processes&g0.tab=1&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h')
-  .then(res => console.log(res.data.data.result))
-  .catch(err => console.log('error in axios'));
+  // await axios.get('http://prometheus-service.monitoring.svc:8080/api/v1/query?query=container_processes&g0.tab=1&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h')
+  // .then(res => console.log(res.data.data.result))
+  // .catch(err => console.log('error in axios'));
   console.log('listening on port 3080');
 });

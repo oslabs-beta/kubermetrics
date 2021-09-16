@@ -31,7 +31,7 @@ const podsListReducer = (state = initialState, action) => {
 
     default:
       return state;
-        
+
   }
 }
 
