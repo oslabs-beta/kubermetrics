@@ -5,6 +5,7 @@
   top: 0px;
   margin-left: 7px;
   height: 50px;
+  min-width: 1600px;
   display: flex;
   justify-content: start;
   align-items: center;

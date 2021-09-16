@@ -42,6 +42,11 @@ export const getServices = serviceList => ({
   payload: serviceList
 });
 
+export const changeNamespace = namespace => ({
+  type: actionTypes.CHANGE_NAMESPACE,
+  payload: namespace
+})
+
 export const fetchPods = async (url = '/podList') => {
 
   let response = await axios.get(url);
@@ -215,19 +220,19 @@ export const fetchNamespaces = async (url = '/namespaceList') => {
 
     namespaceList.push({
       allData: item,
-      // created: item.metadata.creationTimestamp,
-      // name: item.metadata.name,
-      // namespace: item.metadata.namespace,
-      // id: item.metadata.uid,
-      // manager: item.metadata.managedFields.manager,
-      // labels: item.metadata.labels,
-      // selector: item.spec.selector,
-      // type: item.spec.type
-
+      name: item.metadata.name
     })
 
   });
 
-  return namespaceList;
+  return namespaceList
 }
 
+export const fetchCustomPods = async (url = '/customPods', namespace) => {
+  let response = await axios.post(url, {
+    body: {
+      namespace: namespace
+    }
+  })
+  console.log(response);
+}

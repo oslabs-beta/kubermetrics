@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import './currentNode.style.css'
 import Table from '@material-ui/core/Table';
+import Button from '@material-ui/core/Button';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
@@ -29,9 +30,7 @@ const CurrentNode = (props) => {
       <p className='nodeListing'>{currentNode.hostname}</p>
       <p className='nodeListing'>{currentNode.resourceVersion}</p>
       <p className='nodeListing'>{currentNode.uid}</p>
-      <p className='nodeListing'>{currentNode.nodeInfo}</p>
-      <p className='nodeListing'>{currentNode.capacity}</p>
-      
+      <Button color='secondary' size='small'> More Node Info </Button>
     </div>
   )
 }

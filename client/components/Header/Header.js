@@ -16,7 +16,9 @@ import { StarTwoTone } from '@material-ui/icons';
 
 const mapStateToProps = state => ({
   nodes: state.nodes.nodes,
-  currentNode: state.nodes.currentNode
+  currentNode: state.nodes.currentNode,
+  namespaces: state.namespaces.namespaces,
+  currentNamespace: state.namespaces.currentNamespace
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -27,6 +29,9 @@ const mapDispatchToProps = dispatch => ({
   },
   changeNode: async (node) => {
     dispatch(actions.changeNode(node))
+  },
+  changeNamespace: async (namespace) => {
+    dispatch(actions.changeNamespace(namespace))
   }
 });
 
@@ -46,29 +51,38 @@ const useStyles = makeStyles((theme) => ({
 const Header = props => {
   const classes = useStyles();
 
-
-  const handleChange = (event) => {
+  const handleChangeNode = (event) => {
     props.changeNode(event.target.value);
   };
 
-  const nodeSelect = [];
+  const handleChangeNamespace = (event) => {
+    props.changeNamespace(event.target.value);
+  };
 
-  console.log(props.nodes)
+  const nodeSelect = [];
+  const namespaceSelect = [];
+
 
     props.nodes.forEach((node, ind) => {
-      nodeSelect.push(<MenuItem key={ind} value={node.name}>{node.name}</MenuItem>)
+      nodeSelect.push(<MenuItem key={ind} color='secondary' value={node.name}>{node.name}</MenuItem>)
     })
+
+    props.namespaces.forEach((namespace, ind) => {
+      namespaceSelect.push(<MenuItem key={ind + 1000 + 'n'} value={namespace.name}>{namespace.name}</MenuItem>)
+    })
+ 
  
 
   return (
     <div className='header'>
       <FormControl color='secondary' className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Current Node</InputLabel>
+        <InputLabel id="node-select">Current Node</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          color='secondary'
+          labelId="node-select"
+          id="node-select"
           value={props.currentNode.name}
-          onChange={handleChange}
+          onChange={handleChangeNode}
         >
           {nodeSelect}
           {/* <MenuItem className='menuItem' value={10}>Ten</MenuItem>
@@ -76,6 +90,19 @@ const Header = props => {
           <MenuItem value={30}>Thirty</MenuItem> */}
         </Select>
       </FormControl>
+
+      <FormControl color='secondary' className={classes.formControl}>
+        <InputLabel id="demo-simple-select-label">Current Namespace</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={props.currentNamespace.name}
+          onChange={handleChangeNamespace}
+        >
+          {namespaceSelect}
+        </Select>
+      </FormControl>
+      
       <Button color='secondary' onClick={props.fetchNodes}>Refresh</Button>
     </div>
   );

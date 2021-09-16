@@ -11,7 +11,7 @@ import * as actions from '../../actions/actions';
 import DeploymentList from '../../components/Deployments/DeploymentList';
 import Header from '../../components/Header/Header';
 import ServicesList from '../../components/Services/ServicesList';
-import CurrentNode from '../../components/Node/currentNode';
+import CurrentNode from '../../components/Node/CurrentNode';
 
 
 const mapStateToProps = state => ({
@@ -42,7 +42,10 @@ const mapDispatchToProps = dispatch => ({
   clickNamespaces: async () => {
     let namespaces = await actions.fetchNamespaces();
     dispatch(actions.getNamespaceList(namespaces));
-  }
+  },
+  clickTestCustom: async () => {
+    let namespaces = await actions.fetchCustomPods('/customPods', 'monitoring');
+  },
 })
 
 
@@ -64,6 +67,7 @@ const HomePage = (props) => {
       <button className='btn' onClick={props.clickForDeployments}> get deployment </button>
       <button className='btn' onClick={props.clickServices}>Services</button>
       <button className='btn' onClick={props.clickNamespaces}>Namespace</button>
+      <button className='btn' onClick={props.clickTestCustom}>Test custom</button>
     </div>
   )
 }
