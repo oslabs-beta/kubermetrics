@@ -10,9 +10,11 @@
  */
 
  import * as types from '../constants/actionTypes';
+ import dummyNode from '../dummyNode'
 
  const initialState = {
-  nodes: []
+  nodes: [dummyNode],
+  currentNode: dummyNode
 };
 
 const nodesListReducer = (state = initialState, action) => {
@@ -24,7 +26,7 @@ const nodesListReducer = (state = initialState, action) => {
     case types.GET_NODES:
       console.log('nodes got')
       console.log(payload);
-      return { ...state, nodes: action.payload }
+      return { ...state, nodes: action.payload, currentNode: action.payload[0] }
 
     default:
       return state;
