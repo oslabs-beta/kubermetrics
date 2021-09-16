@@ -50,11 +50,12 @@ const HomePage = (props) => {
     <div className='homePage'>
       {/* <Navbar></Navbar> */}
       {/* <NavBar /> */}
-      <Header/>
-      <DeploymentList/>
-      <PodsList/>
-      <ServicesList/>
-
+        <Header/>
+      <div className='homepageContent'>
+        <DeploymentList/>
+        <PodsList/>
+        <ServicesList/>
+      </div>
       <button className='btn' onClick={props.clickForPods}> get pods </button>
       <button className='btn' onClick={props.clickForIngresses}> get ingresses </button>
       <button className='btn' onClick={props.clickForNodes}> get nodes </button>

@@ -20,6 +20,13 @@ h3 {
   display: flex;
 }
 
+.homepageContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
 /* .pageTitle {
   font-family: 'Bebas Neue';
   color: white;

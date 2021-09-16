@@ -45,21 +45,20 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = props => {
   const classes = useStyles();
-  const [node, setNode] = React.useState('');
+
 
   const handleChange = (event) => {
-    setNode(event.target.value);
+    props.changeNode(event.target.value);
   };
 
   const nodeSelect = [];
 
-  if (props.nodes) {
-    props.nodes.forEach((node) => {
-      return (
-        <MenuItem value={node.name}>{node.name}</MenuItem>
-      )
+  console.log(props.nodes)
+
+    props.nodes.forEach((node, ind) => {
+      nodeSelect.push(<MenuItem key={ind} value={node.name}>{node.name}</MenuItem>)
     })
-  }
+ 
 
   return (
     <div className='header'>
@@ -68,7 +67,7 @@ const Header = props => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={10}
+          value={props.currentNode.name}
           onChange={handleChange}
         >
           {nodeSelect}
