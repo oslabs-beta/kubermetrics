@@ -11,17 +11,22 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import * as actions from '../../actions/actions';
+import { StarTwoTone } from '@material-ui/icons';
 
 
 const mapStateToProps = state => ({
   nodes: state.nodes.nodes,
+  currentNode: state.nodes.currentNode
 });
 
-const mapDispatchToProps = state => ({
+const mapDispatchToProps = dispatch => ({
   fetchNodes: async () => {
     let nodes = await actions.fetchNodes();
-    dispatchEvent(actions.getNodes(nodes));
+    dispatch(actions.getNodes(nodes));
     console.log(nodes);
+  },
+  changeNode: async (node) => {
+    dispatch(actions.changeNode(node))
   }
 });
 

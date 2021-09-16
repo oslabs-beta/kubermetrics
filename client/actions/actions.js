@@ -28,6 +28,11 @@ export const getDeployments = deploymentList => ({
   payload: deploymentList
 });
 
+export const changeNode = node => ({
+  type: actionTypes.CHANGE_NODE,
+  payload: node
+})
+
 export const fetchPods = async (url = '/podList') => {
 
   let response = await axios.get(url);
