@@ -24,9 +24,13 @@ const CurrentNode = (props) => {
       <div className='miniHead'>
         <h4 className='miniHeadText'>Current Node</h4>
       </div>
-      <p>{currentNode.name}</p>
-      <p>{currentNode.os}</p>
-      <p>{currentNode.hostname}</p>
+      <p className='nodeListing'>{currentNode.name}</p>
+      <p className='nodeListing'>{currentNode.os}</p>
+      <p className='nodeListing'>{currentNode.hostname}</p>
+      <p className='nodeListing'>{currentNode.resourceVersion}</p>
+      <p className='nodeListing'>{currentNode.uid}</p>
+      <p className='nodeListing'>{currentNode.nodeInfo}</p>
+      <p className='nodeListing'>{currentNode.capacity}</p>
       
     </div>
   )

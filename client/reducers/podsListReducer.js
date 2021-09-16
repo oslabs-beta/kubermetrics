@@ -13,7 +13,7 @@ import * as types from '../constants/actionTypes';
 import dummyPod from '../dummyPod.js'
 
 const initialState = {
-  pods: [dummyPod, dummyPod, dummyPod, dummyPod, dummyPod]
+  pods: [dummyPod, dummyPod, dummyPod, dummyPod, dummyPod, dummyPod, dummyPod, dummyPod, dummyPod, dummyPod, dummyPod, dummyPod]
 };
 
 const podsListReducer = (state = initialState, action) => {

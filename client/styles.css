@@ -23,7 +23,7 @@ h3 {
 .homepageContent {
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
