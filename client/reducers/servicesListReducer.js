@@ -3,7 +3,7 @@ import * as types from '../constants/actionTypes';
 import dummyService from '../dummyService';
 
 const initialState = {
-  services: [dummyService, dummyService, dummyService, dummyService, dummyService]
+  services: [dummyService, dummyService, dummyService, dummyService, dummyService, dummyService, dummyService, dummyService, dummyService, dummyService]
 }
 
 const servicesListReducer = (state = initialState, action) => {

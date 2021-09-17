@@ -20,7 +20,13 @@ const ServiceList = (props) => {
 
   return (
     <div className='servicesList'>
-      {servicesArray}
+      <div className='miniHeadList'>
+        <h4 className='miniHeadText'> Services </h4>
+        <h4 className='greenText'> Running: {servicesArray.length} </h4>
+      </div>
+      <div className='overflowBox'>
+        {servicesArray}
+      </div>
     </div>
 
   )

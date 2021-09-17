@@ -6,12 +6,13 @@
   margin-bottom: 10px;
   width: auto;
   height: 300px;
-  border-radius: 15px;
+  border-radius: 10px;
+  max-width: 1500px;
+  min-width: 1500px;
+  border: 1px solid rgb(19, 19, 19);
 
 
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  overflow: scroll;
+  flex-direction: column;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
