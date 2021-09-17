@@ -5,7 +5,7 @@ const client = require('prom-client');
 const cors = require('cors');
 const axios = require('axios');
 const k8Controller = require('./controllers/k8Controller.js');
-const k8sCustomController = require('./controllers/k8sCustomController.js');
+
 
 app.use(cors());
 app.use(express.json());
@@ -55,9 +55,22 @@ app.get('/nodeList', k8Controller.getNodeList, (req, res) => {
   res.status(201).send(res.locals.nodeList);
 });
 
-app.post('/customPods', k8sCustomController.getPodList, (req, res) => {
-  res.status(201).send(res.locals.podList)
-})
+app.post('/customPods', k8Controller.getCustomPodList, (req, res) => {
+  res.status(201).json(res.locals.customPodList)
+});
+
+app.post('/customServices', k8Controller.getCustomServiceList, (req, res) => {
+  res.status(201).json(res.locals.serviceList)
+});
+
+app.post('/customIngresses', k8Controller.getCustomIngressList, (req, res) => {
+  res.status(201).json(res.locals.ingressList)
+});
+
+app.post('/customDeployments', k8Controller.getCustomDeploymentList, (req, res) => {
+  res.status(201).json(res.locals.deploymentList)
+});
+
 
 app.get('http://localhost:30000/getMetrics', async (req, res) => {
   console.log('Scraped');

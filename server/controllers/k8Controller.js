@@ -90,6 +90,57 @@ const k8Controller = {
   },
 
 
+  async getCustomPodList (req, res, next) {
+    try {
+      const { namespace } = req.body;
+      const result = await k8sApi.listNamespacedPod(namespace);
+      res.locals.customPodList = result.body;
+      return next();
+    } catch (err) {
+      console.log('Error in getPodList: ', err);
+      return next(err);
+    }
+  },
+
+
+  async getCustomServiceList (req, res, next) {
+    try {
+      const { namespace } = req.body;
+      const result = await k8sApi.listNamespacedService(namespace);
+      res.locals.serviceList = result.body;
+      return next();
+    } catch (err) {
+      console.log('Error in getServiceList: ', err);
+      return next(err);
+    }
+  },
+
+  async getCustomIngressList (req, res, next) {
+    try {
+      const { namespace } = req.body;
+      const result = await k8sApi2.listNamespacedIngress(namespace);
+      res.locals.ingressList = result.body;
+      return next();
+    } catch (err) {
+      console.log('Error in getIngressList: ', err);
+      return next(err);
+    }
+  },
+
+  async getCustomDeploymentList (req, res, next) {
+    try {
+      const { namespace } = req.body;
+      const result = await k8sApi3.listNamespacedDeployment(namespace);
+      res.locals.deploymentList = result.body;
+      return next();
+    } catch (err) {
+      console.log('Error in getDeploymentList: ', err);
+      return next(err);
+    }
+  },
+
+
+
 }
 
 module.exports = k8Controller;

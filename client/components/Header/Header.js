@@ -31,7 +31,16 @@ const mapDispatchToProps = dispatch => ({
     dispatch(actions.changeNode(node))
   },
   changeNamespace: async (namespace) => {
-    dispatch(actions.changeNamespace(namespace))
+    
+    let newPods = await actions.fetchCustomPods(namespace);
+    let newServices = await actions.fetchCustomServices(namespace);
+    let newDeployments = await actions.fetchCustomDeployments(namespace);
+    dispatch(actions.changeNamespace(namespace));
+    dispatch(actions.getPods(newPods));
+    dispatch(actions.getServices(newServices));
+    dispatch(actions.getDeployments(newDeployments))
+
+
   }
 });
 
