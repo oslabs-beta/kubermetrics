@@ -34,7 +34,13 @@ export const PodList = (props) => {
 
   return (
     <div className='podsList'>
-    {podsArray}
+      <div className='miniHeadList'>
+        <h4 className='miniHeadText'> Pods </h4>
+        <h4 className='greenText'> Running: {podsArray.length} </h4>
+      </div>
+      <div className='overflowBox'>
+       {podsArray}
+      </div>
     </div>
     )
 }

@@ -9,7 +9,7 @@
  * ************************************
  */
 
-import { PermCameraMic } from '@material-ui/icons';
+
 import axios from 'axios';
 import * as actionTypes from '../constants/actionTypes';
 
@@ -33,10 +33,19 @@ export const getDeployments = deploymentList => ({
   payload: deploymentList
 });
 
+export const changeNode = node => ({
+  type: actionTypes.CHANGE_NODE,
+  payload: node
+})
 export const getServices = serviceList => ({
   type: actionTypes.GET_SERVICES,
   payload: serviceList
 });
+
+export const changeNamespace = namespace => ({
+  type: actionTypes.CHANGE_NAMESPACE,
+  payload: namespace
+})
 
 export const fetchPods = async (url = '/podList') => {
 
@@ -211,19 +220,120 @@ export const fetchNamespaces = async (url = '/namespaceList') => {
 
     namespaceList.push({
       allData: item,
-      // created: item.metadata.creationTimestamp,
-      // name: item.metadata.name,
-      // namespace: item.metadata.namespace,
-      // id: item.metadata.uid,
-      // manager: item.metadata.managedFields.manager,
-      // labels: item.metadata.labels,
-      // selector: item.spec.selector,
-      // type: item.spec.type
+      name: item.metadata.name
+    })
+
+  });
+
+  return namespaceList
+}
+
+export const fetchCustomPods = async (namespace, url = '/customPods') => {
+  let response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({namespace: namespace})
+  })
+  .then(res => res.json())
+  .then(data => data);
+  console.log(response)
+
+  let podsList = [];
+
+  response.items.forEach((item) => {
+    podsList.push({
+      allData: item,
+      apiVersion: response.apiVersion,
+      nodeName: item.spec.nodeName,
+      label: item.metadata.labels.app,
+      podName: item.metadata.name,
+      namespace: item.metadata.namespace,
+      uid: item.metadata.uid,
+      created: item.metadata.creationTimestamp,
+      containters: item.spec.containers,
+      serviceAccount: item.spec.serviceAccount,
+      serviceAccountName: item.spec.serviceAccountName,
+      hostIP: item.status.hostIP,
+      podIP: item.status.podIP,
+      phase: item.status.phase
+    })
+  })
+  console.log(podsList)
+  return podsList;
+
+}
+
+export const fetchCustomServices = async (namespace, url = '/customServices') => {
+  let response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({namespace: namespace})
+  })
+  .then(res => res.json())
+  .then(data => data);
+
+  let servicesList = [];
+
+  response.items.forEach((item) => {
+
+    servicesList.push({
+      allData: item,
+      created: item.metadata.creationTimestamp,
+      name: item.metadata.name,
+      namespace: item.metadata.namespace,
+      id: item.metadata.uid,
+      manager: item.metadata.managedFields.manager,
+      labels: item.metadata.labels,
+      selector: item.spec.selector,
+      type: item.spec.type
 
     })
 
   });
 
-  return namespaceList;
+  console.log(servicesList)
+
+  return servicesList;
+
 }
 
+export const fetchCustomDeployments = async (namespace, url = '/customDeployments') => {
+  let response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({namespace: namespace})
+  })
+  .then(res => res.json())
+  .then(data => data);
+
+  let deploymentList = [];
+
+  response.items.forEach((item) => {
+
+    const { metadata, spec, status } = item;
+
+    deploymentList.push({
+
+      allData: item,
+      created: metadata.creationTimestamp,
+      managedFields: metadata.managedFields,
+      name: metadata.name,
+      namespace: metadata.namespace,
+      uid: metadata.uid,
+      replicas: spec.replicas,
+      selector: spec.matchLabels,
+      strategy: spec.strategy,
+      template: spec.template,
+      availabeReplicas: status.availabeReplicas,
+      conditions: status.conditions,
+      readyReplicas: status.readyReplicas
+
+    })
+  });
+
+  console.log(deploymentList)
+
+  return deploymentList;
+
+
+}
