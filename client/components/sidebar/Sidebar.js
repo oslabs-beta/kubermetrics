@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './Sidebar.css';
 import { IconContext } from 'react-icons';
+import Ingress from '../dialog-box';
+import { connect } from 'react-redux';
 
+const mapStateToProps = state => ({
+  ingresses: state.ingresses.ingresses,
+})
 
-function Sidebar() {
+function Sidebar(props) {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -21,6 +26,9 @@ function Sidebar() {
           <FaIcons.FaBars className='icons'/>
         </Link>
         <h3>Kubermetrics</h3>
+        <div>
+          <Ingress ingresses={props.ingresses}/>
+        </div>
       </div>
 
     <nav className='nav-menu'>
@@ -42,4 +50,4 @@ function Sidebar() {
   );
 };
 
-export default Sidebar;
+export default connect(mapStateToProps, null)(Sidebar);

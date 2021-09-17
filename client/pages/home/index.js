@@ -13,7 +13,8 @@ import ServicesList from '../../components/Services/ServicesList';
 
 
 const mapStateToProps = state => ({
-  pods: state.pods.pods
+  pods: state.pods.pods,
+  ingresses: state.ingresses.ingresses,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -24,6 +25,7 @@ const mapDispatchToProps = dispatch => ({
   clickForIngresses: async () => {
     const ingresses = await actions.fetchIngress()
     dispatch(actions.getIngress(ingresses))
+
   },
   clickForNodes: async () => {
     let nodes = await actions.fetchNodes();
@@ -45,6 +47,10 @@ const mapDispatchToProps = dispatch => ({
 
 
 const HomePage = (props) => {
+
+
+  console.log("This is the console log to check how the hell the ingresses object looks like: ", props.ingresses);
+
   return (
     <div className='homePage'>
       {/* <Navbar></Navbar> */}

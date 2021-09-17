@@ -12,7 +12,7 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-  ingresses: null
+  ingresses: [],
 };
 
 const ingressListReducer = (state = initialState, action) => {
