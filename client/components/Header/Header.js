@@ -71,6 +71,10 @@ const Header = props => {
   const nodeSelect = [];
   const namespaceSelect = [];
 
+  if (!props.namespaces.length) {
+    namespaceSelect.push(<MenuItem key={123} value={props.currentNamespace.name}>{props.currentNamespace.name}</MenuItem>)
+  }
+
 
     props.nodes.forEach((node, ind) => {
       nodeSelect.push(<MenuItem key={ind} color='secondary' value={node.name}>{node.name}</MenuItem>)
@@ -94,14 +98,11 @@ const Header = props => {
           onChange={handleChangeNode}
         >
           {nodeSelect}
-          {/* <MenuItem className='menuItem' value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem> */}
         </Select>
       </FormControl>
 
       <FormControl color='secondary' className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Current Namespace</InputLabel>
+        <InputLabel id="demo-simple-select-label" >Current Namespace</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"

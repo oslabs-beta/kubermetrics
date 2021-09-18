@@ -1,13 +1,8 @@
 import * as types from '../constants/actionTypes';
-import dummyNamespace from '../dummyNamespace';
-
-
-const dum2 = {...dummyNamespace, name: 'monitoring'}
-const dum3 = {...dummyNamespace, name: 'kube shit'}
 
 const initialState = {
   namespaces: [],
-  currentNamespace: 'default'
+  currentNamespace: {name: 'default'}
 }
 
 const namespaceListReducer = (state = initialState, action) => {
