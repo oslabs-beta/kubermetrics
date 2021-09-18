@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import Pod from './Pod';
 import './PodsList.style.css'
@@ -30,7 +29,21 @@ export const PodList = (props) => {
       podIP={pod.podIP}
       phase={pod.phase}
       />)
-  })
+  });
+
+  if (!podsArray.length){
+    return (
+      <div className='podsList'>
+        <div className='miniHeadList'>
+          <h4 className='miniHeadText'> Pods </h4>
+          <h4 className='redText'> None Found In Current Namespace </h4>
+        </div>
+        <div className='overflowBox'>
+        <Pod  notLoaded={true}  />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className='podsList'>

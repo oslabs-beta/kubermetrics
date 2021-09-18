@@ -1,17 +1,11 @@
 import * as types from '../constants/actionTypes';
-import dummyNamespace from '../dummyNamespace';
-
-
-const dum2 = {...dummyNamespace, name: 'monitoring'}
-const dum3 = {...dummyNamespace, name: 'kube shit'}
 
 const initialState = {
-  namespaces: [dummyNamespace, dum2, dum3],
-  currentNamespace: dummyNamespace
+  namespaces: [],
+  currentNamespace: {name: 'default'}
 }
 
 const namespaceListReducer = (state = initialState, action) => {
-  console.log('action in namespace reducer =', action)
   switch(action.type) {
     case types.GET_NAMESPACELIST:
       return {...state, namespaces: action.payload, currentNamespace: action.payload[0]};

@@ -18,6 +18,24 @@ const ServiceList = (props) => {
     )
   })
 
+  if (!servicesArray.length) {
+
+    return (
+      <div className='servicesList'>
+        <div className='miniHeadList'>
+          <h4 className='miniHeadText'> Services </h4>
+          <h4 className='redText'> None Found In Current Namespace </h4>
+        </div>
+        <div className='overflowBox'>
+          <Service notLoaded={true}/>
+        </div>
+      </div>
+  
+    )
+
+
+  }
+
   return (
     <div className='servicesList'>
       <div className='miniHeadList'>
