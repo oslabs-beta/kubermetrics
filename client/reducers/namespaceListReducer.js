@@ -11,7 +11,6 @@ const initialState = {
 }
 
 const namespaceListReducer = (state = initialState, action) => {
-  console.log('action in namespace reducer =', action)
   switch(action.type) {
     case types.GET_NAMESPACELIST:
       return {...state, namespaces: action.payload, currentNamespace: action.payload[0]};
