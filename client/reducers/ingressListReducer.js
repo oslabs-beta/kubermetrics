@@ -18,16 +18,10 @@ const initialState = {
 const ingressListReducer = (state = initialState, action) => {
 
   const { type, payload } = action;
-  console.log(action);
 
   switch (type) {
     case types.GET_INGRESS:
-      console.log('ingresses got')
-      console.log(payload)
-      // const { items } = payload.data;
-      // const podArray = [];
       return { ...state, ingresses: action.payload }
-
     default:
       return state;
         

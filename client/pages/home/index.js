@@ -1,12 +1,7 @@
 import { useEffect } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import LinearProgress from '@material-ui/core/LinearProgress';
 import React from 'react';
-import { useTheme } from '@material-ui/core/styles';
 import PodsList from '../../components/Pods/PodsList';
-// import Navbar from '../../components/navbar/navbar'
-// import NavBar from '../../components/navbar/index.js'
 import * as actions from '../../actions/actions';
 import DeploymentList from '../../components/Deployments/DeploymentList';
 import Header from '../../components/Header/Header';
@@ -59,8 +54,19 @@ const mapDispatchToProps = dispatch => ({
 
 const HomePage = (props) => {
 
+<<<<<<< HEAD
 
   console.log("This is the console log to check how the hell the ingresses object looks like: ", props.ingresses);
+=======
+  useEffect(() => {
+    props.clickForPods();
+    props.clickForDeployments();
+    props.clickServices();
+    props.clickForNodes();
+    props.clickForIngresses();
+    props.clickNamespaces();
+  }, [])
+>>>>>>> dev
 
   return (
     <div className='homePage'>
@@ -73,15 +79,6 @@ const HomePage = (props) => {
         <PodsList/>
         <ServicesList/>
       </div>
-      <button className='btn' onClick={props.clickForPods}> get pods </button>
-      <button className='btn' onClick={props.clickForIngresses}> get ingresses </button>
-      <button className='btn' onClick={props.clickForNodes}> get nodes </button>
-      <button className='btn' onClick={props.clickForDeployments}> get deployment </button>
-      <button className='btn' onClick={props.clickServices}>Services</button>
-      <button className='btn' onClick={props.clickNamespaces}>Namespace</button>
-      <button className='btn' onClick={props.clickTestCustom}>Test custom</button>
-      <button className='btn' onClick={props.clickTestCustomServices}>Test custom</button>
-      <button className='btn' onClick={props.clickTestCustomDeployments}>Test custom</button>
     </div>
   )
 }
