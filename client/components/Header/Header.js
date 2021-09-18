@@ -72,16 +72,16 @@ const Header = props => {
   const namespaceSelect = [];
 
   if (!props.namespaces.length) {
-    namespaceSelect.push(<MenuItem key={123} value={props.currentNamespace.name}>{props.currentNamespace.name}</MenuItem>)
+    namespaceSelect.push(<MenuItem key={123} style={{color: 'white'}} value={props.currentNamespace.name}>{props.currentNamespace.name}</MenuItem>)
   }
 
 
     props.nodes.forEach((node, ind) => {
-      nodeSelect.push(<MenuItem key={ind} color='secondary' value={node.name}>{node.name}</MenuItem>)
+      nodeSelect.push(<MenuItem key={ind} style={{color: 'white'}} value={node.name}>{node.name}</MenuItem>)
     })
 
     props.namespaces.forEach((namespace, ind) => {
-      namespaceSelect.push(<MenuItem key={ind + 1000 + 'n'} value={namespace.name}>{namespace.name}</MenuItem>)
+      namespaceSelect.push(<MenuItem key={ind + 1000 + 'n'} style={{color: 'white'}} value={namespace.name}>{namespace.name}</MenuItem>)
     })
  
  
@@ -91,6 +91,7 @@ const Header = props => {
       <FormControl color='secondary' className={classes.formControl}>
         <InputLabel id="node-select">Current Node</InputLabel>
         <Select
+          style={{color: 'white'}}
           color='secondary'
           labelId="node-select"
           id="node-select"
@@ -104,6 +105,7 @@ const Header = props => {
       <FormControl color='secondary' className={classes.formControl}>
         <InputLabel id="demo-simple-select-label" >Current Namespace</InputLabel>
         <Select
+          style={{color: 'white'}}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={props.currentNamespace.name}

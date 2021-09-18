@@ -72,15 +72,6 @@ const HomePage = (props) => {
         <PodsList/>
         <ServicesList/>
       </div>
-      <button className='btn' onClick={props.clickForPods}> get pods </button>
-      <button className='btn' onClick={props.clickForIngresses}> get ingresses </button>
-      <button className='btn' onClick={props.clickForNodes}> get nodes </button>
-      <button className='btn' onClick={props.clickForDeployments}> get deployment </button>
-      <button className='btn' onClick={props.clickServices}>Services</button>
-      <button className='btn' onClick={props.clickNamespaces}>Namespace</button>
-      <button className='btn' onClick={props.clickTestCustom}>Test custom</button>
-      <button className='btn' onClick={props.clickTestCustomServices}>Test custom</button>
-      <button className='btn' onClick={props.clickTestCustomDeployments}>Test custom</button>
     </div>
   )
 }
