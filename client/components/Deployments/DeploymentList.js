@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import Deployment from './Deployment';
 import './DeploymentList.style.css'
@@ -21,6 +20,20 @@ const DeploymentList = (props) => {
       deployment={{...deployment}}
       />)
   })
+
+  if (!deploymentsArray.length){
+    return (
+      <div className='deploymentList'>
+      <div className='miniHeadList'>
+        <h4 className='miniHeadText'> Deployments </h4>
+        <h4 className='redText'> None Found in Current Namespace </h4>
+      </div>
+      <div className='overflowBox'>
+      <Deployment notLoaded={true} /> 
+      </div>
+    </div>
+    )
+  }
 
 
   return (

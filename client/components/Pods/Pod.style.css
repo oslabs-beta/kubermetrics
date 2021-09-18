@@ -20,6 +20,9 @@ p {
   text-shadow: 2px 2px 4px #000000;
 }
 .podLabel {
-  font-size: 18px;
-  margin-top: 5px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: 'Bebas Neue';
+  font-size: 32px;
+  margin: 15px;
 }

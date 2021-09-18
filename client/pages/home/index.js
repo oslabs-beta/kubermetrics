@@ -1,12 +1,7 @@
 import { useEffect } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import LinearProgress from '@material-ui/core/LinearProgress';
 import React from 'react';
-import { useTheme } from '@material-ui/core/styles';
 import PodsList from '../../components/Pods/PodsList';
-// import Navbar from '../../components/navbar/navbar'
-// import NavBar from '../../components/navbar/index.js'
 import * as actions from '../../actions/actions';
 import DeploymentList from '../../components/Deployments/DeploymentList';
 import Header from '../../components/Header/Header';
@@ -56,6 +51,16 @@ const mapDispatchToProps = dispatch => ({
 
 
 const HomePage = (props) => {
+
+  useEffect(() => {
+    props.clickForPods();
+    props.clickForDeployments();
+    props.clickServices();
+    props.clickForNodes();
+    props.clickForIngresses();
+    props.clickNamespaces();
+  }, [])
+
   return (
     <div className='homePage'>
       {/* <Navbar></Navbar> */}

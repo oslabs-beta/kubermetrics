@@ -9,9 +9,8 @@
  * ************************************
  */
 
- import { PermCameraMic } from '@material-ui/icons';
 import * as types from '../constants/actionTypes';
- import dummyNode from '../dummyNode'
+import dummyNode from '../dummyNode'
 
  const dummyNode2 = {
    ...dummyNode,
@@ -20,7 +19,7 @@ import * as types from '../constants/actionTypes';
 
  const initialState = {
   nodes: [],
-  currentNode: dummyNode
+  currentNode: {}
 };
 
 const nodesListReducer = (state = initialState, action) => {
