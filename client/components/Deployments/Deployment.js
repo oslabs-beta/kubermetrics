@@ -7,10 +7,14 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
 
 const mapDispatchToProps = dispatch => ({
-  loadDeployments: async () => {
-    let deployments = await actions.fetchDeployments();
+  loadDeployments: async (namespace) => {
+    let deployments = await actions.fetchCustomDeployments(namespace);
     dispatch(actions.getDeployments(deployments))
   }
+})
+
+const mapStateToProps = state => ({
+  namespace: state.namespaces.currentNamespace
 })
 
 
@@ -27,11 +31,11 @@ const Deployment = (props) => {
         <CardContent>
           <div>
               <p className='podLabel'>No Deployments found</p>
-              <center><Button color='secondary' variant='contained' size='small' onClick={props.loadDeployments}>Refresh</Button></center>
-          </div>
-      </CardContent>
-    </DeploymentElement>
-  </div>
+              <center><Button color='secondary' variant='contained' size='small' onClick={() => props.loadDeployments(props.namespace)}>Refresh</Button></center>
+            </div>
+        </CardContent>
+      </DeploymentElement>
+     </div>
     )
   }
 
@@ -54,4 +58,4 @@ const Deployment = (props) => {
 
 
 
-export default connect(null, mapDispatchToProps)(Deployment);
+export default connect(mapStateToProps, mapDispatchToProps)(Deployment);

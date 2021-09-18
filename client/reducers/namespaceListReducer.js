@@ -6,8 +6,8 @@ const dum2 = {...dummyNamespace, name: 'monitoring'}
 const dum3 = {...dummyNamespace, name: 'kube shit'}
 
 const initialState = {
-  namespaces: [dummyNamespace, dum2, dum3],
-  currentNamespace: dummyNamespace
+  namespaces: [],
+  currentNamespace: 'default'
 }
 
 const namespaceListReducer = (state = initialState, action) => {

@@ -11,10 +11,14 @@ const { PodElement } = mui;
 
 
 const mapDispatchToProps = dispatch => ({
-  loadPods: async () => {
-    let pods = await actions.fetchPods();
+  loadPods: async (namespace) => {
+    let pods = await actions.fetchCustomPods(namespace);
     dispatch(actions.getPods(pods));
   }
+})
+
+const mapStateToProps = state => ({ 
+  namespace: state.namespaces.currentNamespace
 })
 
 const Pod = (props) => {
@@ -27,7 +31,7 @@ const Pod = (props) => {
           <CardContent>
             <div>
               <p className='podLabel'>No Pods Found</p>
-              <center><Button color='secondary' variant='contained' size='small' onClick={props.loadPods}>Refresh</Button></center>   
+              <center><Button color='secondary' variant='contained' size='small' onClick={() => props.loadPods(props.namespace)}>Refresh</Button></center>   
            </div>
          </CardContent>
        </PodElement>
@@ -52,4 +56,4 @@ const Pod = (props) => {
 
 
 
-export default connect(null, mapDispatchToProps)(Pod);
+export default connect(mapStateToProps, mapDispatchToProps)(Pod);
