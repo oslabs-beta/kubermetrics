@@ -10,7 +10,7 @@ import Graph from '../../components/Charts/Testgraph'
 const MetricsPage = (props) => {
   return (
     <div className='MetricsPage'>
-      {/* <Graph></Graph> */}
+      <Graph></Graph>
     </div>
   )
 }
