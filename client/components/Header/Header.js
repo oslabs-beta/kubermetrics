@@ -12,13 +12,15 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import * as actions from '../../actions/actions';
 import { StarTwoTone } from '@material-ui/icons';
+import Ingress from './ingressDialogBox';
 
 
 const mapStateToProps = state => ({
   nodes: state.nodes.nodes,
   currentNode: state.nodes.currentNode,
   namespaces: state.namespaces.namespaces,
-  currentNamespace: state.namespaces.currentNamespace
+  currentNamespace: state.namespaces.currentNamespace,
+  ingresses: state.ingresses.ingresses
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -116,6 +118,9 @@ const Header = props => {
       </FormControl>
       
       <Button color='secondary' onClick={props.fetchNodes}>Refresh</Button>
+      <div>
+        <Ingress ingresses={props.ingresses}/>
+      </div>
     </div>
   );
 }

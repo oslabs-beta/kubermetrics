@@ -10,7 +10,8 @@ import CurrentNode from '../../components/Node/CurrentNode';
 
 
 const mapStateToProps = state => ({
-  pods: state.pods.pods
+  pods: state.pods.pods,
+  ingresses: state.ingresses.ingresses,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -21,6 +22,7 @@ const mapDispatchToProps = dispatch => ({
   clickForIngresses: async () => {
     const ingresses = await actions.fetchIngress()
     dispatch(actions.getIngress(ingresses))
+
   },
   clickForNodes: async () => {
     let nodes = await actions.fetchNodes();
