@@ -5,9 +5,13 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './Sidebar.css';
 import { IconContext } from 'react-icons';
+import { connect } from 'react-redux';
 
+const mapStateToProps = state => ({
+  ingresses: state.ingresses.ingresses,
+})
 
-function Sidebar() {
+function Sidebar(props) {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -16,7 +20,6 @@ function Sidebar() {
     <>
     <IconContext.Provider value = {{ color: '#7135f0' }}>
       <div className='sidebar'>
-
         <Link to='#' className='menu-bars'>
           <FaIcons.FaBars className='icons'/>
         </Link>
@@ -42,4 +45,4 @@ function Sidebar() {
   );
 };
 
-export default Sidebar;
+export default connect(mapStateToProps, null)(Sidebar);
