@@ -54,10 +54,6 @@ const mapDispatchToProps = dispatch => ({
 
 const HomePage = (props) => {
 
-<<<<<<< HEAD
-
-  console.log("This is the console log to check how the hell the ingresses object looks like: ", props.ingresses);
-=======
   useEffect(() => {
     props.clickForPods();
     props.clickForDeployments();
@@ -66,7 +62,6 @@ const HomePage = (props) => {
     props.clickForIngresses();
     props.clickNamespaces();
   }, [])
->>>>>>> dev
 
   return (
     <div className='homePage'>
