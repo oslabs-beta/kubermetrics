@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './Sidebar.css';
 import { IconContext } from 'react-icons';
-import Ingress from '../dialog-box';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
@@ -21,14 +20,10 @@ function Sidebar(props) {
     <>
     <IconContext.Provider value = {{ color: '#7135f0' }}>
       <div className='sidebar'>
-
         <Link to='#' className='menu-bars'>
           <FaIcons.FaBars className='icons'/>
         </Link>
         <h3>Kubermetrics</h3>
-        <div>
-          <Ingress ingresses={props.ingresses}/>
-        </div>
       </div>
 
     <nav className='nav-menu'>
