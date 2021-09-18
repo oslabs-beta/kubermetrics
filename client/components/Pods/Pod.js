@@ -46,6 +46,7 @@ const Pod = (props) => {
         <CardContent>
           <div>
               <p className='podLabel'>{props.label}</p>
+              <p className='podLabel'>{props.podName}</p>
               <center><Button color='secondary' variant='contained' size='small'>MORE INFO</Button></center>   
           </div>
       </CardContent>
