@@ -52,5 +52,5 @@ export const ServiceElement = styled(Card)({
   padding: '45px',
   justifyContent: 'center',
   alignItems: 'center',
-  clipPath: 'inset(21% 0 22% 0 round 10% 10% 10% 10%)',
+  clipPath: 'inset(14% 0 15% 0 round 10% 10% 10% 10%)',
 });

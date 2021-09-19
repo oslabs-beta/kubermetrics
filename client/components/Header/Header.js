@@ -13,6 +13,7 @@ import Select from '@material-ui/core/Select';
 import * as actions from '../../actions/actions';
 import { StarTwoTone } from '@material-ui/icons';
 import Ingress from './ingressDialogBox';
+import CustomizedDialogs from '../../Dialog/PodsDialog';
 
 
 const mapStateToProps = state => ({
@@ -118,9 +119,9 @@ const Header = props => {
       </FormControl>
       
       <Button color='secondary' onClick={props.fetchNodes}>Refresh</Button>
-      <div>
+      
         <Ingress ingresses={props.ingresses}/>
-      </div>
+      
     </div>
   );
 }

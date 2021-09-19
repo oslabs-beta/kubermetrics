@@ -30,23 +30,18 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.grey[500],
   },
   ingressContainer: {
+    marginLeft: '600px',
     cursor: 'pointer',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '50px',
-    width: '200px',
-    borderRadius: '25px',
+    height: '35px',
+    width: '100px',
+    borderRadius: '10px',
     boxShadow: theme.shadows[3],
-    color:
-      theme.palette.type === 'dark'
-        ? theme.palette.common.white
-        : theme.palette.common.black,
-    backgroundColor:
-      theme.palette.type === 'dark'
-        ? theme.palette.grey['A400']
-        : theme.palette.grey[100],
+    color: 'white',
+    backgroundColor: 'grey'
   },
 }));
 

@@ -24,7 +24,7 @@ const Service = (props) => {
 
   if (props.notLoaded) {
     return (
-      <div className='serviceContainer'>
+      <div className='podContainer'>
       <ServiceElement>
         <CardContent>
           <div>
@@ -40,7 +40,7 @@ const Service = (props) => {
 
 
   return (
-    <div className='serviceContainer'>
+    <div className='podContainer'>
       <ServiceElement>
         <CardContent>
           <div>
