@@ -86,8 +86,7 @@ const Header = props => {
     props.namespaces.forEach((namespace, ind) => {
       namespaceSelect.push(<MenuItem key={ind + 1000 + 'n'} style={{color: 'white'}} value={namespace.name}>{namespace.name}</MenuItem>)
     })
- 
- 
+
 
   return (
     <div className='header'>
@@ -120,7 +119,7 @@ const Header = props => {
       
       <Button color='secondary' onClick={props.fetchNodes}>Refresh</Button>
       
-        <Ingress ingresses={props.ingresses}/>
+      {props.ingresses.length > 0 && <Ingress ingresses={props.ingresses}/>}
       
     </div>
   );

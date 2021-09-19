@@ -21,7 +21,14 @@ const customStyle = {
   padding: '5px',
 }
 
-export default function PodDialog(props) {
+
+const customStyle2 = {
+  color: 'rgb(0, 255, 0)',
+  margin: '5px',
+  padding: '5px',
+}
+
+export default function DeploymentDialog(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -31,11 +38,11 @@ export default function PodDialog(props) {
     setOpen(false);
   };
 
-  const { pod } = props;
+  const { deployment } = props;
   const containerArr = [];
 
-  if (pod.containers.length){
-  pod.containers.forEach((container, ind) => {
+  if (deployment.containers.length){
+  deployment.containers.forEach((container, ind) => {
     containerArr.push(
       <TableRow key={ind + 30}>
       <TableCell key={ind + 10} style={customStyle} component="th" scope="row">
@@ -61,7 +68,7 @@ export default function PodDialog(props) {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" style={customStyle} onClose={handleClose}>
-          <center>Pod Info</center>
+          <center>Deployment Info</center>
         </DialogTitle>
         <DialogContent dividers>
           <TableContainer component={Paper}>
@@ -75,59 +82,52 @@ export default function PodDialog(props) {
               <TableBody>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Pod Name: 
+                      Deployment Name: 
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.podName}</TableCell>
+                    <TableCell style={customStyle}>{deployment.name}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Api Version: 
+                      Replicas: 
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.apiVersion}</TableCell>
+                    <TableCell style={customStyle2}>{deployment.replicas}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Node Name: 
+                      UID: 
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.nodeName}</TableCell>
+                    <TableCell style={customStyle}>{deployment.uid}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Namespace:  
+                     Created:  
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.namespace}</TableCell>
+                    <TableCell style={customStyle}>{deployment.created}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Created:  
+                      Strategy Type:  
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.created}</TableCell>
+                    <TableCell style={customStyle}>{deployment.strategy.type}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Service Account:  
+                      DNS Policy:  
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.serviceAccount}</TableCell>
+                    <TableCell style={customStyle}>{deployment.spec.dnsPolicy}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Service Account Name:  
+                      Restart Policy:  
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.serviceAccountName}</TableCell>
+                    <TableCell style={customStyle}>{deployment.spec.restartPolicy}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Host IP:  
+                      Scheduler Name:  
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.hostIP}</TableCell>
+                    <TableCell style={customStyle}>{deployment.spec.schedulerName}</TableCell>
                   </TableRow>
-                  <TableRow >
-                    <TableCell style={customStyle} component="th" scope="row">
-                      Pod IP:  
-                    </TableCell>
-                    <TableCell style={customStyle}>{pod.podIP}</TableCell>
-                  </TableRow>
-                  {containerArr}
               </TableBody>
             </Table>
           </TableContainer>

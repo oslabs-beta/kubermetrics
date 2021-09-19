@@ -5,7 +5,7 @@ import * as actions from '../../actions/actions';
 import Button from '@material-ui/core/Button';
 import './Pod.style.css';
 import * as mui from '../mui-elements'
-import CustomizedDialogs from '../../Dialog/PodsDialog';
+import PodDialog from '../../Dialog/PodsDialog';
 
 
 const { PodElement } = mui;
@@ -49,7 +49,7 @@ const Pod = (props) => {
           <div>
               <p className='podLabel'>{props.label}</p>
               <p className='podLabel'>{props.podName}</p>
-              <center><CustomizedDialogs pod={props.pod}/></center>
+              <center><PodDialog pod={props.pod}/></center>
           </div>
       </CardContent>
     </PodElement>

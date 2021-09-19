@@ -63,7 +63,7 @@ export const fetchPods = async (url = '/podList') => {
       namespace: item.metadata.namespace,
       uid: item.metadata.uid,
       created: item.metadata.creationTimestamp,
-      containters: item.spec.containers,
+      containers: item.spec.containers,
       serviceAccount: item.spec.serviceAccount,
       serviceAccountName: item.spec.serviceAccountName,
       hostIP: item.status.hostIP,

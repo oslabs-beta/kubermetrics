@@ -83,7 +83,7 @@ h3 {
 
 .redText {
   text-align: center;
-  color: rgb(255, 12, 8);
+  color: #f5066b;
   font-family: 'Bebas Neue';
   font-size: 24px;
   margin: 5px
@@ -99,5 +99,9 @@ h3 {
   height: 15px;
   width: 17px;
   font-size: 13px;
+}
+
+.MuiTable-root {
+  min-width: 500px
 }
 

@@ -6,7 +6,7 @@ const dummyPod = {
   namespace: 'item.metadata.namespace',
   uid: 'item.metadata.uid',
   created: 'item.metadata.creationTimestamp',
-  containers: 'item.spec.containers',
+  containers: [{image: 'image name', ports:[{containerPort: 9093}]}],
   serviceAccount: 'item.spec.serviceAccount',
   serviceAccountName: 'item.spec.serviceAccountName',
   hostIP: 'item.status.hostIP',
