@@ -39,22 +39,6 @@ export default function DeploymentDialog(props) {
   };
 
   const { deployment } = props;
-  const containerArr = [];
-
-  if (deployment.containers.length){
-  deployment.containers.forEach((container, ind) => {
-    containerArr.push(
-      <TableRow key={ind + 30}>
-      <TableCell key={ind + 10} style={customStyle} component="th" scope="row">
-        Container {ind + 1}:  
-      </TableCell>
-      <TableCell key={ind + 20} style={customStyle}>{container.image}</TableCell>
-    </TableRow>
-    )
-  })
-  }
-
-  
 
   return (
     <div>
@@ -114,19 +98,19 @@ export default function DeploymentDialog(props) {
                     <TableCell style={customStyle} component="th" scope="row">
                       DNS Policy:  
                     </TableCell>
-                    <TableCell style={customStyle}>{deployment.spec.dnsPolicy}</TableCell>
+                    <TableCell style={customStyle}>{deployment.template.spec.dnsPolicy}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
                       Restart Policy:  
                     </TableCell>
-                    <TableCell style={customStyle}>{deployment.spec.restartPolicy}</TableCell>
+                    <TableCell style={customStyle}>{deployment.template.spec.restartPolicy}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
                       Scheduler Name:  
                     </TableCell>
-                    <TableCell style={customStyle}>{deployment.spec.schedulerName}</TableCell>
+                    <TableCell style={customStyle}>{deployment.template.spec.schedulerName}</TableCell>
                   </TableRow>
               </TableBody>
             </Table>

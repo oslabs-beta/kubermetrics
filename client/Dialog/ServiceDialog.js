@@ -21,7 +21,14 @@ const customStyle = {
   padding: '5px',
 }
 
-export default function PodDialog(props) {
+
+const customStyle2 = {
+  color: 'rgb(0, 255, 0)',
+  margin: '5px',
+  padding: '5px',
+}
+
+export default function ServiceDialog(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -31,23 +38,31 @@ export default function PodDialog(props) {
     setOpen(false);
   };
 
-  const { pod } = props;
-  const containerArr = [];
+  const { service } = props;
+  let portsArr = [];
 
-  if (pod.containers){
-  pod.containers.forEach((container, ind) => {
-    containerArr.push(
-      <TableRow key={ind + 30}>
-      <TableCell key={ind + 10} style={customStyle} component="th" scope="row">
-        Container {ind + 1}:  
-      </TableCell>
-      <TableCell key={ind + 20} style={customStyle}>{container.image}</TableCell>
-    </TableRow>
-    )
+  service.allData.spec.ports.forEach((port, ind) => {
+    <>
+    <TableRow key={ind + 120}>
+    <TableCell key ={ind + 110}style={customStyle} component="th" scope="row">
+      P{ind + 1} Port Name:  
+    </TableCell>
+    <TableCell key={ind + 150} style={customStyle}>{port.name}</TableCell>
+  </TableRow>
+  <TableRow key={ind + 220}>
+    <TableCell key ={ind + 210}style={customStyle} component="th" scope="row">
+      P{ind + 1} Port:  
+    </TableCell>
+    <TableCell key={ind + 250} style={customStyle}>{port.port}</TableCell>
+  </TableRow>
+  <TableRow key={ind + 320}>
+    <TableCell key ={ind + 310}style={customStyle} component="th" scope="row">
+      P{ind + 1} Protocol:  
+    </TableCell>
+    <TableCell key={ind + 350} style={customStyle}>{port.protocol}</TableCell>
+  </TableRow>
+  </>
   })
-  }
-
-  
 
   return (
     <div>
@@ -61,7 +76,7 @@ export default function PodDialog(props) {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" style={customStyle} onClose={handleClose}>
-          <center>Pod Info</center>
+          <center>Service Info</center>
         </DialogTitle>
         <DialogContent dividers>
           <TableContainer component={Paper}>
@@ -75,59 +90,41 @@ export default function PodDialog(props) {
               <TableBody>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Pod Name: 
+                      Service Name: 
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.podName}</TableCell>
+                    <TableCell style={customStyle}>{service.name}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Api Version: 
+                      Type: 
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.apiVersion}</TableCell>
+                    <TableCell style={customStyle}>{service.type}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Node Name: 
+                     UID:  
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.nodeName}</TableCell>
-                  </TableRow>
-                  <TableRow >
-                    <TableCell style={customStyle} component="th" scope="row">
-                      Namespace:  
-                    </TableCell>
-                    <TableCell style={customStyle}>{pod.namespace}</TableCell>
+                    <TableCell style={customStyle}>{service.id}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
                       Created:  
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.created}</TableCell>
+                    <TableCell style={customStyle}>{service.created}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Service Account:  
+                      Selector:  
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.serviceAccount}</TableCell>
+                    <TableCell style={customStyle}>{service.selector.app}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Service Account Name:  
+                      Cluster IP:  
                     </TableCell>
-                    <TableCell style={customStyle}>{pod.serviceAccountName}</TableCell>
+                    <TableCell style={customStyle}>{service.allData.spec.clusterIP}</TableCell>
                   </TableRow>
-                  <TableRow >
-                    <TableCell style={customStyle} component="th" scope="row">
-                      Host IP:  
-                    </TableCell>
-                    <TableCell style={customStyle}>{pod.hostIP}</TableCell>
-                  </TableRow>
-                  <TableRow >
-                    <TableCell style={customStyle} component="th" scope="row">
-                      Pod IP:  
-                    </TableCell>
-                    <TableCell style={customStyle}>{pod.podIP}</TableCell>
-                  </TableRow>
-                  {containerArr}
+
               </TableBody>
             </Table>
           </TableContainer>

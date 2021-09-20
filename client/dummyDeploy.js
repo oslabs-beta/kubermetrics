@@ -7,8 +7,8 @@
   uid: 'metadata.uid',
   replicas: 'spec.replicas',
   selector: 'spec.matchLabel',
-  strategy: 'spec.strategy',
-  template: 'spec.template',
+  strategy: {type: 'Rolling Update'},
+  template: {spec: {dnsPolicy: 'ClusterFirst', schedulerName: 'default-sheduler', restartPolicy:'Always'}},
   availabeReplicas: 'status.availabeReplicas',
   conditions: 'status.conditions',
   readyReplicas: 'status.readyReplicas'

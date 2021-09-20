@@ -13,7 +13,7 @@
  import dummyDeploy from '../dummyDeploy';
 
  const initialState = {
-  deployments: []
+  deployments: [dummyDeploy]
 };
 
 const deploymentListReducer = (state = initialState, action) => {

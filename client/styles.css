@@ -68,7 +68,7 @@ h3 {
 
 .overflowBox {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   flex-direction: row;
   overflow: scroll;
 }
