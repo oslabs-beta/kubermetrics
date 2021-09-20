@@ -14,6 +14,7 @@ import * as actions from '../../actions/actions';
 import { StarTwoTone } from '@material-ui/icons';
 import Ingress from './ingressDialogBox';
 import CustomizedDialogs from '../../Dialog/PodsDialog';
+import IngressDialog from '../../Dialog/IngressDialog';
 
 
 const mapStateToProps = state => ({
@@ -119,8 +120,7 @@ const Header = props => {
       
       <Button color='secondary' onClick={props.fetchNodes}>Refresh</Button>
       
-      {props.ingresses.length > 0 && <Ingress ingresses={props.ingresses}/>}
-      
+     <div className='ingressButton'><IngressDialog className='ingressButton' ingress={props.ingresses[0]} /></div>
     </div>
   );
 }

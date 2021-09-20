@@ -23,7 +23,7 @@ const customStyle = {
 
 
 const customStyle2 = {
-  color: 'rgb(0, 255, 0)',
+  color: '#7135f0',
   margin: '5px',
   padding: '5px',
 }
@@ -41,36 +41,44 @@ export default function IngressDialog(props) {
   const { ingress } = props;
   let pathsArr = [];
 
+  if (ingress){
   ingress.paths.forEach((path, ind) => {
+    let style = customStyle
     pathsArr.push(
     <>
     <TableRow key={ind + 1}>
-    <TableCell key={ind + 2}style={customStyle} component="th" scope="row">
-      P{ind + 1} Path:  
+    <TableCell key={ind + 2}style={style} component="th" scope="row">
+      Path:  
     </TableCell>
-    <TableCell key={ind + 3} style={customStyle}>{path.path}</TableCell>
+    <TableCell key={ind + 3} style={style}>{path.path}</TableCell>
   </TableRow>
   <TableRow key={ind + 4}>
-    <TableCell key={ind + 5}style={customStyle} component="th" scope="row">
-      P{ind + 1} Port:  
+    <TableCell key={ind + 5}style={style} component="th" scope="row">
+      Port:  
     </TableCell>
-    <TableCell key={ind + 6} style={customStyle}>{path.port}</TableCell>
+    <TableCell key={ind + 6} style={style}>{path.servicePort}</TableCell>
   </TableRow>
   <TableRow key={ind + 7}>
-    <TableCell key ={ind + 8}style={customStyle} component="th" scope="row">
-      P{ind + 1} Service Name:  
+    <TableCell key ={ind + 8}style={style} component="th" scope="row">
+      Service Name:  
     </TableCell>
-    <TableCell key={ind + 9} style={customStyle}>{path.serviceName}</TableCell>
+    <TableCell key={ind + 9} style={style}>{path.serviceName}</TableCell>
   </TableRow>
   <TableRow key={ind + 10}>
-    <TableCell key ={ind + 11}style={customStyle} component="th" scope="row">
-      P{ind + 1} Path Type:  
+    <TableCell key ={ind + 11}style={style} component="th" scope="row">
+     Path Type:  
     </TableCell>
-    <TableCell key={ind + 12} style={customStyle}>{path.pathType}</TableCell>
+    <TableCell key={ind + 12} style={style}>{path.pathType}</TableCell>
+  </TableRow>
+  <TableRow key={ind + 13}>
+    <TableCell key ={ind + 14}style={style} component="th" scope="row">
+    </TableCell>
+    <TableCell key={ind + 15} style={style}></TableCell>
   </TableRow>
   </>
     )
   })
+  }
 
   return (
     <div>
@@ -96,12 +104,6 @@ export default function IngressDialog(props) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                  <TableRow >
-                    <TableCell style={customStyle} component="th" scope="row">
-                     Host: 
-                    </TableCell>
-                    <TableCell style={customStyle}>{ingress.host}</TableCell>
-                  </TableRow>
                 {pathsArr}
               </TableBody>
             </Table>

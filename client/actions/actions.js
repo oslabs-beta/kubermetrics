@@ -89,7 +89,7 @@ export const fetchIngress = async (url = '/ingressList') => {
   const { items } = response.data;
   const { metadata, spec } = items[0];
 
-  const ingressList = {
+  const ingressList = [{
     metadata: {
       class: metadata.annotations['kubernetes.io/ingress.class'],
       creationTime: metadata.creationTimestamp,
@@ -105,7 +105,7 @@ export const fetchIngress = async (url = '/ingressList') => {
       path: path.path,
     })),
     fullData: items,
-  };
+  }];
 
   return ingressList;
 
