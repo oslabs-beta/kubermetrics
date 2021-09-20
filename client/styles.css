@@ -109,3 +109,11 @@ h3 {
   margin-left: 50px;
 }
 
+.nodeInfo {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
