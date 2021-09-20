@@ -5,6 +5,7 @@ const client = require('prom-client');
 const cors = require('cors');
 const axios = require('axios');
 const k8Controller = require('./controllers/k8Controller.js');
+const { exec } = require("child_process");
 
 
 app.use(cors());
@@ -71,6 +72,22 @@ app.post('/customIngresses', k8Controller.getCustomIngressList, (req, res) => {
 app.post('/customDeployments', k8Controller.getCustomDeploymentList, (req, res) => {
   res.status(201).json(res.locals.deploymentList)
 });
+
+app.post('/commands', (req, res) => {
+  const { cmd } = req.body;
+  exec(cmd, (error, stdout, stderr) => {
+    if (error) {
+      console.log(`error: ${error.message}`)
+      return;
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`)
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    res.send(stdout)
+  })
+})
 
 
 app.get('http://localhost:30000/getMetrics', async (req, res) => {
