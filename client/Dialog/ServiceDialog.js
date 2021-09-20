@@ -42,15 +42,16 @@ export default function ServiceDialog(props) {
   let portsArr = [];
 
   service.allData.spec.ports.forEach((port, ind) => {
+    portsArr.push(
     <>
     <TableRow key={ind + 120}>
-    <TableCell key ={ind + 110}style={customStyle} component="th" scope="row">
+    <TableCell key={ind + 110}style={customStyle} component="th" scope="row">
       P{ind + 1} Port Name:  
     </TableCell>
     <TableCell key={ind + 150} style={customStyle}>{port.name}</TableCell>
   </TableRow>
   <TableRow key={ind + 220}>
-    <TableCell key ={ind + 210}style={customStyle} component="th" scope="row">
+    <TableCell key={ind + 210}style={customStyle} component="th" scope="row">
       P{ind + 1} Port:  
     </TableCell>
     <TableCell key={ind + 250} style={customStyle}>{port.port}</TableCell>
@@ -62,6 +63,7 @@ export default function ServiceDialog(props) {
     <TableCell key={ind + 350} style={customStyle}>{port.protocol}</TableCell>
   </TableRow>
   </>
+    )
   })
 
   return (
@@ -114,17 +116,11 @@ export default function ServiceDialog(props) {
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Selector:  
-                    </TableCell>
-                    <TableCell style={customStyle}>{service.selector.app}</TableCell>
-                  </TableRow>
-                  <TableRow >
-                    <TableCell style={customStyle} component="th" scope="row">
                       Cluster IP:  
                     </TableCell>
                     <TableCell style={customStyle}>{service.allData.spec.clusterIP}</TableCell>
                   </TableRow>
-
+                {portsArr}
               </TableBody>
             </Table>
           </TableContainer>

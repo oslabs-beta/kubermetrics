@@ -5,6 +5,7 @@ import './Service.styles.css';
 import * as mui from '../mui-elements';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
+import ServiceDialog from '../../Dialog/ServiceDialog';
 
 
 const { ServiceElement } = mui;
@@ -45,7 +46,7 @@ const Service = (props) => {
         <CardContent>
           <div>
             <p className='podLabel'>{props.service.name}</p>
-            <center><Button color='secondary' variant='contained' size='small'>MORE INFO</Button></center>
+            <center><ServiceDialog service={props.service}>MORE INFO</ServiceDialog></center>
           </div>
         </CardContent>
       </ServiceElement>
