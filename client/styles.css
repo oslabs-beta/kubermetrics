@@ -58,7 +58,7 @@ h3 {
   flex-direction: row;
 }
 
-.miniHeadText { 
+.miniHeadText {
   text-align: center;
   color: white;
   font-family: 'Bebas Neue';
@@ -117,3 +117,20 @@ h3 {
   align-items: center;
 }
 
+
+.metricsPage {
+  display: flex;
+  flex-direction: column;
+  width: 1920px;
+  height: 100%;
+  margin-left: 117px;
+}
+
+
+.AlertsPage {
+  display: flex;
+  flex-direction: column;
+  width: 1920px;
+  height: 100%;
+  margin-left: 117px;
+}
