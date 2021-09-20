@@ -6,13 +6,15 @@ import React from 'react';
 import { useTheme } from '@material-ui/core/styles';
 // import PodsList from '../../components/Pods/PodsList';
 // import Navbar from '../../components/navbar/navbar'
+import PodDashboard from '../../components/GrafanaMonitoring/PodDashboard';
+
 
 
 
 const AlertsPage = (props) => {
   return (
     <div className='AlertsPage'>
-      <p> Alerts </p>
+      <PodDashboard />
     </div>
   )
 }
