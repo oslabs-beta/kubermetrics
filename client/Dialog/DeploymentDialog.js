@@ -117,7 +117,7 @@ export default function DeploymentDialog(props) {
           </TableContainer>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button style={customStyle} autoFocus onClick={handleClose}>
             Close
           </Button>
         </DialogActions>

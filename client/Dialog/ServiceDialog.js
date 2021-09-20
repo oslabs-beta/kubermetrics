@@ -126,7 +126,7 @@ export default function ServiceDialog(props) {
           </TableContainer>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
+          <Button style={customStyle} autoFocus onClick={handleClose}>
             Close
           </Button>
         </DialogActions>
