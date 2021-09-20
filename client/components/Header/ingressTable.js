@@ -40,10 +40,11 @@ export default function IngressTable({ ingresses }) {
   const columnNames = [];
 
   // Iterate over the first object in the `paths` array to create an array of columnNames.
-  for (const prop in paths[0]) {
+  if (paths) {
+    for (const prop in paths[0]) {
     columnNames.push(prop);
   }
-
+  }
   const makeRows = data => {
     const rowValuesArray = [];
     // .map() over ingress data to gain access to each object

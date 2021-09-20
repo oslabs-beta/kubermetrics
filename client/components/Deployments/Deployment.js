@@ -5,6 +5,7 @@ import './Deployment.style.css';
 import * as mui from '../mui-elements'
 import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
+import DeploymentDialog from '../../Dialog/DeploymentDialog';
 
 const mapDispatchToProps = dispatch => ({
   loadDeployments: async (namespace) => {
@@ -47,8 +48,7 @@ const Deployment = (props) => {
         <CardContent>
           <div>
               <p className='podLabel'>{props.deployment.name}</p>
-              <center><Button color='secondary' variant='contained' size='small'>MORE INFO</Button></center>
-            
+              <center><DeploymentDialog deployment={props.deployment}></DeploymentDialog></center>
           </div>
       </CardContent>
     </DeploymentElement>

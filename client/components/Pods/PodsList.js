@@ -15,6 +15,7 @@ export const PodList = (props) => {
   props.pods.forEach((pod, ind) => {
     podsArray.push(<Pod
       key={ind}
+      pod={pod}
       apiVersion={pod.apiVersion}
       nodeName={pod.nodeName}
       label={pod.label}

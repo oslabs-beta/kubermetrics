@@ -63,7 +63,7 @@ export const fetchPods = async (url = '/podList') => {
       namespace: item.metadata.namespace,
       uid: item.metadata.uid,
       created: item.metadata.creationTimestamp,
-      containters: item.spec.containers,
+      containers: item.spec.containers,
       serviceAccount: item.spec.serviceAccount,
       serviceAccountName: item.spec.serviceAccountName,
       hostIP: item.status.hostIP,
@@ -89,7 +89,7 @@ export const fetchIngress = async (url = '/ingressList') => {
   const { items } = response.data;
   const { metadata, spec } = items[0];
 
-  const ingressList = {
+  const ingressList = [{
     metadata: {
       class: metadata.annotations['kubernetes.io/ingress.class'],
       creationTime: metadata.creationTimestamp,
@@ -105,7 +105,7 @@ export const fetchIngress = async (url = '/ingressList') => {
       path: path.path,
     })),
     fullData: items,
-  };
+  }];
 
   return ingressList;
 

@@ -5,12 +5,15 @@ const client = require('prom-client');
 const cors = require('cors');
 const axios = require('axios');
 const k8Controller = require('./controllers/k8Controller.js');
+const { exec } = require("child_process");
 
 
 app.use(cors());
 app.use(express.json());
 
 console.log(client.collectDefaultMetrics());
+
+
 
 app.use("/build", express.static(path.join(__dirname, "../build")));
 app.use(express.static(__dirname + '/client/assets'));
@@ -19,17 +22,16 @@ app.get("/", (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, "../index.html"));
 });
 
-// k8s api test
-// const k8s = require('@kubernetes/client-node');
+app.get("/metrics", (req, res) => {
+  return res.redirect('/');
+});
+app.get("/alerts", (req, res) => {
+  return res.redirect('/');
+});
+app.get("/terminal", (req, res) => {
+  return res.redirect('/');
+});
 
-// const kc = new k8s.KubeConfig();
-// kc.loadFromDefault();
-
-// const k8sApi = kc.makeApiClient(k8s.CoreV1Api);
-
-// k8sApi.listNamespacedPod('default').then((res) => {
-//     console.log(res.body.items[0].metadata);
-// });
 
 app.get('/namespaceList', k8Controller.getNamespaceList, (req, res) => {
   res.status(201).send(res.locals.namespaceList);
@@ -71,12 +73,26 @@ app.post('/customDeployments', k8Controller.getCustomDeploymentList, (req, res) 
   res.status(201).json(res.locals.deploymentList)
 });
 
+app.post('/commands', (req, res) => {
+  const { cmd } = req.body;
+  exec(cmd, (error, stdout, stderr) => {
+    if (error) {
+      console.log(`error: ${error.message}`)
+      return;
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`)
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    res.send(stdout)
+  })
+})
+
 
 app.get('http://localhost:30000/getMetrics', async (req, res) => {
   console.log('Scraped');
   console.log(await client.register.getMetricsAsJSON())
-  // console.log(await client.register.getMetricsAsJSON())
-  //res.send(await client.register.getMetricsAsJSON());
 });
 
 app.listen(3080, async () => {

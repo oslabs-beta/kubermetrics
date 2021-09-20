@@ -5,6 +5,7 @@ import * as actions from '../../actions/actions';
 import Button from '@material-ui/core/Button';
 import './Pod.style.css';
 import * as mui from '../mui-elements'
+import PodDialog from '../../Dialog/PodsDialog';
 
 
 const { PodElement } = mui;
@@ -32,6 +33,7 @@ const Pod = (props) => {
             <div>
               <p className='podLabel'>No Pods Found</p>
               <center><Button color='secondary' variant='contained' size='small' onClick={() => props.loadPods(props.namespace)}>Refresh</Button></center>   
+              
            </div>
          </CardContent>
        </PodElement>
@@ -47,7 +49,7 @@ const Pod = (props) => {
           <div>
               <p className='podLabel'>{props.label}</p>
               <p className='podLabel'>{props.podName}</p>
-              <center><Button color='secondary' variant='contained' size='small'>MORE INFO</Button></center>   
+              <center><PodDialog pod={props.pod}/></center>
           </div>
       </CardContent>
     </PodElement>
