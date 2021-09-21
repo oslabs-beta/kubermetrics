@@ -1,13 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { connect } from 'react-redux';
-// import actions from action creators file
-import * as actions from '../actions/actions';
 import HomePage from '../pages/home/index.js'
 import MetricsPage from '../pages/metrics/index.js'
 import AlertsPage from '../pages/alerts/index.js'
-import TerminalPage from '../pages/terminal/index.js'
-import NavRoutes from '../components/NavRoutes/index.js';
 import '../styles.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Sidebar from '../components/sidebar/Sidebar.js';
@@ -28,17 +22,9 @@ function App() {
           <Route path='/' exact component={HomePage} />
           <Route path='/metrics' exact component={MetricsPage} />
           <Route path='/alerts' exact component={AlertsPage} />
-          <Route path='/terminal' exact component={TerminalPage} />
         </Switch>
         </div>
       </Router>
-        {/* <Switch>
-          {NavRoutes.map((route) => (
-            <Route exact path={route.path} key={route.path}>
-              <route.component />
-            </Route>
-          ))}
-        </Switch> */}
     </MuiThemeProvider>
 
   );

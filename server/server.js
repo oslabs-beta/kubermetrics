@@ -5,13 +5,10 @@ const client = require('prom-client');
 const cors = require('cors');
 const axios = require('axios');
 const k8Controller = require('./controllers/k8Controller.js');
-const { exec } = require("child_process");
 
 
 app.use(cors());
 app.use(express.json());
-
-console.log(client.collectDefaultMetrics());
 
 
 
@@ -73,21 +70,6 @@ app.post('/customDeployments', k8Controller.getCustomDeploymentList, (req, res) 
   res.status(201).json(res.locals.deploymentList)
 });
 
-app.post('/commands', (req, res) => {
-  const { cmd } = req.body;
-  exec(cmd, (error, stdout, stderr) => {
-    if (error) {
-      console.log(`error: ${error.message}`)
-      return;
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`)
-      return;
-    }
-    console.log(`stdout: ${stdout}`);
-    res.send(stdout)
-  })
-})
 
 
 app.get('http://localhost:30000/getMetrics', async (req, res) => {
@@ -96,8 +78,5 @@ app.get('http://localhost:30000/getMetrics', async (req, res) => {
 });
 
 app.listen(3080, async () => {
-  // await axios.get('http://prometheus-service.monitoring.svc:8080/api/v1/query?query=container_processes&g0.tab=1&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h')
-  // .then(res => console.log(res.data.data.result))
-  // .catch(err => console.log('error in axios'));
   console.log('listening on port 3080');
 });
