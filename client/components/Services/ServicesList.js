@@ -10,7 +10,6 @@ const mapStateToProps = state => ({
 
 const ServiceList = (props) => {
   const servicesArray = [];
-  console.log(props.services)
 
   props.services.forEach((service, i) => {
     servicesArray.push(
