@@ -7,14 +7,14 @@ import { useTheme } from '@material-ui/core/styles';
 // import PodsList from '../../components/Pods/PodsList';
 // import Navbar from '../../components/navbar/navbar'
 import PodDashboard from '../../components/GrafanaMonitoring/PodDashboard';
-
+import PrometheusAlerts from '../../components/PrometheusMonitoring/PrometheusAlerts';
 
 
 
 const AlertsPage = (props) => {
   return (
     <div className='AlertsPage'>
-      <PodDashboard />
+      <PrometheusAlerts />
     </div>
   )
 }
