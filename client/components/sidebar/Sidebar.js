@@ -6,6 +6,7 @@ import { SidebarData } from './SidebarData';
 import './Sidebar.css';
 import { IconContext } from 'react-icons';
 import { connect } from 'react-redux';
+import logo from '../../assets/logo.png';
 
 const mapStateToProps = state => ({
   ingresses: state.ingresses.ingresses,
@@ -20,10 +21,8 @@ function Sidebar(props) {
     <>
     <IconContext.Provider value = {{ color: '#7135f0' }}>
       <div className='sidebar'>
-        <Link to='#' className='menu-bars'>
-          <FaIcons.FaBars className='icons'/>
-        </Link>
-        <h3>Kubermetrics</h3>
+        <img className='logo' src={logo}></img>
+        <h3 className='kubermetrics' >Kubermetrics</h3>
       </div>
 
     <nav className='nav-menu'>

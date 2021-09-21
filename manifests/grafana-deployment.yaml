@@ -35,9 +35,9 @@ spec:
           - mountPath: /etc/grafana/provisioning/datasources
             name: grafana-datasources
             readOnly: false
-          - mountPath: /etc/grafana/provisioning/dashboards
-            name: grafana-dashboards
-            readOnly: false
+          # - mountPath: /etc/grafana/provisioning/dashboards
+          #   name: grafana-dashboards
+          #   readOnly: false
         env:
           - name: GF_SECURITY_ALLOW_EMBEDDING
             value: "true"
@@ -50,7 +50,6 @@ spec:
           configMap:
               defaultMode: 420
               name: grafana-datasources
-        - name: dashboard-storage
-        - name: grafana-dashboards
-          configMap:
-              name: grafana-dashboards
+        # - name: grafana-dashboards
+        #   configMap:
+        #       name: grafana-dashboards

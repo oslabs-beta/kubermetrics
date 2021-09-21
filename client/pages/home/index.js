@@ -69,8 +69,10 @@ const HomePage = (props) => {
       {/* <NavBar /> */}
         <Header/>
       <div className='homepageContent'>
+        <div className='nd'>
         <CurrentNode />
         <DeploymentList/>
+        </div>
         <PodsList/>
         <ServicesList/>
       </div>

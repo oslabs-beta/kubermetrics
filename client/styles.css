@@ -41,9 +41,8 @@ h3 {
 
 .homepageContent {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: left;
 }
 
 .miniHead {
@@ -135,4 +134,14 @@ h3 {
   width: 1920px;
   height: 100%;
   margin-left: 117px;
+}
+
+.nd {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo{
+  height: 160px;
+  width: 160px;
 }
