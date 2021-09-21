@@ -28,7 +28,7 @@ const customStyle2 = {
   padding: '5px',
 }
 
-export default function ServiceDialog(props) {
+export default function NodeDialog(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -38,33 +38,7 @@ export default function ServiceDialog(props) {
     setOpen(false);
   };
 
-  const { service } = props;
-  let portsArr = [];
-
-  service.allData.spec.ports.forEach((port, ind) => {
-    portsArr.push(
-    <>
-    <TableRow key={ind + 120}>
-    <TableCell key={ind + 110}style={customStyle} component="th" scope="row">
-      P{ind + 1} Port Name:  
-    </TableCell>
-    <TableCell key={ind + 150} style={customStyle}>{port.name}</TableCell>
-  </TableRow>
-  <TableRow key={ind + 220}>
-    <TableCell key={ind + 210}style={customStyle} component="th" scope="row">
-      P{ind + 1} Port:  
-    </TableCell>
-    <TableCell key={ind + 250} style={customStyle}>{port.port}</TableCell>
-  </TableRow>
-  <TableRow key={ind + 320}>
-    <TableCell key ={ind + 310}style={customStyle} component="th" scope="row">
-      P{ind + 1} Protocol:  
-    </TableCell>
-    <TableCell key={ind + 350} style={customStyle}>{port.protocol}</TableCell>
-  </TableRow>
-  </>
-    )
-  })
+  const { node } = props;
 
   return (
     <div>
@@ -78,7 +52,7 @@ export default function ServiceDialog(props) {
         open={open}
       >
         <DialogTitle id="customized-dialog-title" style={customStyle} onClose={handleClose}>
-          <center>Service Info</center>
+          <center>Current Node Info</center>
         </DialogTitle>
         <DialogContent dividers>
           <TableContainer component={Paper}>
@@ -92,35 +66,35 @@ export default function ServiceDialog(props) {
               <TableBody>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Service Name: 
+                      Node Name: 
                     </TableCell>
-                    <TableCell style={customStyle}>{service.name}</TableCell>
+                    <TableCell style={customStyle}>{node.name}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Type: 
+                      Hostname: 
                     </TableCell>
-                    <TableCell style={customStyle}>{service.type}</TableCell>
+                    <TableCell style={customStyle}>{node.hostname}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                     UID:  
+                     Operating System:  
                     </TableCell>
-                    <TableCell style={customStyle}>{service.id}</TableCell>
+                    <TableCell style={customStyle}>{node.os}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
                       Created:  
                     </TableCell>
-                    <TableCell style={customStyle}>{service.created}</TableCell>
+                    <TableCell style={customStyle}>{node.created}</TableCell>
                   </TableRow>
                   <TableRow >
                     <TableCell style={customStyle} component="th" scope="row">
-                      Cluster IP:  
+                      Unique ID:  
                     </TableCell>
-                    <TableCell style={customStyle}>{service.allData.spec.clusterIP}</TableCell>
+                    <TableCell style={customStyle}>{node.uid}</TableCell>
                   </TableRow>
-                {portsArr}
+      
               </TableBody>
             </Table>
           </TableContainer>

@@ -13,7 +13,7 @@ import PrometheusAlerts from '../../components/PrometheusMonitoring/PrometheusAl
 
 const AlertsPage = (props) => {
   return (
-    <div className='AlertsPage'>
+    <div className='alertsPage'>
       <PrometheusAlerts />
     </div>
   )

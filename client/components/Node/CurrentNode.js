@@ -31,7 +31,9 @@ const CurrentNode = (props) => {
       <p className='nodeListing'>{currentNode.hostname}</p>
       <p className='nodeListing'>{currentNode.resourceVersion}</p>
       <p className='nodeListing'>{currentNode.uid}</p>
-      <Button color='secondary' size='small'> More Node Info </Button>
+      </div>
+      <div className='becauseMuiReallyNeedsItsOwnDivToFixFormatting'>
+      <center><Button color='secondary' variant='contained' size='small'> More Node Info </Button></center>
       </div>
     </div>
   )

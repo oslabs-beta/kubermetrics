@@ -128,9 +128,10 @@ h3 {
 }
 
 
-.AlertsPage {
+.alertsPage {
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
   width: 1920px;
   height: 100%;
   margin-left: 117px;
@@ -142,6 +143,14 @@ h3 {
 }
 
 .logo{
-  height: 160px;
-  width: 160px;
+  height: 40px;
+  width: 40px;
+  margin-left: 30px;
+}
+
+
+.logoText{
+  height: 20px;
+  width: 250px;
+  margin-left: 30px;
 }
