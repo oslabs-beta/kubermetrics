@@ -10,7 +10,7 @@ class ClusterDashboard extends React.Component {
             <iframe
             width="100%"
             height="1000px"
-            src={"https://localhost:3000/"}
+            src={"https://localhost:3000"}
             />
       )
   }
