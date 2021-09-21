@@ -18,7 +18,6 @@ import servicesListReducer from './servicesListReducer';
 import namespaceListReducer from './namespaceListReducer';
 
 const reducers = combineReducers({
-  // if we had other reducers, they would go here
   namespaces: namespaceListReducer,
   pods: podsListReducer,
   ingresses: ingressListReducer,
@@ -27,5 +26,4 @@ const reducers = combineReducers({
   services: servicesListReducer,
 });
 
-// make the combined reducers available for import
 export default reducers;

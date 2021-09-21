@@ -1,6 +1,6 @@
 // import * as actions from '../../actions/actions';
 import * as types from '../constants/actionTypes';
-import dummyService from '../dummyService';
+
 
 const initialState = {
   services: []

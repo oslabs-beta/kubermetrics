@@ -10,10 +10,9 @@
  */
 
  import * as types from '../constants/actionTypes';
- import dummyDeploy from '../dummyDeploy';
 
  const initialState = {
-  deployments: [dummyDeploy]
+  deployments: []
 };
 
 const deploymentListReducer = (state = initialState, action) => {
