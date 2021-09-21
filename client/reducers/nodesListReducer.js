@@ -10,12 +10,6 @@
  */
 
 import * as types from '../constants/actionTypes';
-import dummyNode from '../dummyNode'
-
- const dummyNode2 = {
-   ...dummyNode,
-   name: 'testName 2'
- }
 
  const initialState = {
   nodes: [],

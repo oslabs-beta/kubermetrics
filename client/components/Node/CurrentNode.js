@@ -2,14 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import './currentNode.style.css'
-import Table from '@material-ui/core/Table';
 import Button from '@material-ui/core/Button';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import NodeDialog from '../../Dialog/NodeDialog';
 
 const mapStateToProps = state => ({
   currentNode: state.nodes.currentNode
@@ -18,22 +12,31 @@ const mapStateToProps = state => ({
 
 const CurrentNode = (props) => {
 
+  
+
+
+
   const { currentNode } = props;
+  let renderNode = currentNode.name ? <NodeDialog node={currentNode} color='secondary' variant='contained' size='small'> More Node Info </NodeDialog>: undefined
+  let defaultInfo = currentNode.name ? (
+    <div className='nodeInfo'>
+    <p className='nodeListing'><b>Node Name: </b>{currentNode.name}</p>
+    <p className='nodeListing'><b>Arch: </b>{currentNode.arch}</p>
+    <p className='nodeListing'><b>OS: </b>{currentNode.os}</p>
+    <p className='nodeListing'><b>Kernerl Version: </b>{currentNode.nodeInfo.kernelVersion}</p>
+    <p className='nodeListing'><b>Kubelet Version: </b>{currentNode.nodeInfo.kubeletVersion}</p>
+    <p className='nodeListing'><b>Container Runtime: </b>{currentNode.nodeInfo.containerRuntimeVersion}</p>
+    </div>
+  ) : undefined
 
   return (
     <div className='currentNode'>
       <div className='miniHead'>
         <h4 className='miniHeadText'>Current Node</h4>
       </div>
-      <div className='nodeInfo'>
-      <p className='nodeListing'>{currentNode.name}</p>
-      <p className='nodeListing'>{currentNode.os}</p>
-      <p className='nodeListing'>{currentNode.hostname}</p>
-      <p className='nodeListing'>{currentNode.resourceVersion}</p>
-      <p className='nodeListing'>{currentNode.uid}</p>
-      </div>
+        {defaultInfo}
       <div className='becauseMuiReallyNeedsItsOwnDivToFixFormatting'>
-      <center><Button color='secondary' variant='contained' size='small'> More Node Info </Button></center>
+      <center>{renderNode}</center>
       </div>
     </div>
   )

@@ -39,6 +39,22 @@ export default function NodeDialog(props) {
   };
 
   const { node } = props;
+  const addressArr = [];
+
+
+  if (node.addresses){
+  node.addresses.forEach((address, ind) => {
+    addressArr.push(
+      <TableRow key={"address" + ind} >
+      <TableCell key={"address2" + ind} style={customStyle} component="th" scope="row">
+        {address.type}: 
+      </TableCell>
+      <TableCell key={"address3" + ind} style={customStyle}>{address.address}</TableCell>
+    </TableRow>
+    )
+  })
+}
+
 
   return (
     <div>
@@ -94,7 +110,41 @@ export default function NodeDialog(props) {
                     </TableCell>
                     <TableCell style={customStyle}>{node.uid}</TableCell>
                   </TableRow>
-      
+
+                {addressArr}
+
+                <TableRow >
+                    <TableCell style={customStyle} component="th" scope="row">
+                      Allocatable CPU:  
+                    </TableCell>
+                    <TableCell style={customStyle}>{node.allocatable.cpu}</TableCell>
+                  </TableRow>
+                  <TableRow >
+                    <TableCell style={customStyle} component="th" scope="row">
+                      Allocatable Ephemeral-Storage:  
+                    </TableCell>
+                    <TableCell style={customStyle}>{node.allocatable["ephemeral-storage"]}</TableCell>
+                  </TableRow>
+                  <TableRow >
+                    <TableCell style={customStyle} component="th" scope="row">
+                      Allocatable Ephemeral-Storage:  
+                    </TableCell>
+                    <TableCell style={customStyle}>{node.allocatable["ephemeral-storage"]}</TableCell>
+                  </TableRow>
+                  <TableRow >
+                    <TableCell style={customStyle} component="th" scope="row">
+                      Allocatable memory:  
+                    </TableCell>
+                    <TableCell style={customStyle}>{node.allocatable.memory}</TableCell>
+                  </TableRow>
+                  <TableRow >
+                    <TableCell style={customStyle} component="th" scope="row">
+                      Allocatable pods:  
+                    </TableCell>
+                    <TableCell style={customStyle}>{node.allocatable.pods}</TableCell>
+                  </TableRow>
+
+
               </TableBody>
             </Table>
           </TableContainer>
