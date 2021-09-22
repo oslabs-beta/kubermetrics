@@ -41,9 +41,8 @@ h3 {
 
 .homepageContent {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: left;
 }
 
 .miniHead {
@@ -123,14 +122,35 @@ h3 {
   flex-direction: column;
   width: 1920px;
   height: 100%;
+  margin-top: 15px;
   margin-left: 117px;
+  border-radius: 10px;
 }
 
 
-.AlertsPage {
+.alertsPage {
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
   width: 1920px;
   height: 100%;
   margin-left: 117px;
+}
+
+.nd {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo{
+  height: 30px;
+  width: 30px;
+  margin-left: 30px;
+}
+
+
+.logoText{
+  height: 20px;
+  width: 250px;
+  margin-left: 30px;
 }

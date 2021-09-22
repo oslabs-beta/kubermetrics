@@ -8,8 +8,8 @@ class PodDashboard extends React.Component {
           <div className='podsDashboard'>
             <div>
             <iframe
-            width="30%"
-            height="30%"
+            width="100%"
+            height="100%"
             src={"http://localhost:3000/d-solo/AAOMjeHmk/kubernetes-pod-monitoring?orgId=1&refresh=10s&from=1632155279207&to=1632158879207&panelId=3"}
             />
             <iframe

@@ -10,7 +10,6 @@ const mapStateToProps = state => ({
 
 const ServiceList = (props) => {
   const servicesArray = [];
-  console.log(props.services)
 
   props.services.forEach((service, i) => {
     servicesArray.push(
@@ -40,7 +39,7 @@ const ServiceList = (props) => {
     <div className='servicesList'>
       <div className='miniHeadList'>
         <h4 className='miniHeadText'> Services </h4>
-        <h4 className='greenText'> Running: {servicesArray.length} </h4>
+        <h4 className='greenText'> Total: {servicesArray.length} </h4>
       </div>
       <div className='overflowBox'>
         {servicesArray}

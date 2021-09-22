@@ -12,6 +12,8 @@ const mapStateToProps = state => ({
 
 export const PodList = (props) => {
   const podsArray = [];
+  let running = 0
+  let total = 0;
   props.pods.forEach((pod, ind) => {
     podsArray.push(<Pod
       key={ind}
@@ -30,6 +32,13 @@ export const PodList = (props) => {
       podIP={pod.podIP}
       phase={pod.phase}
       />)
+
+      if (pod.allData){
+        if (pod.allData.status.phase === 'Running' || pod.allData.status.phase === 'Succeeded') running++;
+      }
+
+      // if (pod.allData.status.phase === 'running') running++;
+      total++;
   });
 
   if (!podsArray.length){
@@ -50,7 +59,7 @@ export const PodList = (props) => {
     <div className='podsList'>
       <div className='miniHeadList'>
         <h4 className='miniHeadText'> Pods </h4>
-        <h4 className='greenText'> Running: {podsArray.length} </h4>
+        <h4 className='greenText'> Running: {running} / {total} </h4>
       </div>
       <div className='overflowBox'>
        {podsArray}

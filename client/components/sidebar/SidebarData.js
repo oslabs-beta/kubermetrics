@@ -26,10 +26,4 @@ export const SidebarData = [
     icon: <AiIcons.AiFillAlert className='icons' />,
     cName: 'nav-text'
   },
-  {
-    title: 'Terminal',
-    path: '/terminal',
-    icon: <FaIcons.FaTerminal className='icons' />,
-    cName: 'nav-text'
-  },
 ];

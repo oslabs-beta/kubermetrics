@@ -17,6 +17,8 @@ spec:
       containers:
       - name: grafana
         image: grafana/grafana:latest
+        # command: ["ADD"]
+        # args: ["./dashboards/clusterDash.json", "./usr/share/grafana/conf/provisioning/dashboards/"]
         ports:
         - name: grafana
           containerPort: 3000
@@ -33,11 +35,14 @@ spec:
           - mountPath: /etc/grafana/provisioning/datasources
             name: grafana-datasources
             readOnly: false
-          - mountPath: /etc/grafana/provisioning/grafana.ini
-            name: grafana-ini
+          # - mountPath: /etc/grafana/provisioning/dashboards
+          #   name: grafana-dashboards
+          #   readOnly: false
         env:
           - name: GF_SECURITY_ALLOW_EMBEDDING
             value: "true"
+          # - name: GF_AUTH_ANONYMOUS_ENABLED
+          #   value: "true"
       volumes:
         - name: grafana-storage
           emptyDir: {}
@@ -45,4 +50,6 @@ spec:
           configMap:
               defaultMode: 420
               name: grafana-datasources
-        - name: grafana-ini
+        # - name: grafana-dashboards
+        #   configMap:
+        #       name: grafana-dashboards

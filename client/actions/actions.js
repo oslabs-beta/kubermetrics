@@ -50,7 +50,6 @@ export const changeNamespace = namespace => ({
 export const fetchPods = async (url = '/podList') => {
 
   let response = await axios.get(url);
-  // console.log(response);
   let podsList = [];
 
   response.data.items.forEach((item) => {
@@ -84,7 +83,6 @@ export const getIngress = ingressList => ({
 export const fetchIngress = async (url = '/ingressList') => {
 
   const response = await axios.get(url);
-  // console.log(response)
 
   const { items } = response.data;
   const { metadata, spec } = items[0];
@@ -182,9 +180,6 @@ export const fetchDeployments = async (url = '/deploymentList') => {
 export const fetchServices = async (url = '/serviceList') => {
   let response = await axios.get(url);
 
-  // console.log('response: ', response)
-  // console.log('response.data: ', response.data)
-  console.log('response.data.items: ', response.data.items)
   let servicesList = [];
 
   response.data.items.forEach((item) => {
@@ -211,9 +206,6 @@ export const fetchServices = async (url = '/serviceList') => {
 export const fetchNamespaces = async (url = '/namespaceList') => {
   let response = await axios.get(url);
 
-  // console.log('response: ', response)
-  console.log('response.data: ', response.data)
-  console.log('response.data.items: ', response.data.items)
   let namespaceList = [];
 
   response.data.items.forEach((item) => {
@@ -236,7 +228,6 @@ export const fetchCustomPods = async (namespace, url = '/customPods') => {
   })
   .then(res => res.json())
   .then(data => data);
-  console.log(response)
 
   let podsList = [];
 
@@ -258,7 +249,7 @@ export const fetchCustomPods = async (namespace, url = '/customPods') => {
       phase: item.status.phase
     })
   })
-  console.log(podsList)
+  
   return podsList;
 
 }
@@ -291,7 +282,7 @@ export const fetchCustomServices = async (namespace, url = '/customServices') =>
 
   });
 
-  console.log(servicesList)
+  
 
   return servicesList;
 
@@ -331,7 +322,6 @@ export const fetchCustomDeployments = async (namespace, url = '/customDeployment
     })
   });
 
-  console.log(deploymentList)
 
   return deploymentList;
 

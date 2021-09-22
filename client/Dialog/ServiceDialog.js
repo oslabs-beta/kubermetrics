@@ -44,23 +44,23 @@ export default function ServiceDialog(props) {
   service.allData.spec.ports.forEach((port, ind) => {
     portsArr.push(
     <>
-    <TableRow key={ind + 120}>
-    <TableCell key={ind + 110}style={customStyle} component="th" scope="row">
+    <TableRow key={"port1" + ind}>
+    <TableCell key={"port2" + ind}style={customStyle} component="th" scope="row">
       P{ind + 1} Port Name:  
     </TableCell>
-    <TableCell key={ind + 150} style={customStyle}>{port.name}</TableCell>
+    <TableCell key={"port3" + ind} style={customStyle}>{port.name}</TableCell>
   </TableRow>
-  <TableRow key={ind + 220}>
-    <TableCell key={ind + 210}style={customStyle} component="th" scope="row">
+  <TableRow key={"port4" + ind}>
+    <TableCell key={"port5" + ind}style={customStyle} component="th" scope="row">
       P{ind + 1} Port:  
     </TableCell>
-    <TableCell key={ind + 250} style={customStyle}>{port.port}</TableCell>
+    <TableCell key={"port6" + ind} style={customStyle}>{port.port}</TableCell>
   </TableRow>
-  <TableRow key={ind + 320}>
-    <TableCell key ={ind + 310}style={customStyle} component="th" scope="row">
+  <TableRow key={"port7" + ind}>
+    <TableCell key ={"port8" + ind}style={customStyle} component="th" scope="row">
       P{ind + 1} Protocol:  
     </TableCell>
-    <TableCell key={ind + 350} style={customStyle}>{port.protocol}</TableCell>
+    <TableCell key={"port9" + ind} style={customStyle}>{port.protocol}</TableCell>
   </TableRow>
   </>
     )

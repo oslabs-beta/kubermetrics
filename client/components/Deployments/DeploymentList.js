@@ -11,14 +11,17 @@ const mapStateToProps = state => ({
 
 
 const DeploymentList = (props) => {
+
   const deploymentsArray = [];
-  console.log(props.deployments)
+  let replicas = 0;
+ 
   
   props.deployments.forEach((deployment, ind) => {
     deploymentsArray.push(<Deployment
       key={ind}
       deployment={{...deployment}}
       />)
+      replicas += deployment.replicas;
   })
 
   if (!deploymentsArray.length){
@@ -41,7 +44,7 @@ const DeploymentList = (props) => {
       <div className='deploymentList'>
         <div className='miniHeadList'>
           <h4 className='miniHeadText'> Deployments </h4>
-          <h4 className='greenText'> Running: {deploymentsArray.length} </h4>
+          <h4 className='greenText'> Total Replicas: {replicas} </h4>
         </div>
         <div className='overflowBox'>
         {deploymentsArray}

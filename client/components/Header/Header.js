@@ -1,19 +1,13 @@
 import React from 'react';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import * as mui from '../mui-elements'
 import { connect } from 'react-redux';
 import './Header.style.css'
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import * as actions from '../../actions/actions';
-import { StarTwoTone } from '@material-ui/icons';
-import Ingress from './ingressDialogBox';
-import CustomizedDialogs from '../../Dialog/PodsDialog';
 import IngressDialog from '../../Dialog/IngressDialog';
 
 
@@ -29,7 +23,6 @@ const mapDispatchToProps = dispatch => ({
   fetchNodes: async () => {
     let nodes = await actions.fetchNodes();
     dispatch(actions.getNodes(nodes));
-    console.log(nodes);
   },
   changeNode: async (node) => {
     dispatch(actions.changeNode(node))

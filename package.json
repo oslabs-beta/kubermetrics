@@ -38,6 +38,7 @@
     "source-map-loader": "^3.0.0",
     "style-loader": "^2.0.0",
     "supertest": "^6.1.4",
+    "url-loader": "^4.1.1",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
@@ -61,8 +62,6 @@
     "react-router-dom": "^5.3.0",
     "redux": "^4.1.1",
     "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.3.0",
-    "zingchart": "^2.9.6",
-    "zingchart-react": "^3.1.0"
+    "redux-thunk": "^2.3.0"
   }
 }
