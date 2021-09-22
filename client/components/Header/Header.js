@@ -133,8 +133,6 @@ const Header = props => {
         </Select>
       </FormControl>
       
-      <Button color='secondary' onClick={props.fetchNodes}>Refresh</Button>
-      
      <div className='ingressButton'><IngressDialog className='ingressButton' ingress={props.ingresses[0]} /></div>
     </div>
   );
