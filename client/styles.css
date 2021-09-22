@@ -2,7 +2,8 @@
 
 
 body {
-  background-color: #414141;
+  background-color: #2b2b2b;
+  margin: 0px;
   /* background-color: #3b3d41 */
 
 }
@@ -45,8 +46,8 @@ h3 {
 .mainContent{
   display: flex;
   flex-direction: row;
-  /* align-items: center;
-  justify-content: center; */
+  /* align-items: center; */
+  justify-content: center;
 }
 
 .homepageContent {

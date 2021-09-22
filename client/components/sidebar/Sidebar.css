@@ -3,14 +3,15 @@
   background-color:#111617;
   color: #7135f0;
   top: 0px;
-  margin-left: 7px;
+  margin: 0px;
+  width: 100%;
   height: 60px;
   min-width: 1900px; 
   display: flex;
   justify-content: start;
   align-items: center;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  border-radius: 10px;
+  /* box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); */
+  /* border-radius: 10px; */
 }
 
 .menu-bars {
@@ -21,18 +22,18 @@
 
 .nav-menu {
   background-color: #111617;
-  margin-top: 15px;
-  margin-left: 7px;
+  margin-top: 0px;
+  margin-left: 0px;
 
   min-width: 100px;
   height: 1100px;
+  width: 50px;
   display: flex;
   flex-direction: column;
   justify-content: left;
   position: relative;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   /* left: -100%; */
-  border-radius: 10px;
 }
 
 
