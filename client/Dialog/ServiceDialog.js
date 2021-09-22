@@ -1,12 +1,20 @@
+/**
+ * ************************************
+ *
+ * @module  ServiceDialog.js
+ * @author team Kubermetrics
+ * @date
+ * @description Dialog Box for Service Element
+ *
+ * ************************************
+ */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import {  } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
-import Typography from '@material-ui/core/Typography';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -22,13 +30,10 @@ const customStyle = {
 }
 
 
-const customStyle2 = {
-  color: 'rgb(0, 255, 0)',
-  margin: '5px',
-  padding: '5px',
-}
-
 export default function ServiceDialog(props) {
+
+  // Utilize React Hooks to handle opening and closing of dialog box
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -38,8 +43,11 @@ export default function ServiceDialog(props) {
     setOpen(false);
   };
 
+  // Deconstruct service passed down from Service Element 
   const { service } = props;
-  let portsArr = [];
+
+  // Initialize ports Array that will contain all Table Rows & Cells for each port contained in the service
+  const portsArr = [];
 
   service.allData.spec.ports.forEach((port, ind) => {
     portsArr.push(

@@ -2,7 +2,7 @@
  * ************************************
  *
  * @module  ingressList
- * @author
+ * @author team Kubermetrics
  * @date
  * @description reducer for pods list
  *

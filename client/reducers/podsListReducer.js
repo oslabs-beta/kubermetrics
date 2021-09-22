@@ -2,7 +2,7 @@
  * ************************************
  *
  * @module  podsListReducer
- * @author
+ * @author team Kubermetrics
  * @date
  * @description reducer for pods list
  *

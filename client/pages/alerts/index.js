@@ -1,12 +1,15 @@
-import { useEffect } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import LinearProgress from '@material-ui/core/LinearProgress';
+/**
+ * ************************************
+ *
+ * @module  index.js 
+ * @author team Kubermetrics
+ * @date
+ * @description Alerts Page for React Router
+ *
+ * ************************************
+ */
+
 import React from 'react';
-import { useTheme } from '@material-ui/core/styles';
-// import PodsList from '../../components/Pods/PodsList';
-// import Navbar from '../../components/navbar/navbar'
-import PodDashboard from '../../components/GrafanaMonitoring/PodDashboard';
 import PrometheusAlerts from '../../components/PrometheusMonitoring/PrometheusAlerts';
 
 
@@ -17,9 +20,9 @@ const AlertsPage = (props) => {
       <PrometheusAlerts />
     </div>
   )
-}
+};
 
 
 
 
-export default AlertsPage
+export default AlertsPage;

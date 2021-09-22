@@ -2,7 +2,7 @@
  * ************************************
  *
  * @module  index.js
- * @author
+ * @author team Kubermetrics
  * @date
  * @description simply a place to combine reducers
  *

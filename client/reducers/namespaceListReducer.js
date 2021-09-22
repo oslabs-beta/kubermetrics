@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  namespaceList
+ * @author team Kubermetrics
+ * @date
+ * @description reducer for namespaces
+ *
+ * ************************************
+ */
+
 import * as types from '../constants/actionTypes';
 
 const initialState = {
