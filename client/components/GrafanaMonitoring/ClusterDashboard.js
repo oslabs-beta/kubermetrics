@@ -1,3 +1,13 @@
+/**
+ * ************************************
+ *
+ * @module  ClusterDashboard.js
+ * @author team Kubermetrics
+ * @date
+ * @description Create iframe to connect to grafana instance
+ *
+ * ************************************
+ */
 import React from 'react'
 
 

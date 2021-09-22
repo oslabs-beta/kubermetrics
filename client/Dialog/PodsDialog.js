@@ -1,12 +1,20 @@
+/**
+ * ************************************
+ *
+ * @module  PodsDialog.js
+ * @author team Kubermetrics
+ * @date
+ * @description Dialog Box for Pod Element
+ *
+ * ************************************
+ */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import {  } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
-import Typography from '@material-ui/core/Typography';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -22,6 +30,8 @@ const customStyle = {
 }
 
 export default function PodDialog(props) {
+
+  // Utilize React Hooks to handle opening and closing of dialog box
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -31,7 +41,9 @@ export default function PodDialog(props) {
     setOpen(false);
   };
 
+  // Deconstruct pod passed down from Pod Element
   const { pod } = props;
+  // Initialize container array to hold all Table Rows for each container
   const containerArr = [];
 
   if (pod.containers){

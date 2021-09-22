@@ -1,3 +1,13 @@
+/**
+ * ************************************
+ *
+ * @module  Service.js
+ * @author team Kubermetrics
+ * @date
+ * @description React Component for Services
+ *
+ * ************************************
+ */
 import React from 'react';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
@@ -7,13 +17,15 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
 import ServiceDialog from '../../Dialog/ServiceDialog';
 
-
+// Deconstruct custom service element imported from mui file
 const { ServiceElement } = mui;
 
+// Map current namespace to props 
 const mapStateToProps = state => ({
   namespace: state.namespaces.currentNamespace
 })
 
+// Map ability to refresh pods to props
 const mapDispatchToProps = dispatch => ({
   loadServices: async (namespace) => {
     let services = await actions.fetchCustomServices(namespace);
@@ -21,8 +33,10 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
+
 const Service = (props) => {
 
+  // Conditional statement accounting for if services are not loaded (passed down from Service List)
   if (props.notLoaded) {
     return (
       <div className='podContainer'>
@@ -39,7 +53,7 @@ const Service = (props) => {
   }
 
 
-
+// Default Render
   return (
     <div className='podContainer'>
       <ServiceElement>

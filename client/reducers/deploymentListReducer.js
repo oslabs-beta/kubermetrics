@@ -2,7 +2,7 @@
  * ************************************
  *
  * @module  deploymentListReducer
- * @author
+ * @author team Kubermetrics
  * @date
  * @description reducer for deployments list
  *

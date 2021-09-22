@@ -1,8 +1,14 @@
-import { useEffect } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+/**
+ * ************************************
+ *
+ * @module  index.js 
+ * @author team Kubermetrics
+ * @date
+ * @description Metrics Page Element for React Router
+ *
+ * ************************************
+ */
 import React from 'react';
-import { useTheme } from '@material-ui/core/styles';
 import ClusterDashboard from '../../components/GrafanaMonitoring/ClusterDashboard';
 
 

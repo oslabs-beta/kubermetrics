@@ -1,12 +1,20 @@
+/**
+ * ************************************
+ *
+ * @module  NodeDialog.js
+ * @author team Kubermetrics
+ * @date
+ * @description Dialog Box for Current Node Element
+ *
+ * ************************************
+ */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import {  } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
-import Typography from '@material-ui/core/Typography';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -29,6 +37,8 @@ const customStyle2 = {
 }
 
 export default function NodeDialog(props) {
+
+  // Utiilize React Hooks to handle Opening and Closing of dialog box
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -38,10 +48,13 @@ export default function NodeDialog(props) {
     setOpen(false);
   };
 
+  // Deconstruct node from props - Passed down for CurrentNode.js
   const { node } = props;
+
+  // Initialize address array to hold all Table Rows & Cells for each address
   const addressArr = [];
 
-
+  // Iterate of addresses and push a row & cell for each one
   if (node.addresses){
   node.addresses.forEach((address, ind) => {
     addressArr.push(

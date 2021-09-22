@@ -1,3 +1,13 @@
+/**
+ * ************************************
+ *
+ * @module  Pod.js
+ * @author team Kubermetrics
+ * @date
+ * @description React Component for Pods
+ *
+ * ************************************
+ */
 import React from 'react';
 import CardContent from '@material-ui/core/CardContent';
 import { connect } from 'react-redux';
@@ -7,9 +17,11 @@ import './Pod.style.css';
 import * as mui from '../mui-elements'
 import PodDialog from '../../Dialog/PodsDialog';
 
+// Deconstruct our Custom Pod element from our mui file
 
 const { PodElement } = mui;
 
+// Attach ability to reload pods to each pod component
 
 const mapDispatchToProps = dispatch => ({
   loadPods: async (namespace) => {
@@ -18,13 +30,15 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
+// Map current namespace to props
+
 const mapStateToProps = state => ({ 
   namespace: state.namespaces.currentNamespace
 })
 
 const Pod = (props) => {
 
-
+// Conditional statement checking if props.notLoaded = true (passed down from pod list)
   if (props.notLoaded) {
     return (
       <div className='podContainer'>
@@ -41,7 +55,8 @@ const Pod = (props) => {
     )
   }
 
-
+  // Default render for Pod element. 
+  
   return (
     <div className='podContainer'>
       <PodElement>

@@ -1,3 +1,13 @@
+/**
+ * ************************************
+ *
+ * @module  index.js 
+ * @author team Kubermetrics
+ * @date
+ * @description Home Page Element for React Router
+ *
+ * ************************************
+ */
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import React from 'react';
@@ -9,10 +19,7 @@ import ServicesList from '../../components/Services/ServicesList';
 import CurrentNode from '../../components/Node/CurrentNode';
 
 
-const mapStateToProps = state => ({
-  pods: state.pods.pods,
-  ingresses: state.ingresses.ingresses,
-})
+// Map dispatch to props to handle state change on Load - This will ensure Home Page will populate with all relevant data on load. 
 
 const mapDispatchToProps = dispatch => ({
   clickForPods: async () => {
@@ -40,20 +47,12 @@ const mapDispatchToProps = dispatch => ({
     let namespaces = await actions.fetchNamespaces();
     dispatch(actions.getNamespaceList(namespaces));
   },
-  clickTestCustom: async () => {
-    let namespaces = await actions.fetchCustomPods("monitoring");
-  },
-  clickTestCustomServices: async () => {
-    let namespaces = await actions.fetchCustomServices("monitoring");
-  },
-  clickTestCustomDeployments: async () => {
-    let namespaces = await actions.fetchCustomDeployments("monitoring");
-  },
 })
 
 
 const HomePage = (props) => {
 
+  // Utilize React useEffect to handle API calls on load 
   useEffect(() => {
     props.clickForPods();
     props.clickForDeployments();
@@ -65,8 +64,6 @@ const HomePage = (props) => {
 
   return (
     <div className='homePage'>
-      {/* <Navbar></Navbar> */}
-      {/* <NavBar /> */}
         <Header/>
       <div className='homepageContent'>
         <div className='nd'>
@@ -83,4 +80,4 @@ const HomePage = (props) => {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(null, mapDispatchToProps)(HomePage);

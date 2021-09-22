@@ -1,4 +1,14 @@
-// import * as actions from '../../actions/actions';
+
+/**
+ * ************************************
+ *
+ * @module servicesListReducer
+ * @author team Kubermetrics
+ * @date
+ * @description reducer for service list
+ *
+ * ************************************
+ */
 import * as types from '../constants/actionTypes';
 
 

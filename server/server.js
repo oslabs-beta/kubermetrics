@@ -10,8 +10,6 @@ const k8Controller = require('./controllers/k8Controller.js');
 app.use(cors());
 app.use(express.json());
 
-
-
 app.use("/build", express.static(path.join(__dirname, "../build")));
 app.use(express.static(__dirname + '/client/assets'));
 
@@ -19,16 +17,26 @@ app.get("/", (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, "../index.html"));
 });
 
+
+
+/* 
+
+    All Routes Handling React Router Reload - Ensuring Page will Always Load
+
+*/
+
 app.get("/metrics", (req, res) => {
   return res.redirect('/');
 });
 app.get("/alerts", (req, res) => {
   return res.redirect('/');
 });
-app.get("/terminal", (req, res) => {
-  return res.redirect('/');
-});
 
+/* 
+
+    All Routes Handling K8S Cluster Scraping in Default Namespace
+
+*/
 
 app.get('/namespaceList', k8Controller.getNamespaceList, (req, res) => {
   res.status(201).send(res.locals.namespaceList);
@@ -54,6 +62,13 @@ app.get('/nodeList', k8Controller.getNodeList, (req, res) => {
   res.status(201).send(res.locals.nodeList);
 });
 
+/* 
+
+    All Routes Handling K8S Cluster Scraping in Custom Namespace sent from Front End
+
+*/
+
+
 app.post('/customPods', k8Controller.getCustomPodList, (req, res) => {
   res.status(201).json(res.locals.customPodList)
 });
@@ -72,10 +87,12 @@ app.post('/customDeployments', k8Controller.getCustomDeploymentList, (req, res) 
 
 
 
-app.get('http://localhost:30000/getMetrics', async (req, res) => {
-  console.log('Scraped');
-  console.log(await client.register.getMetricsAsJSON())
-});
+/* 
+
+    Initialize Server on Port 3080
+
+*/
+
 
 app.listen(3080, async () => {
   console.log('listening on port 3080');
