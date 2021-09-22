@@ -6,15 +6,23 @@ const k8sApi = kc.makeApiClient(k8s.CoreV1Api);
 const k8sApi2 = kc.makeApiClient(k8s.ExtensionsV1beta1Api);
 const k8sApi3 = kc.makeApiClient(k8s.AppsV1Api);
 
+/* 
+
+    Initalize K8Controller Middleware to handle All API requests to Kubernetes Cluster
+
+*/
+
 const k8Controller = {
 
-  // async getMetrics (req, res, next) {
-  // }
+  /* 
+
+    All API Calls for "default" Namespace
+
+*/
 
   async getNamespaceList (req, res, next) {
     try {
       const result = await k8sApi.listNamespace();
-      console.log(result.body)
       res.locals.namespaceList = result.body;
       return next();
     } catch (err) {
@@ -22,8 +30,6 @@ const k8Controller = {
       return next(err);
     }
   },
-
-
 
   async getPodList (req, res, next) {
     try {
@@ -39,8 +45,6 @@ const k8Controller = {
   async getServiceList (req, res, next) {
     try {
       const result = await k8sApi.listNamespacedService('default');
-      // console.log('result: ', result)
-      // console.log('result body: ', result.body)
       res.locals.serviceList = result.body;
       return next();
     } catch (err) {
@@ -88,6 +92,13 @@ const k8Controller = {
       return next(err);
     }
   },
+
+
+  /* 
+
+    All API Calls for "custom" Namespace
+
+*/
 
 
   async getCustomPodList (req, res, next) {
@@ -138,8 +149,6 @@ const k8Controller = {
       return next(err);
     }
   },
-
-
 
 }
 
