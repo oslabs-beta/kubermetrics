@@ -13,6 +13,10 @@
 import axios from 'axios';
 import * as actionTypes from '../constants/actionTypes';
 
+/* 
+    All Action Functions That Go To Reducer
+*/
+
 export const getNamespaceList = namespaceList => ({
   type: actionTypes.GET_NAMESPACELIST,
   payload: namespaceList,
@@ -47,10 +51,25 @@ export const changeNamespace = namespace => ({
   payload: namespace
 })
 
+export const getIngress = ingressList => ({
+  type: actionTypes.GET_INGRESS,
+  payload: ingressList,
+});
+
+
+/* 
+    All Functions That Make API Calls To Server To Fetch Pods, Deployments, Services, Ingresses & Nodes,
+    Once we receive the array from the server, we iterate over it and create object we will then send to reducers via 
+    the action functions.
+*/
+
+
 export const fetchPods = async (url = '/podList') => {
 
   let response = await axios.get(url);
   let podsList = [];
+
+  
 
   response.data.items.forEach((item) => {
     podsList.push({
@@ -75,10 +94,6 @@ export const fetchPods = async (url = '/podList') => {
 
 };
 
-export const getIngress = ingressList => ({
-  type: actionTypes.GET_INGRESS,
-  payload: ingressList,
-});
 
 export const fetchIngress = async (url = '/ingressList') => {
 
@@ -108,6 +123,8 @@ export const fetchIngress = async (url = '/ingressList') => {
   return ingressList;
 
 };
+
+
 export const fetchNodes = async (url = '/nodeList') => {
 
   let response = await axios.get(url);
@@ -220,6 +237,11 @@ export const fetchNamespaces = async (url = '/namespaceList') => {
   return namespaceList
 }
 
+/* 
+    All Custom Fetch Functions that will make a post request to the server with the current current namespace 
+*/
+
+
 export const fetchCustomPods = async (namespace, url = '/customPods') => {
   let response = await fetch(url, {
     method: 'POST',
@@ -249,9 +271,7 @@ export const fetchCustomPods = async (namespace, url = '/customPods') => {
       phase: item.status.phase
     })
   })
-  
   return podsList;
-
 }
 
 export const fetchCustomServices = async (namespace, url = '/customServices') => {
@@ -277,15 +297,9 @@ export const fetchCustomServices = async (namespace, url = '/customServices') =>
       labels: item.metadata.labels,
       selector: item.spec.selector,
       type: item.spec.type
-
     })
-
   });
-
-  
-
   return servicesList;
-
 }
 
 export const fetchCustomDeployments = async (namespace, url = '/customDeployments') => {
@@ -321,9 +335,5 @@ export const fetchCustomDeployments = async (namespace, url = '/customDeployment
 
     })
   });
-
-
   return deploymentList;
-
-
 }
