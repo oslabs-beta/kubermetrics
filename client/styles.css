@@ -4,7 +4,14 @@
 body {
   background-color: #4c3768;
   /* background-color: #3b3d41 */
+
 }
+
+iframe {
+  border-radius: 10px;
+  border: black;
+}
+
 
 h2 {
   background-color: rgb(85, 85, 85);
