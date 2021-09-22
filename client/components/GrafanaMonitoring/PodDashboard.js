@@ -1,4 +1,14 @@
 
+/**
+ * ************************************
+ *
+ * @module  PodDashboard.js
+ * @author team Kubermetrics
+ * @date
+ * @description Custom Dashboard from Grafana
+ *
+ * ************************************
+ */
 import React from 'react';
 
 
