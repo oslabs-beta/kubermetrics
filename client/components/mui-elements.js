@@ -1,8 +1,17 @@
-import React from 'react';
+/**
+ * ************************************
+ *
+ * @module  mui-elements.js
+ * @author team Kubermetrics
+ * @date
+ * @description File Containing all custom "styled" Material UI Elements
+ *
+ * ************************************
+ */
 import Card from '@material-ui/core/Card';
-import Button from '@material-ui/core/Button';
 import { styled } from '@material-ui/core/styles';
 
+// Utilitize CSS techniques such as clipPath to shape out Pod, Deployment and Service elements from the Card MUI element
 
 export const PodElement = styled(Card)({
   display: 'flex',
@@ -35,10 +44,6 @@ export const DeploymentElement = styled(Card)({
   clipPath:
   'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)',
 });
-
-// clipPath:
-//   'polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%)'
-
 
 export const ServiceElement = styled(Card)({
   display: 'flex',

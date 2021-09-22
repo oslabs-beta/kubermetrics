@@ -1,5 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  DeploymentDialog.js
+ * @author team Kubermetrics
+ * @date
+ * @description Dialog Box for Deployment Elements
+ *
+ * ************************************
+ */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import {  } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
@@ -15,12 +24,13 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+// CSS styles we can apply to elements
+
 const customStyle = {
   color: 'white',
   margin: '5px',
   padding: '5px',
 }
-
 
 const customStyle2 = {
   color: 'rgb(0, 255, 0)',
@@ -28,7 +38,11 @@ const customStyle2 = {
   padding: '5px',
 }
 
+
 export default function DeploymentDialog(props) {
+
+  // Utilize React Hooks to handle Opening & Closing Dialog Boxes
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -37,6 +51,8 @@ export default function DeploymentDialog(props) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  // Deconstruct Deployment from props - This will be passed down from Deployment Element
 
   const { deployment } = props;
 
