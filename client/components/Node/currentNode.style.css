@@ -4,7 +4,7 @@
   background-color: #222426;
   margin: 10px;
   margin-left: 15px;
-  width: 500px;
+  width: 600px;
   height: 310px;
   border-radius: 10px;
   border: 1px solid rgb(19, 19, 19);
@@ -15,7 +15,8 @@
   flex-direction: column;
   align-items: left;
   overflow: scroll;
-  box-shadow: -10px 10px 8px rgba(0,0,0,0.5), 10px 10px 8px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 5px 5px 14px 5px #000000; 
+  box-shadow: 5px 5px 14px 5px #000000;
 }
 
 .nodeListing {

@@ -13,5 +13,6 @@
 
   display: flex;
   flex-direction: column;
-  box-shadow: -10px 10px 8px rgba(0,0,0,0.5), 10px 10px 8px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 5px 5px 14px 5px #000000; 
+  box-shadow: 5px 5px 14px 5px #000000;
 }

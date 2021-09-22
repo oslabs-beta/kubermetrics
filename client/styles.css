@@ -2,7 +2,8 @@
 
 
 body {
-  background-color: #2b2b2b;
+  /* background-color: #2b2b2b; */
+  background-color: #171c1d;
   margin: 0px;
   /* background-color: #3b3d41 */
 
@@ -23,6 +24,8 @@ h3 {
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
+
+
 
 .graphContainer {
   background-color: #222426;
@@ -48,6 +51,12 @@ h3 {
   flex-direction: row;
   /* align-items: center; */
   justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  /* background-color: rgb(85, 0, 255); */
 }
 
 .homepageContent {
@@ -134,7 +143,7 @@ h3 {
   width: 1920px;
   height: 100%;
   margin-top: 15px;
-  margin-left: 117px;
+  margin-left: 15px;
   border-radius: 10px;
 }
 
@@ -145,7 +154,7 @@ h3 {
   margin-top: 15px;
   width: 1920px;
   height: 100%;
-  margin-left: 117px;
+  margin-left: 15px;
 }
 
 .nd {
@@ -159,9 +168,16 @@ h3 {
   margin-left: 30px;
 }
 
+.sidebarLogo{
+  height: 40px;
+  width: 30px;
+  margin-left: 20px;
+}
+
+
 
 .logoText{
   height: 20px;
   width: 250px;
-  margin-left: 30px;
+  margin-left: 20px;
 }
