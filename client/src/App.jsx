@@ -16,6 +16,8 @@ import '../styles.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Sidebar from '../components/sidebar/Sidebar.js';
 import { createTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import logo from '../assets/logo.png';
+import text from '../assets/kubermetrics.png';
 
 
 // Custom Theme for Material UI 
@@ -25,9 +27,13 @@ function App() {
   return (
 
     <MuiThemeProvider theme={darkTheme}>
+       <div className='sidebar'>
+        <img className='logo' src={logo}></img>
+        <img className='logoText' src={text}></img>
+      </div>
       <Router>
-        <Sidebar />
         <div className='mainContent'>
+        <Sidebar />
         <Switch>
           <Route path='/' exact component={HomePage} />
           <Route path='/metrics' exact component={MetricsPage} />
