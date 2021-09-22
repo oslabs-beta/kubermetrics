@@ -7,12 +7,6 @@
   width: 300px;
 
 }
-.podContainer:hover {
-
-  /* filter: drop-shadow(0px 3px 3px rgba(135, 88, 237, 0.276)); */
-
-}
-
 
 p {
   margin: 2px;
@@ -22,7 +16,19 @@ p {
 .podLabel {
   text-align: center;
   color: rgb(255, 255, 255);
-  font-family: 'Bebas Neue';
-  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: white;
+  font-size: 22px;
+  margin: 15px;
+}
+
+.podLabel2 {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: white;
+  font-size: 18px;
   margin: 15px;
 }

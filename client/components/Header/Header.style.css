@@ -1,6 +1,6 @@
 .header {
   /* width: 75vw; */
-  background-color: #222426;
+  background-color: #343840;
   margin: 10px;
   margin-left: 15px;
   margin-top: 20px;
@@ -15,8 +15,8 @@
   align-items: center;
   flex-direction: row;
   overflow: scroll;
-  -webkit-box-shadow: 5px 5px 14px 5px #000000; 
-  box-shadow: 5px 5px 14px 5px #000000;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.67); 
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.67);
 }
 
 .menuItem {

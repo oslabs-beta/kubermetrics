@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 
 body {
   /* background-color: #2b2b2b; */
-  background-color: #171c1d;
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(89,89,89,0.9402135854341737) 0%, rgba(25,25,25,1) 100%);
   margin: 0px;
   /* background-color: #3b3d41 */
 
@@ -20,7 +21,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'Bebas Neue';
+  font-family: 'Roboto', sans-serif;
   color: white;
   text-shadow: 2px 2px 4px #000000;
 }
@@ -67,21 +68,23 @@ h3 {
 
 .miniHead {
 
-  background-color: #111617;
+  background-color: #343840;
 }
 
 .miniHeadList {
-  background-color: #111617;
+  background-color: #343840;
   display: flex;
   justify-content: left;
   flex-direction: row;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .miniHeadText {
   text-align: center;
   color: white;
-  font-family: 'Bebas Neue';
-  font-size: 24px;
+  font-family: 'Roboto', sans-serif;;
+  font-size: 20px;
   margin: 5px
 }
 
@@ -94,17 +97,17 @@ h3 {
 
 .greenText {
   text-align: center;
-  color: rgb(0, 255, 0);
-  font-family: 'Bebas Neue';
-  font-size: 24px;
+  color: rgb(85, 203, 85);
+  font-family: 'Roboto', sans-serif;;
+  font-size: 20px;
   margin: 5px
 }
 
 .redText {
   text-align: center;
-  color: #f5066b;
-  font-family: 'Bebas Neue';
-  font-size: 24px;
+  color: #c63772;
+  font-family: 'Roboto', sans-serif;;
+  font-size: 20px;
   margin: 5px
 }
 

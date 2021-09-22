@@ -1,6 +1,6 @@
 
 .sidebar {
-  background-color:#111617;
+  background-color:#111617d0;
   color: #7135f0;
   top: 0px;
   margin: 0px;
@@ -22,12 +22,14 @@
 
 .nav-menu {
   justify-self: left;
-  background-color: #111617;
+  /* background-color: #111617; */
+  border-radius: 0px 0px 15px 15px;
+  background: #111617c8;
   margin-top: 0px;
   margin-left: 0px;
 
   /* min-width: 100px; */
-  height: 1100px;
+  height: 1170px;
   width: 80px;
   display: flex;
   flex-direction: column;
@@ -41,7 +43,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 30px;
   padding: 4px 16px 4px 4px;
   list-style: none;
   height: 60px;
@@ -52,7 +54,7 @@
   text-decoration: none;
   color: #fff;
   font-size: 16px;
-  font-family: 'Arial';
+  font-family: 'Roboto', sans-serif;
   width: auto;
   height: 100%;
 }
@@ -65,7 +67,7 @@
 .nav-menu-items {
   width: 100%;
   padding: 5px;
-  margin-top: 35px;
+  margin-top: 30px;
 }
 
 span {
