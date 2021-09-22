@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: kubermetrics
-          image: arajput96/kubermetrics:latest
+          image: kubermetrics/kubermetrics:latest
 ---
 apiVersion: v1
 kind: Service
