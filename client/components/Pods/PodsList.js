@@ -1,9 +1,20 @@
+/**
+ * ************************************
+ *
+ * @module  PodsList.js
+ * @author team Kubermetrics
+ * @date
+ * @description React Component that will contain all Pod Elements
+ *
+ * ************************************
+ */
 import React from 'react';
 import { connect } from 'react-redux';
 import Pod from './Pod';
 import './PodsList.style.css'
 
 
+ // Map pods array to state 
 
 const mapStateToProps = state => ({
   pods: state.pods.pods
@@ -11,8 +22,12 @@ const mapStateToProps = state => ({
 
 
 export const PodList = (props) => {
+
+  // array to hold all react elements to be rendered 
   const podsArray = [];
+  // running will count all pods that include "running" or "succeeded" in phase 
   let running = 0
+  // total will count total amount of pods. 
   let total = 0;
   props.pods.forEach((pod, ind) => {
     podsArray.push(<Pod
@@ -36,10 +51,10 @@ export const PodList = (props) => {
       if (pod.allData){
         if (pod.allData.status.phase === 'Running' || pod.allData.status.phase === 'Succeeded') running++;
       }
-
-      // if (pod.allData.status.phase === 'running') running++;
       total++;
   });
+
+  // Conditional render accounting for the case in which no pods are found
 
   if (!podsArray.length){
     return (
@@ -54,6 +69,8 @@ export const PodList = (props) => {
       </div>
     )
   }
+
+// default render statement
 
   return (
     <div className='podsList'>

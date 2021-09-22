@@ -1,3 +1,13 @@
+/**
+ * ************************************
+ *
+ * @module  PrometheusAlerts.js
+ * @author team Kubermetrics
+ * @date
+ * @description React Component prometheus iframe
+ *
+ * ************************************
+ */
 import React from 'react'
 
 
