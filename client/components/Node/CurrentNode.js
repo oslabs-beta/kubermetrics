@@ -1,9 +1,19 @@
+/**
+ * ************************************
+ *
+ * @module  CurrentNode.js
+ * @author team Kubermetrics
+ * @date
+ * @description Current Node component containing all data on current node.
+ *
+ * ************************************
+ */
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import './currentNode.style.css'
-import Button from '@material-ui/core/Button';
 import NodeDialog from '../../Dialog/NodeDialog';
+
+
 
 const mapStateToProps = state => ({
   currentNode: state.nodes.currentNode
@@ -12,12 +22,13 @@ const mapStateToProps = state => ({
 
 const CurrentNode = (props) => {
 
-  
-
-
-
+  // Deconstruct currentNode from props passed down from Home Page
   const { currentNode } = props;
+
+  // Ternary statement checking if current node exists - If so we will render more info button
   let renderNode = currentNode.name ? <NodeDialog node={currentNode} color='secondary' variant='contained' size='small'> More Node Info </NodeDialog>: undefined
+
+  // Ternary statement checking if current node exists - If so we will render all default information
   let defaultInfo = currentNode.name ? (
     <div className='nodeInfo'>
     <p className='nodeListing'><b>Node Name: </b>{currentNode.name}</p>

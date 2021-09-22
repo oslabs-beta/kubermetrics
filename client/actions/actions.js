@@ -238,7 +238,7 @@ export const fetchNamespaces = async (url = '/namespaceList') => {
 }
 
 /* 
-    All Custom Fetch Functions that will make a post request to the server with the current current namespace 
+    All Custom Fetch Functions that will make a post request to the server with the current namespace 
 */
 
 

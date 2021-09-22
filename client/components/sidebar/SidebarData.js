@@ -1,11 +1,17 @@
+/**
+ * ************************************
+ *
+ * @module  SidebarData.js
+ * @author team Kubermetrics
+ * @date
+ * @description Array containing The Icons & Paths for Sidebar 
+ *
+ * ************************************
+ */
 import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
-// import HomePage from '../../pages/home/index.js'
-// import MetricsPage from '../../pages/metrics/index.js'
-// import AlertsPage from '../../pages/alerts/index.js'
-// import TerminalPage from '../../pages/terminal/index.js'
+
 
 export const SidebarData = [
   {
