@@ -5,6 +5,9 @@
 
 Kubermetrics is an open-source dev tool that provides Kubernetes cluster monitoring as well as data visualization in a simple and easy to understand user interface. Kubermetrics intergrates both the Prometheus and Grafana Dashboards on one page! Allowing for custominzable dashboards and alerts. 
 
+Kubermetrics Dockerhub: https://hub.docker.com/r/kubermetrics/kubermetrics
+Kubermetrics Github: https://github.com/oslabs-beta/kubermetrics
+
 
 In this readme we will walk you through the setup process for our app. For this setup you will need the following:
 
@@ -21,7 +24,7 @@ In this readme we will walk you through the setup process for our app. For this 
 - From this directory run the following command 
 - ```kubectl apply -f kubermetrics-depl.yaml```
 
-### You've just installed our app on our cluster! Next you will want to open a port to access Kubermetrics from your local host. 
+### You've just installed our app on your cluster! Next you will want to open a port to access Kubermetrics from your local host. 
 - Next, run the following command to access all your current running pods
 - ```kubectl get pods``` 
 
@@ -48,7 +51,7 @@ In this readme we will walk you through the setup process for our app. For this 
 - ``` kubectl apply -f manifests```
 ### Great now you have everything you need installed! Now to open up some ports.
 - Next Please run the following commands 
-- ```kubectl get pods``
+- ```kubectl get pods```
 ` 
 ![](https://cdn-images-1.medium.com/max/2000/1*aQJSh-RCHfo8DWH-TBfkfQ.png)
 
@@ -57,8 +60,8 @@ In this readme we will walk you through the setup process for our app. For this 
 - This will allow you to access our dashboard at localhost:3068
 - Our app looks for grafana at localhost:3000 & promethues at local host 9090
 - Please run the following commands to ensure grafana and prometheus are up and running at these ports!
-- ```kubectl port-forward <grafana-pod-name-goes-here> --namespace=<yournamespace> 3000:3000```
-- ```kubectl port-forward <prometheus-pod-name-goes-here> --namespace=<yournamespace> 9090:9090```
+- ```kubectl port-forward <grafana-pod-name-goes-here> --namespace=monitoring 3000:3000```
+- ```kubectl port-forward <prometheus-pod-name-goes-here> --namespace=monitoring 9090:9090```
 - Now Navigate to localhost:3068 & enjoy our dashboard with full promethus and grafana integration! 
 
 
