@@ -1,5 +1,5 @@
 ![](https://cdn-images-1.medium.com/max/4002/1*wu68SZJTT1ONtB6k6qja8Q.jpeg)
-# Kubermetrics Setup
+# Kubermetrics
 
 ## **What is Kubermetrics?**
 
@@ -8,6 +8,27 @@ Kubermetrics is an open-source dev tool that provides Kubernetes cluster monitor
 - Kubermetrics Dockerhub: https://hub.docker.com/r/kubermetrics/kubermetrics
 - Kubermetrics Github: https://github.com/oslabs-beta/kubermetrics
 
+# Home page 
+
+Dashboard displaying all nodes, deployments, pods, services & ingresses by namespace. 
+
+![](https://cdn.discordapp.com/attachments/890428107432001557/890434904356188200/Kubermetrics_Home_Page_10fps.gif)
+
+# Metrics page 
+
+Our Metrics Page utilizes full Grafana integration for customizable dashboards.
+
+![](https://cdn.discordapp.com/attachments/890428107432001557/890436881303605298/Kubernetrics_Metrics_Page_Shortened.gif)
+
+# Alerts page 
+
+Our Alerts Page utilizes full Prometheus integration for access to alerts, graphs, prom-queries and more.
+
+![](https://cdn.discordapp.com/attachments/890428107432001557/890439937923616778/Kubermetrics_Alert_Page.gif)
+
+
+
+# Kubermetrics Setup
 
 In this readme we will walk you through the setup process for our app. For this setup you will need the following:
 
@@ -16,6 +37,8 @@ In this readme we will walk you through the setup process for our app. For this 
 - Kubectl - Kubernetes CLI installed
 - Ports 3000, 3068, & 9090 open. (This can be changed if necessary)
 - For the next steps, please refer to first section if you have prometheus and grafana installed or scroll down for full installation. 
+
+
 
 # I Already Have Prometheus & Grafana Installed!
 
