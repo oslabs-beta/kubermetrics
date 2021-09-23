@@ -1,4 +1,4 @@
-![](https://cdn-images-1.medium.com/max/4002/1*wu68SZJTT1ONtB6k6qja8Q.jpeg)
+
 # Kubermetrics
 
 ## **What is Kubermetrics?**
