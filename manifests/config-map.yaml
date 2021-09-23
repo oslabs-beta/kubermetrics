@@ -151,6 +151,30 @@ data:
         annotations:
           summary: Kubernetes API server errors (instance {{ $labels.instance }})
           description: "Kubernetes API server is experiencing high error rate\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesApiClientErrors
+        expr: (sum(rate(rest_client_requests_total{code=~"(4|5).."}[1m])) by (instance, job) / sum(rate(rest_client_requests_total[1m])) by (instance, job)) * 100 > 1
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: Kubernetes API client errors (instance {{ $labels.instance }})
+          description: "Kubernetes API client is experiencing high error rate\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesClientCertificateExpiresSoon
+        expr: apiserver_client_certificate_expiration_seconds_count{job="apiserver"} > 0 and histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job="apiserver"}[5m]))) < 24*60*60
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: Kubernetes client certificate expires soon (instance {{ $labels.instance }})
+          description: "A client certificate used to authenticate to the apiserver is expiring in less than 24.0 hours.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesApiServerLatency
+        expr: histogram_quantile(0.99, sum(rate(apiserver_request_latencies_bucket{subresource!="log",verb!~"^(?:CONNECT|WATCHLIST|WATCH|PROXY)$"} [10m])) WITHOUT (instance, resource)) / 1e+06 > 1
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: Kubernetes API server latency (instance {{ $labels.instance }})
+          description: "Kubernetes API server has a 99th percentile latency of {{ $value }} seconds for {{ $labels.verb }} {{ $labels.resource }}.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
   prometheus.yml: |-
     global:
       scrape_interval: 5s
