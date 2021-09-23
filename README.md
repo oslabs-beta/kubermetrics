@@ -22,7 +22,7 @@ Our Metrics Page utilizes full Grafana integration for customizable dashboards.
 
 # Alerts page 
 
-Our Alerts Page utilizes full Prometheus integration for access to alerts, graphs, prom-queries and more.
+Our Alerts Page utilizes full Prometheus integration for access to alerts, graphs, prom-queries and more!
 
 ![](https://cdn.discordapp.com/attachments/890428107432001557/890439937923616778/Kubermetrics_Alert_Page.gif)
 
