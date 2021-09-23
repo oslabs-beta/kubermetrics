@@ -52,7 +52,7 @@ In this readme we will walk you through the setup process for our app. For this 
 ### Great now you have everything you need installed! Now to open up some ports.
 - Next Please run the following commands 
 - ```kubectl get pods```
-` 
+
 ![](https://cdn-images-1.medium.com/max/2000/1*aQJSh-RCHfo8DWH-TBfkfQ.png)
 
 - Find your current running Pod for Kubermetrics and run the following command
