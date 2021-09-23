@@ -24,7 +24,9 @@ In this readme we will walk you through the setup process for our app. For this 
 ### You've just installed our app on our cluster! Next you will want to open a port to access Kubermetrics from your local host. 
 - Next, run the following command to access all your current running pods
 - ```kubectl get pods``` 
+
 ![](https://cdn-images-1.medium.com/max/2000/1*aQJSh-RCHfo8DWH-TBfkfQ.png)
+
 - Find your current running Pod for Kubermetrics and run the following command
 - ```kubectl port-forward <kubermetrics-pod-name-goes-here> 3068:3068```
 - This will allow you to access our dashboard at localhost:3068
@@ -46,8 +48,10 @@ In this readme we will walk you through the setup process for our app. For this 
 - ``` kubectl apply -f manifests```
 ### Great now you have everything you need installed! Now to open up some ports.
 - Next Please run the following commands 
-- ```kubectl get pods``` 
+- ```kubectl get pods``
+` 
 ![](https://cdn-images-1.medium.com/max/2000/1*aQJSh-RCHfo8DWH-TBfkfQ.png)
+
 - Find your current running Pod for Kubermetrics and run the following command
 - ```kubectl port-forward <kubermetrics-pod-name-goes-here> 3068:3068```
 - This will allow you to access our dashboard at localhost:3068
@@ -63,3 +67,19 @@ In this readme we will walk you through the setup process for our app. For this 
 - Our Included Grafana yaml file includes environment variables that we use in order to load specific settings when using Grafana. Feel free to poke around or change other settings in this file and reapply!
 - Current App is in Beta. Many more features are planned to be added! 
 - Feel free to visit our github page @ https://github.com/oslabs-beta/kubermetrics if you have any issues!
+
+# About the Team 
+
+## Ahad Rajput 
+- LinkedIn: https://www.linkedin.com/in/arajput96/
+- Github: https://github.com/arajput96
+
+## Dominic DiSalvo
+
+- LinkedIn: https://www.linkedin.com/in/dominicdisalvo/
+- Github: https://github.com/dominicd17
+
+## Justin Buckner
+
+- LinkedIn: https://www.linkedin.com/in/jbuild/
+- Github: https://github.com/JWadeOn
