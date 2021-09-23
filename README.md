@@ -12,19 +12,19 @@ Kubermetrics is an open-source dev tool that provides Kubernetes cluster monitor
 
 Dashboard displaying all nodes, deployments, pods, services & ingresses by namespace. 
 
-![](https://cdn.discordapp.com/attachments/890428107432001557/890434904356188200/Kubermetrics_Home_Page_10fps.gif)
+![](https://miro.medium.com/max/700/1*-LUbJyaCi_wa5QVEhiWFyA.gif)
 
 # Metrics page 
 
 Our Metrics Page utilizes full Grafana integration for customizable dashboards.
 
-![](https://cdn.discordapp.com/attachments/890428107432001557/890436881303605298/Kubernetrics_Metrics_Page_Shortened.gif)
+![](https://miro.medium.com/max/700/1*H8MelC-137EzuBicmQAIgA.gif)
 
 # Alerts page 
 
 Our Alerts Page utilizes full Prometheus integration for access to alerts, graphs, prom-queries and more!
 
-![](https://cdn.discordapp.com/attachments/890428107432001557/890439937923616778/Kubermetrics_Alert_Page.gif)
+![](https://miro.medium.com/max/700/1*H8MelC-137EzuBicmQAIgA.gif)
 
 
 
