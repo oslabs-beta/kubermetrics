@@ -5,8 +5,8 @@
 
 Kubermetrics is an open-source dev tool that provides Kubernetes cluster monitoring as well as data visualization in a simple and easy to understand user interface. Kubermetrics intergrates both the Prometheus and Grafana Dashboards on one page! Allowing for custominzable dashboards and alerts. 
 
-Kubermetrics Dockerhub: https://hub.docker.com/r/kubermetrics/kubermetrics
-Kubermetrics Github: https://github.com/oslabs-beta/kubermetrics
+- Kubermetrics Dockerhub: https://hub.docker.com/r/kubermetrics/kubermetrics
+- Kubermetrics Github: https://github.com/oslabs-beta/kubermetrics
 
 
 In this readme we will walk you through the setup process for our app. For this setup you will need the following:
