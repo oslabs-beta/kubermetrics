@@ -4,7 +4,9 @@
   "description": "K8s Metrics",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./server/server.js",
+    "build": "webpack",
+    "dev": "nodemon server/server.js & webpack serve --hot --open"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,51 @@
   "bugs": {
     "url": "https://github.com/oslabs-beta/kubermetrics/issues"
   },
-  "homepage": "https://github.com/oslabs-beta/kubermetrics#readme"
+  "homepage": "https://github.com/oslabs-beta/kubermetrics#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "babel-jest": "^27.0.6",
+    "babel-loader": "^8.2.2",
+    "concurrently": "^6.2.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.2.6",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "jest": "^27.1.0",
+    "mini-css-extract-plugin": "^1.6.0",
+    "redux-mock-store": "^1.5.4",
+    "source-map-loader": "^3.0.0",
+    "style-loader": "^2.0.0",
+    "supertest": "^6.1.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@kubernetes/client-node": "^0.15.1",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@material-ui/styles": "^4.11.4",
+    "axios": "^0.21.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12",
+    "prom-client": "^13.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.3.0",
+    "redux": "^4.1.1",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0"
+  }
 }

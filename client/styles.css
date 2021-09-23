@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+body {
+  /* background-color: #2b2b2b; */
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(89,89,89,0.9402135854341737) 0%, rgba(25,25,25,1) 100%);
+  margin: 0px;
+  /* background-color: #3b3d41 */
+
+}
+
+iframe {
+  border-radius: 10px;
+  border: black;
+}
+
+
+h2 {
+  background-color: rgb(85, 85, 85);
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+
+
+.graphContainer {
+  background-color: #222426;
+  margin-left: 117px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  width: 1400px;
+  padding: 15px;
+  height: auto;
+  border-radius: 10px;
+  /* max-width: 1500px;
+  min-width: 1500px; */
+  border: 1px solid rgb(19, 19, 19);
+
+
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.mainContent{
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  /* background-color: rgb(85, 0, 255); */
+}
+
+.homepageContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.miniHead {
+
+  background-color: #343840;
+}
+
+.miniHeadList {
+  background-color: #343840;
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.miniHeadText {
+  text-align: center;
+  color: white;
+  font-family: 'Roboto', sans-serif;;
+  font-size: 20px;
+  margin: 5px
+}
+
+.overflowBox {
+  display: flex;
+  justify-content: left;
+  flex-direction: row;
+  overflow: scroll;
+}
+
+.greenText {
+  text-align: center;
+  color: rgb(85, 203, 85);
+  font-family: 'Roboto', sans-serif;;
+  font-size: 20px;
+  margin: 5px
+}
+
+.redText {
+  text-align: center;
+  color: #c61e64;
+  font-family: 'Roboto', sans-serif;;
+  font-size: 20px;
+  margin: 5px
+}
+
+.homePage{
+  display: flex;
+  flex-direction: column;
+  width: 1920px;
+}
+
+.btn{
+  height: 15px;
+  width: 17px;
+  font-size: 13px;
+}
+
+.MuiTable-root {
+  min-width: 500px
+}
+
+.ingressButton {
+  margin-left: 50px;
+}
+
+.nodeInfo {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.metricsPage {
+  display: flex;
+  flex-direction: column;
+  width: 1920px;
+  height: 100%;
+  margin-top: 15px;
+  margin-left: 15px;
+  border-radius: 10px;
+}
+
+
+.alertsPage {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  width: 1920px;
+  height: 100%;
+  margin-left: 15px;
+}
+
+.nd {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo{
+  height: 30px;
+  width: 30px;
+  margin-left: 30px;
+}
+
+.sidebarLogo{
+  height: 40px;
+  width: 30px;
+  margin-left: 20px;
+}
+
+
+
+.logoText{
+  height: 20px;
+  width: 250px;
+  margin-left: 20px;
+}

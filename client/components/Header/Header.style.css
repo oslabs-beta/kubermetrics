@@ -1,0 +1,27 @@
+.header {
+  /* width: 75vw; */
+  background-color: #343840;
+  margin: 10px;
+  margin-left: 15px;
+  margin-top: 20px;
+  width: auto;
+  height: 80px;
+  border-radius: 10px;
+  color: white;
+  border: 1px solid rgb(19, 19, 19);
+
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-direction: row;
+  overflow: scroll;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.67); 
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.67);
+}
+
+.menuItem {
+  color: white;
+}
+.MuiInputBase-input {
+  color: white;
+}

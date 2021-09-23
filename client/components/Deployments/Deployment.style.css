@@ -1,0 +1,29 @@
+.podContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
+  width: 300px;
+
+}
+.podContainer:hover {
+
+  filter:
+   drop-shadow(5px 0px 0px  rgb(143, 92, 254))
+   drop-shadow(-5px 0px 0px  rgb(143, 92, 254))
+   drop-shadow(0px -5px 0px  rgb(143, 92, 254))
+   drop-shadow(0px 5px 0px  rgb(143, 92, 254))
+
+}
+
+
+p {
+  margin: 2px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+}
+.podLabel {
+  font-size: 18px;
+  margin-top: 5px;
+}

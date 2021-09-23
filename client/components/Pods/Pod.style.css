@@ -1,0 +1,34 @@
+.podContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
+  width: 300px;
+
+}
+
+p {
+  margin: 2px;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+}
+.podLabel {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: white;
+  font-size: 22px;
+  margin: 15px;
+}
+
+.podLabel2 {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: white;
+  font-size: 18px;
+  margin: 15px;
+}
