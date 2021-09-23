@@ -3,7 +3,7 @@
   margin: 10px;
   margin-left: 15px;
   width: auto;
-  height: 310px;
+  height: 330px;
   border-radius: 10px;
   /* max-width: 1500px; */
   /* min-width: 1500px; */
@@ -11,5 +11,6 @@
 
   display: flex;
   flex-direction: column;
-  box-shadow: -10px 10px 8px rgba(0,0,0,0.5), 10px 10px 8px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.67); 
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.67);
 }

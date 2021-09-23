@@ -63,7 +63,7 @@ const Pod = (props) => {
         <CardContent>
           <div>
               <p className='podLabel'>{props.label}</p>
-              <p className='podLabel'>{props.podName}</p>
+              <p className='podLabel2'>{props.podName}</p>
               <center><PodDialog pod={props.pod}/></center>
           </div>
       </CardContent>

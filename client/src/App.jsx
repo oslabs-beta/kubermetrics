@@ -25,15 +25,14 @@ export const darkTheme = createTheme({"palette":{"common":{"black":"#000","white
 
 function App() {
   return (
-
     <MuiThemeProvider theme={darkTheme}>
        <div className='sidebar'>
-        <img className='logo' src={logo}></img>
         <img className='logoText' src={text}></img>
       </div>
+      <div className='wrapper'>
       <Router>
-        <div className='mainContent'>
         <Sidebar />
+        <div className='mainContent'>
         <Switch>
           <Route path='/' exact component={HomePage} />
           <Route path='/metrics' exact component={MetricsPage} />
@@ -41,6 +40,7 @@ function App() {
         </Switch>
         </div>
       </Router>
+    </div>
     </MuiThemeProvider>
 
   );

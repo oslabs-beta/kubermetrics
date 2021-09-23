@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './Sidebar.css';
 import { IconContext } from 'react-icons';
+import logo from '../../assets/logo.png';
+import text from '../../assets/kubermetrics.png';
 
 
 
@@ -25,6 +27,7 @@ function Sidebar(props) {
 
     <nav className='nav-menu'>
       <ul className='nav-menu-items'>
+        <img className='sidebarLogo' src={logo}/>
         {SidebarData.map((item, index) => {
           return (
             <li key={index} className={item.cName}>
