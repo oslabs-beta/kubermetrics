@@ -8,7 +8,7 @@ metadata:
 data:
   prometheus.rules: |-
     groups:
-    - name: devopscube demo alert
+    - name: Kubermetrics alerts
       rules:
       - alert: High Pod Memory
         expr: sum(container_memory_usage_bytes) > 1
@@ -22,7 +22,7 @@ data:
         for: 5m
         labels:
           severity: page
-        annotations: 
+        annotations:
           summary: "Instance {{ $labels.instance }} down"
           description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes."
       - alert: APIHighRequestLatency
@@ -31,6 +31,150 @@ data:
         annotations:
           summary: "High request latency on {{ $labels.instance }}"
           description: "{{ $labels.instance }} has a median request latency above 1s (current value: {{ $value }}s)"
+      - alert: KubernetesNodeReady
+        expr: kube_node_status_condition{condition="Ready",status="true"} == 0
+        for: 10m
+        labels:
+          severity: critical
+        annotations:
+          summary: Kubernetes Node ready (instance {{ $labels.instance }})
+          description: "Node {{ $labels.node }} has been unready for a long time\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesMemoryPressure
+        expr: kube_node_status_condition{condition="MemoryPressure",status="true"} == 1
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: Kubernetes memory pressure (instance {{ $labels.instance }})
+          description: "{{ $labels.node }} has MemoryPressure condition\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesDiskPressure
+        expr: kube_node_status_condition{condition="DiskPressure",status="true"} == 1
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: Kubernetes disk pressure (instance {{ $labels.instance }})
+          description: "{{ $labels.node }} has DiskPressure condition\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesOutOfDisk
+        expr: kube_node_status_condition{condition="OutOfDisk",status="true"} == 1
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: Kubernetes out of disk (instance {{ $labels.instance }})
+        description: "{{ $labels.node }} has OutOfDisk condition\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesOutOfCapacity
+        expr: sum by (node) ((kube_pod_status_phase{phase="Running"} == 1) + on(pod, namespace) group_left(node) (0 * kube_pod_info)) / sum(kube_node_status_allocatable_pods) by (node) * 100 > 90
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: Kubernetes out of capacity (instance {{ $labels.instance }})
+          description: "{{ $labels.node }} is out of capacity\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesJobFailed
+        expr: kube_job_status_failed > 0
+        for: 0m
+        labels:
+          severity: warning
+        annotations:
+          summary: Kubernetes Job failed (instance {{ $labels.instance }})
+          description: "Job {{$labels.namespace}}/{{$labels.exported_job}} failed to complete\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesStatefulsetDown
+        expr: (kube_statefulset_status_replicas_ready / kube_statefulset_status_replicas_current) != 1
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: Kubernetes StatefulSet down (instance {{ $labels.instance }})
+          description: "A StatefulSet went down\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesPodNotHealthy
+        expr: min_over_time(sum by (namespace, pod) (kube_pod_status_phase{phase=~"Pending|Unknown|Failed"})[15m:1m]) > 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: Kubernetes Pod not healthy (instance {{ $labels.instance }})
+          description: "Pod has been in a non-ready state for longer than 15 minutes.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesPodCrashLooping
+        expr: increase(kube_pod_container_status_restarts_total[1m]) > 3
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: Kubernetes pod crash looping (instance {{ $labels.instance }})
+          description: "Pod {{ $labels.pod }} is crash looping\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesReplicassetMismatch
+        expr: kube_replicaset_spec_replicas != kube_replicaset_status_ready_replicas
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: Kubernetes ReplicasSet mismatch (instance {{ $labels.instance }})
+          description: "Deployment Replicas mismatch\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesDeploymentReplicasMismatch
+        expr: kube_deployment_spec_replicas != kube_deployment_status_replicas_available
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: Kubernetes Deployment replicas mismatch (instance {{ $labels.instance }})
+          description: "Deployment Replicas mismatch\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesStatefulsetUpdateNotRolledOut
+        expr: max without (revision) (kube_statefulset_status_current_revision unless kube_statefulset_status_update_revision) * (kube_statefulset_replicas != kube_statefulset_status_replicas_updated)
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: Kubernetes StatefulSet update not rolled out (instance {{ $labels.instance }})
+          description: "StatefulSet update has not been rolled out.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesDaemonsetRolloutStuck
+        expr: kube_daemonset_status_number_ready / kube_daemonset_status_desired_number_scheduled * 100 < 100 or kube_daemonset_status_desired_number_scheduled - kube_daemonset_status_current_number_scheduled > 0
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: Kubernetes DaemonSet rollout stuck (instance {{ $labels.instance }})
+          description: "Some Pods of DaemonSet are not scheduled or not ready\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesDaemonsetMisscheduled
+        expr: kube_daemonset_status_number_misscheduled > 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: Kubernetes DaemonSet misscheduled (instance {{ $labels.instance }})
+          description: "Some DaemonSet Pods are running where they are not supposed to run\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesApiServerErrors
+        expr: sum(rate(apiserver_request_count{job="apiserver",code=~"^(?:5..)$"}[1m])) / sum(rate(apiserver_request_count{job="apiserver"}[1m])) * 100 > 3
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: Kubernetes API server errors (instance {{ $labels.instance }})
+          description: "Kubernetes API server is experiencing high error rate\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesApiClientErrors
+        expr: (sum(rate(rest_client_requests_total{code=~"(4|5).."}[1m])) by (instance, job) / sum(rate(rest_client_requests_total[1m])) by (instance, job)) * 100 > 1
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: Kubernetes API client errors (instance {{ $labels.instance }})
+          description: "Kubernetes API client is experiencing high error rate\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesClientCertificateExpiresSoon
+        expr: apiserver_client_certificate_expiration_seconds_count{job="apiserver"} > 0 and histogram_quantile(0.01, sum by (job, le) (rate(apiserver_client_certificate_expiration_seconds_bucket{job="apiserver"}[5m]))) < 24*60*60
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: Kubernetes client certificate expires soon (instance {{ $labels.instance }})
+          description: "A client certificate used to authenticate to the apiserver is expiring in less than 24.0 hours.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+      - alert: KubernetesApiServerLatency
+        expr: histogram_quantile(0.99, sum(rate(apiserver_request_latencies_bucket{subresource!="log",verb!~"^(?:CONNECT|WATCHLIST|WATCH|PROXY)$"} [10m])) WITHOUT (instance, resource)) / 1e+06 > 1
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: Kubernetes API server latency (instance {{ $labels.instance }})
+          description: "Kubernetes API server has a 99th percentile latency of {{ $value }} seconds for {{ $labels.verb }} {{ $labels.resource }}.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
   prometheus.yml: |-
     global:
       scrape_interval: 5s
@@ -56,7 +200,7 @@ data:
       - job_name: 'posts'
         static_configs:
           - targets: ["docker.for.mac.host.internal:8080"]
-      
+
       - job_name: 'kubernetes-apiservers'
 
         kubernetes_sd_configs:
@@ -91,8 +235,8 @@ data:
         - source_labels: [__meta_kubernetes_node_name]
           regex: (.+)
           target_label: __metrics_path__
-          replacement: /api/v1/nodes/${1}/proxy/metrics     
-      
+          replacement: /api/v1/nodes/${1}/proxy/metrics
+
       - job_name: 'kubernetes-pods'
 
         kubernetes_sd_configs:
@@ -119,7 +263,7 @@ data:
         - source_labels: [__meta_kubernetes_pod_name]
           action: replace
           target_label: kubernetes_pod_name
-      
+
       - job_name: 'kube-state-metrics'
         static_configs:
           - targets: ['kube-state-metrics.kube-system.svc.cluster.local:8080']
@@ -144,7 +288,7 @@ data:
           regex: (.+)
           target_label: __metrics_path__
           replacement: /api/v1/nodes/${1}/proxy/metrics/cadvisor
-      
+
       - job_name: 'kubernetes-service-endpoints'
 
         kubernetes_sd_configs:

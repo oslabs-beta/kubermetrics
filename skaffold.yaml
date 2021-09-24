@@ -4,7 +4,7 @@ metadata:
   name: kubermetrics
 build:
   artifacts:
-  - image: arajput96/kubermetrics
+  - image: kubermetrics/kubermetrics
     docker:
       dockerfile: Dockerfile
 deploy:
